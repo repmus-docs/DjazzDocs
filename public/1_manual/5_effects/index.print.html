@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="Effects Pitch Transposition Changes the pitch of the MIDI output">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/images/hero.png">
+    <meta name="twitter:title" content="Effects Bar :: Hugo Relearn Theme">
+    <meta name="twitter:description" content="Effects Pitch Transposition Changes the pitch of the MIDI output">
+    <meta property="og:url" content="http://localhost:1313/1_manual/5_effects.html">
+    <meta property="og:site_name" content="Hugo Relearn Theme">
+    <meta property="og:title" content="Effects Bar :: Hugo Relearn Theme">
+    <meta property="og:description" content="Effects Pitch Transposition Changes the pitch of the MIDI output">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Manual">
+    <meta property="og:image" content="http://localhost:1313/images/hero.png">
+    <meta itemprop="name" content="Effects Bar :: Hugo Relearn Theme">
+    <meta itemprop="description" content="Effects Pitch Transposition Changes the pitch of the MIDI output">
+    <meta itemprop="wordCount" content="268">
+    <meta itemprop="image" content="http://localhost:1313/images/hero.png">
+    <title>Effects Bar :: Hugo Relearn Theme</title>
+    <link href="http://localhost:1313/1_manual/5_effects.html" rel="canonical" type="text/html" title="Effects Bar :: Hugo Relearn Theme">
+    <link href="../../1_manual/5_effects/index.xml" rel="alternate" type="application/rss+xml" title="Effects Bar :: Hugo Relearn Theme">
+    <link href="../../css/fontawesome-all.min.css?1735333767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1735333767" rel="stylesheet"></noscript>
+    <link href="../../css/nucleus.css?1735333767" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1735333767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1735333767" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1735333767" rel="stylesheet">
+    <link href="../../css/fonts.css?1735333767" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1735333767" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1735333767" rel="stylesheet">
+    <link href="../../css/theme-relearn-auto.css?1735333767" rel="stylesheet" id="R-variant-style">
+    <link href="../../css/chroma-relearn-auto.css?1735333767" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../css/variant.css?1735333767" rel="stylesheet">
+    <link href="../../css/print.css?1735333767" rel="stylesheet" media="print">
+    <link href="../../css/format-print.css?1735333767" rel="stylesheet">
+    <script src="../../js/variant.js?1735333767"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../index.search.js?1735333767";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../1_manual/5_effects.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../1_manual.html"><span itemprop="name">Manual</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Effects Bar</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../1_manual/4_audio_window/2_audio_out_bank.html" title="Audio Out Bank (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../1_manual/6_external_controllers.html" title="External Controllers (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="effects-bar">Effects Bar</h1>
+
+<h2 id="effects">Effects</h2>
+<h5 id="pitch-transposition">Pitch Transposition</h5>
+<p><a href="#R-image-ad252f47ce7534675fbff45460907322" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_pitch_transposition.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ad252f47ce7534675fbff45460907322"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_pitch_transposition.png"></a><br>
+Changes the pitch of the MIDI output</p>
+<h5 id="octave-transposition">Octave Transposition</h5>
+<p><a href="#R-image-8723a0fab67d9dd321408828af28b4f2" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_octave_transposition.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8723a0fab67d9dd321408828af28b4f2"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_octave_transposition.png"></a><br>
+Changes the octave of the MIDI output</p>
+<h5 id="speed">Speed</h5>
+<p><a href="#R-image-4e40c8b3703b5f52820d144c78a9776a" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_speed.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4e40c8b3703b5f52820d144c78a9776a"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_speed.png"></a><br>
+Changes the speed of the MIDI output</p>
+<h5 id="loop">Loop</h5>
+<p><a href="#R-image-8577da064d073560da2b7a6a0b4180aa" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_loop.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-8577da064d073560da2b7a6a0b4180aa"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_loop.png"></a><br>
+Loops the previous <em>n</em> beats of the MIDI output</p>
+<h2 id="jam-improvise-section">&ldquo;Jam&rdquo; (Improvise) Section</h2>
+<p><a href="#R-image-3a10821b9a7c0d02c6f6340b6dc65cf8" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_jam_full.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3a10821b9a7c0d02c6f6340b6dc65cf8"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_jam_full.png"></a></p>
+<h5 id="jam-button">&ldquo;Jam&rdquo; Button</h5>
+<p><a href="#R-image-7e76cdbf60d8306f1aa692ecc4a720fb" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_jam.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7e76cdbf60d8306f1aa692ecc4a720fb"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_jam.png"></a>
+Turns the improviser on. When this is on, the MIDI track(s) is/are not played back straight, but beats are chosen based on the harmony and the next two controls, continuity and potch range:</p>
+<h5 id="continuity">Continuity</h5>
+<p><a href="#R-image-62e6ace212ddcd4e8f0af589a26f1cd9" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_continuity.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-62e6ace212ddcd4e8f0af589a26f1cd9"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_continuity.png"></a><br>
+This determines the length in beats that sections of the score will be played back in sequence. Once this many beats has been played in sequence, the improviser will jump to a new section of the score.<br>
+The maximum coninuity is 255 beats. When the &ldquo;MAX&rdquo; button is on, this will be the continuity&ndash;i.e., the score will be played back without improvising, i.e. jumping around through it (given that the score is &lt; 255 beats long. If you&rsquo;re using this with a score that&rsquo;s longer than 255 beats and you just want to play the score straight, there&rsquo;s no reason to be even using the improviser.)</p>
+<h5 id="transposition-window">Transposition Window</h5>
+<p><a href="#R-image-608875555ac4f8c863ec628d61f413e2" class="lightbox-link"><img alt="pic" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_pitch_range.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-608875555ac4f8c863ec628d61f413e2"><img alt="pic" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../1_manual/5_effects/images/track_effect_pitch_range.png"></a><br>
+The improviser tries to match beats that have the same harmony as the current beat. By adjusting the pitch range, it will look for beats with a similar chord type but with roots above or below the current chord root. A pitch range of <em>n</em> will look for chords between (and including) <em>n</em> semitones below and <em>n</em> semitones above the current chord root. Set to zero, it will match the chord root exactly. Beats with different roots will be transposed to the proper harmony.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="../../js/clipboard.min.js?1735333767" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1735333767" defer></script>
+    <script src="../../js/theme.js?1735333767" defer></script>
+  </body>
+</html>

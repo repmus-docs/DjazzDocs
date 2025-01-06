@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asynchronous Data and the MVCVC Design :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html</link>
+    <description>ARCHITECTURE Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern. Each of these components will be discussed below.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

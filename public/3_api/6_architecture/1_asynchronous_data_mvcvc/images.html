@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="flowchart TB; V[View]; C[Control]; M[Model]; VC[View Control]; V --&gt; C C --&gt; M M --&gt; VC VC --&gt; V flowchart TB; subgraph V[View]; end subgraph C[Control]; direction TB tvc[translate view to control] ctrlpattrs[control pattrs] tcm[translate control to model] tvc --&gt; ctrlpattrs--&gt; tcm end subgraph M[Model]; end subgraph VC[View Control]; direction TB tmv[translate model to view] end V --&gt; tvc tcm --&gt; M tmv --&gt; V M --&gt; tmv Architecture Djazz uses the Model-View-Control-View Control design pattern.">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/images/hero.png">
+    <meta name="twitter:title" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta name="twitter:description" content="flowchart TB; V[View]; C[Control]; M[Model]; VC[View Control]; V --&gt; C C --&gt; M M --&gt; VC VC --&gt; V flowchart TB; subgraph V[View]; end subgraph C[Control]; direction TB tvc[translate view to control] ctrlpattrs[control pattrs] tcm[translate control to model] tvc --&gt; ctrlpattrs--&gt; tcm end subgraph M[Model]; end subgraph VC[View Control]; direction TB tmv[translate model to view] end V --&gt; tvc tcm --&gt; M tmv --&gt; V M --&gt; tmv Architecture Djazz uses the Model-View-Control-View Control design pattern.">
+    <meta property="og:url" content="http://localhost:1313/3_api/6_architecture/1_asynchronous_data_mvcvc/images.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta property="og:description" content="flowchart TB; V[View]; C[Control]; M[Model]; VC[View Control]; V --&gt; C C --&gt; M M --&gt; VC VC --&gt; V flowchart TB; subgraph V[View]; end subgraph C[Control]; direction TB tvc[translate view to control] ctrlpattrs[control pattrs] tcm[translate control to model] tvc --&gt; ctrlpattrs--&gt; tcm end subgraph M[Model]; end subgraph VC[View Control]; direction TB tmv[translate model to view] end V --&gt; tvc tcm --&gt; M tmv --&gt; V M --&gt; tmv Architecture Djazz uses the Model-View-Control-View Control design pattern.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/hero.png">
+    <meta itemprop="name" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta itemprop="description" content="flowchart TB; V[View]; C[Control]; M[Model]; VC[View Control]; V --&gt; C C --&gt; M M --&gt; VC VC --&gt; V flowchart TB; subgraph V[View]; end subgraph C[Control]; direction TB tvc[translate view to control] ctrlpattrs[control pattrs] tcm[translate control to model] tvc --&gt; ctrlpattrs--&gt; tcm end subgraph M[Model]; end subgraph VC[View Control]; direction TB tmv[translate model to view] end V --&gt; tvc tcm --&gt; M tmv --&gt; V M --&gt; tmv Architecture Djazz uses the Model-View-Control-View Control design pattern.">
+    <meta itemprop="wordCount" content="1288">
+    <meta itemprop="image" content="http://localhost:1313/images/hero.png">
+    <title>Asynchronous Data and the MVCVC Design :: Djazz</title>
+    <link href="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images/index.xml" rel="alternate" type="application/rss+xml" title="Asynchronous Data and the MVCVC Design :: Djazz">
+    <link href="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images/index.print.html" rel="alternate" type="text/html" title="Asynchronous Data and the MVCVC Design :: Djazz">
+    <link href="../../../css/fontawesome-all.min.css?1736171195" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1736171195" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1736171195" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1736171195" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1736171195" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1736171195" rel="stylesheet">
+    <link href="../../../css/fonts.css?1736171195" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1736171195" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1736171195" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1736171195" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1736171195" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1736171195" rel="stylesheet">
+    <link href="../../../css/print.css?1736171195" rel="stylesheet" media="print">
+    <script src="../../../js/variant.js?1736171195"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js?1736171195";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper"><nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../3_api.html"><span itemprop="name">API</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../3_api/6_architecture.html"><span itemprop="name">System Architecture</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Asynchronous Data and the MVCVC Design</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/3_API/6_architecture/1_asynchronous_data_mvcvc/images/_index.md" target="_self" title="Edit (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-print" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images/index.print.html" title="Print whole chapter (CTRL&#43;ALT&#43;p)"><i class="fa-fw fas fa-print"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../3_api/6_architecture.html" title="System Architecture (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../3_api/6_architecture/2_synchronous_data_model/images.html" title="Synchronous Data in the Model (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="asynchronous-data-and-the-mvcvc-design">Asynchronous Data and the MVCVC Design</h1>
+
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+V[View];
+C[Control];
+M[Model];
+VC[View Control];
+
+V --&gt; C
+C --&gt; M
+M --&gt; VC
+VC --&gt; V
+</pre>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+subgraph V[View];
+end
+
+subgraph C[Control];
+direction TB
+    tvc[translate view to control]
+    ctrlpattrs[control pattrs]
+    tcm[translate control to model]
+    tvc --&gt; ctrlpattrs--&gt; tcm
+end
+
+subgraph M[Model];
+end
+
+subgraph VC[View Control];
+direction TB
+    tmv[translate model to view]
+end
+
+V --&gt; tvc
+tcm --&gt; M
+tmv --&gt; V
+M --&gt; tmv
+
+</pre>
+<h5 id="architecture">Architecture</h5>
+<p>Djazz uses the Model-View-Control-View Control design pattern.</p>
+<p>The model consists of the objects that do the processing. At the top level, there are various players and the master control described in the previous section.</p>
+<p>Based on the Audiokinetic model of audio plugins.</p>
+<h6 id="model">MODEL</h6>
+<p>The model (djazz.maxpat) is the actual Djazz patcher, in the sense that all the functionality occurs in this patcher: MIDI and audio input and output processing, timing synchronization, improvisation calculation, etc.</p>
+<p>Abstractions in the model contain pattrs which are set by sending messages in the form &lt;<em>pattr name</em>&gt; &lt;<em>pattr value</em>&gt;.
+The <em>pattrhub</em> Max object distributes these messages to the appropriate pattr objects.</p>
+<h6 id="contr0l">CONTR0L</h6>
+<p>The control acts as the interface to pass messages to the model.  It is similar to a shell in an operating system, or a parameter bank in an audio plugin.  Its input represents the set of all possible asynchronous messages that can be sent to Djazz.  Its job is to translate these messages to their appropriate messages that the model understands, and to handle any value initialization and message dependencies.</p>
+<p>There are many pattrs in the model.</p>
+<ul>
+<li>Not all pattrs may be desired to be used, or exposed to the user.</li>
+<li>The organization of the pattr hierarchy in the model may not reflect the user&rsquo;s conception</li>
+<li>it may be wished to call pattrs in the model via other variables that need some processing to determine their value.</li>
+</ul>
+<p>The control, then, acts a shell which exposes the messages that can be sent to Djazz. By replacing the control, you can change the commands it responds to without changing the model itself.</p>
+<p>To make modularity easier, pattrs in the control are grouped in encapsulations.  This means that calling nested pattrs demands the &ldquo;::&rdquo; syntax (see example below).</p>
+<h6 id="view-control">VIEW CONTROL</h6>
+<p>The model outputs pattrs to any view that wants to receive them. It does this the same way as the control: a pattrstorage object is at the top level of the model patcher, and when a pattr value is updated, it outputs the pattr name and value.</p>
+<p>There are two types of pattrs that the model outputs: those that are specifically for a view, and the parameters that were sent from the control.
+Values in abstractions in the model that are to be sent to the view control are stored as pattrs inside subpatchers named &ldquo;view,&rdquo; so that they can be extracted from the other pattrs passed out of hte model.</p>
+<h6 id="view">VIEW</h6>
+<p>The view is a collection of bpatchers containing graphical controls and data fields.  It triggers messages to be sent to the control.  Different views could be used, and even several views at the same time.  The Launchpad interfaces are also views.</p>
+<p><strong>Note:</strong> with this method, the interior pattrhub objects end up not being used at all, but it’s still good to leave them in so that these objects can be reused and are not dependent on being called this way.</p>
+<p>Finally, unused variables simply aren’t called. But to be absolutely sure that uncalled variables don’t give us trouble, by storing state that have forgotten about, or by accidentally being called, due to sharing names accidentally with a control variable, we can <a href="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images.html#pattr-visibility">turn off their visibility to the pattrstorage system</a>, which means they can never be called.</p>
+<p>To avoid an infinite loop, we make use the pattrstorage object’s <em>outputmode</em> attribute.
+In the control and model, the pattrstorage <em>outputmode</em> is set to 2: any changed values are sent out.
+But in the view, the output mode is 6: values that are changed by objects in the pattr system are not sent out from the pattrstorage object. That is, only values that are changed by user interaction are sent out. Thus the values received by pattrhub are set, but not sent to the control.  This way, pattr values can be sent back from the model into the view (via the view control object which filters them and translates their names if necessary), without these pattr values being again passed out to the control (which would create an infinite loop).</p>
+<h5 id="example">EXAMPLE</h5>
+<p>As an example, we follow the message sent when the pitch on MIDI track 13 is changed, using either the up, down, or reset-pitch button:<br>
+<a href="#R-image-e676ed02de928c94022aedf90d40ce53" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/0-view-midi-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e676ed02de928c94022aedf90d40ce53"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/0-view-midi-track-labeled.png"></a></p>
+<p>The corresponding pattr in the view is named <em>transpose_pitch</em>, and takes an integer value.  The up, down, and reset buttons are proper to the usage conceived for this particular graphical interface, so their logic is contained within the view; they modify the <em>transpose_pitch</em> pattr and do not send any messages directly to the control.</p>
+<p><a href="#R-image-0e3ade5fbb2a6ec47118036ce5d0d0d1" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0e3ade5fbb2a6ec47118036ce5d0d0d1"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png"></a></p>
+<p>In the view, the triggered pattr is located in the bpatcher named <em>track_13</em>, which itself is inside the bpatcher named <em>midi</em>.  When triggered, the pattrstorage object inside the view updates its value and sends out the message <em>midi::track_13::transpose_pitch 0</em>.  This message is sent out the second view outlet and into <em>djazz.control</em>.</p>
+<p>In <em>djazz_control</em>, the pattrhub object distributes the message to the corresponding subpatcher named <em>midi</em>, which contains a <em>djazz.control.track</em> abstraction named__track_13_, which contains a pattr object named <em>transpose_pitch</em>.
+<a href="#R-image-6027d66b6c465c1c462c99659d3a2b2f" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/2-control-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6027d66b6c465c1c462c99659d3a2b2f"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/2-control-labeled.png"></a>
+<a href="#R-image-1bc3c7d294e0593b34cf6ad48d8bdd96" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/3-control-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1bc3c7d294e0593b34cf6ad48d8bdd96"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/3-control-midi-labeled.png"></a>
+<a href="#R-image-25594167bf910ac6f53735930c0fea6c" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/4-ctrl-midi-track-pattrs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-25594167bf910ac6f53735930c0fea6c"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/4-ctrl-midi-track-pattrs.png"></a></p>
+<p>This pattr now sends its updated value 0 directly (not via the pattrstorage object in djazz.control) through the <em>djazz.control.midi.translate_track</em> abstraction in order to rename it for the correct pattr object in the model:</p>
+<p><a href="#R-image-5ae6eb38737061a2bf3fff08e3c412fb" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/5-ctrl-midi-track-translate.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5ae6eb38737061a2bf3fff08e3c412fb"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/5-ctrl-midi-track-translate.png"></a>
+<a href="#R-image-31f67685f1d7f580303ed1741c660dc3" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-31f67685f1d7f580303ed1741c660dc3"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png"></a></p>
+<p>The message sent to the model is <em>midi::midi_out::midi_out_bank::track_13::effect_list::transpose_pitch::semitones 0</em>. It is received by the pattrhub object in the model and sent to the corresponding patcher:<br>
+<a href="#R-image-ac1718334e4a4abf0563b72329626e53" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/7-model-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ac1718334e4a4abf0563b72329626e53"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/7-model-labeled.png"></a>
+<a href="#R-image-56a5cf8281c2442d54b29adb6dbf684d" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/8-model-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-56a5cf8281c2442d54b29adb6dbf684d"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/8-model-midi-labeled.png"></a>
+<a href="#R-image-4ac06cffa6f81cec675ec65f6519c1b2" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/9-model-midi-out-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4ac06cffa6f81cec675ec65f6519c1b2"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/9-model-midi-out-labeled.png"></a>
+<a href="#R-image-7cae3221af02c27a19933174827cb8fd" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/10-model-midi-out-bank-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7cae3221af02c27a19933174827cb8fd"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/10-model-midi-out-bank-labeled.png"></a>
+<a href="#R-image-42067134882ae00cc0ea9082290bce66" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/11-model-midi-out-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-42067134882ae00cc0ea9082290bce66"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/11-model-midi-out-track-labeled.png"></a>
+<a href="#R-image-130508e7f4f9fd945665b1a3313ff8b1" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/12-model-midi-out-effect-list-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-130508e7f4f9fd945665b1a3313ff8b1"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/12-model-midi-out-effect-list-labeled.png"></a>
+<a href="#R-image-d6cc9c3e09bc0764c84a6862667e8766" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/13-model-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d6cc9c3e09bc0764c84a6862667e8766"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/13-model-transpose-pitch.png"></a></p>
+<p>When the pattr in the model is updated, the model&rsquo;s pattrstorage sends its name and value to the view control, which translates it and sends it back to the view.</p>
+<p>The state of the variable can be seen in each of the four debug windows (view, control, model, and view control).</p>
+<p><a href="#R-image-5bea15307b99ad293ce6cabc36412748" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/17a-debug-view-and-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5bea15307b99ad293ce6cabc36412748"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/17a-debug-view-and-control.png"></a>
+<a href="#R-image-c0059a3aa47e5d078bbdb3487e0a80e9" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="images/pattr-example/17b-debug-model-and-view-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c0059a3aa47e5d078bbdb3487e0a80e9"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="images/pattr-example/17b-debug-model-and-view-control.png"></a></p>
+<h6 id="pattr-visibility">Pattr Visibility</h6>
+<p>For more complex abstractions that use several <em>pattrs</em>, as well as abstractions that lend themselves to reuse, such as the beat-generators which are nested in midi- and audio-beat-generators, Djazz uses the second method of pattr passing:<br>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+    subgraph B[B];
+        subgraph C[C];
+        direction TB
+            p[pattr my_pattr]
+        end
+    end
+end
+in --&gt;|A::B::C::my_pattr|p
+</pre></p>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+direction TB
+    pA[pattr my_pattr_A]
+subgraph B[B];
+direction TB
+    pB[pattr my_pattr_B]
+subgraph C[C];
+direction TB
+    pC[pattr my_pattr_C]
+end
+end
+end
+in --&gt;|my_pattr_A|pA
+pA --&gt;|my_pattr_B|pB
+pB --&gt;|my_pattr_C|pC
+
+</pre>
+<p>Pattrs within nested abstractions are &ldquo;hidden&rdquo; from calls to the exterior abstraction. They are updated by calling a pattr in the exterior abstraction, which translates them to the appropriate pattr call to the interior abstraction; sometimes this sequence of calls to nested pattrs has several levels.
+In Max, a pattr is never actually hidden, as it can always be called using the double-colon syntax corresponding to the object in which it is located.  But a pattr can be hidden to the pattrstorage object that references it by setting the pattr&rsquo;s <em>visibility</em> attribute to zero.  The small object pattrvis.js was written to turn on and off the visibility of all the pattrs in an abstraction; it can act hierarchically as well, turning on or off all the visibility of pattrs in subpatchers.<br>
+The pattrvis.js object is used in the appropriate abstractions, and does not have an effect on the functionnality of the program.  It can be used to keep the debugging windows more readable, when nested pattrs have their visibility off. To inspect pattr messages passed to nested abstractions, turn their visibilities on by passing 1 to the pattrvis.js object in the corresponding abstraction.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation showVisitedLinks">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<a id="R-logo" href="../../../index.html">
+  <img src='../../../images/djazz_logo.png'>
+</a>
+        </div>
+
+        <search><form action="../../../search.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="../../../js/auto-complete.js?1736171195" defer></script>
+        <script src="../../../js/lunr/lunr.min.js?1736171195" defer></script>
+        <script src="../../../js/lunr/lunr.stemmer.support.min.js?1736171195" defer></script>
+        <script src="../../../js/lunr/lunr.multi.min.js?1736171195" defer></script>
+        <script src="../../../js/lunr/lunr.en.min.js?1736171195" defer></script>
+        <script src="../../../js/search.js?1736171195" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation">
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/1_manual.html" class=""><input type="checkbox" id="R-section-1bcfc5d5405617a68f74aa479dae99d2" aria-controls="R-subsections-1bcfc5d5405617a68f74aa479dae99d2"><label for="R-section-1bcfc5d5405617a68f74aa479dae99d2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Manual</span></label><a class="padding" href="../../../1_manual.html"><b style="display: inline-block; font-weight: 200; padding-left: .3rem; text-align: left; width: 1.1rem;">1.</b> Manual<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-1bcfc5d5405617a68f74aa479dae99d2" class="morespace collapsible-menu">
+          <li data-nav-id="/1_manual/1_installation.html" class=""><a class="padding" href="../../../1_manual/1_installation.html">Installation<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/2_main_window.html" class=""><input type="checkbox" id="R-section-5785c1366fb23669af69d5cd3b8d8992" aria-controls="R-subsections-5785c1366fb23669af69d5cd3b8d8992"><label for="R-section-5785c1366fb23669af69d5cd3b8d8992"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Main Window</span></label><a class="padding" href="../../../1_manual/2_main_window.html">Main Window<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-5785c1366fb23669af69d5cd3b8d8992" class="morespace collapsible-menu">
+          <li data-nav-id="/1_manual/2_main_window/2_beat_window_selector.html" class=""><a class="padding" href="../../../1_manual/2_main_window/2_beat_window_selector.html">Beat Input<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/2_main_window/4_song_grid.html" class=""><a class="padding" href="../../../1_manual/2_main_window/4_song_grid.html">Song Grid<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/2_main_window/8_midi_input_selector.html" class=""><a class="padding" href="../../../1_manual/2_main_window/8_midi_input_selector.html">MIDI Input Selector<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_manual/3_midi_window.html" class=""><input type="checkbox" id="R-section-099c408b2285e232930bf1efb636b441" aria-controls="R-subsections-099c408b2285e232930bf1efb636b441"><label for="R-section-099c408b2285e232930bf1efb636b441"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu MIDI Window</span></label><a class="padding" href="../../../1_manual/3_midi_window.html">MIDI Window<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-099c408b2285e232930bf1efb636b441" class="morespace collapsible-menu">
+          <li data-nav-id="/1_manual/3_midi_window/1_live_input.html" class=""><a class="padding" href="../../../1_manual/3_midi_window/1_live_input.html">MIDI Live Input View<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/3_midi_window/2_scores_view.html" class=""><a class="padding" href="../../../1_manual/3_midi_window/2_scores_view.html">MIDI Scores View<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/3_midi_window/3_midi_out.html" class=""><a class="padding" href="../../../1_manual/3_midi_window/3_midi_out.html">MIDI Out Bank<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/3_midi_window/4_tracks_view.html" class=""><a class="padding" href="../../../1_manual/3_midi_window/4_tracks_view.html">MIDI Tracks View<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_manual/4_audio_window.html" class=""><input type="checkbox" id="R-section-07803eefbe511acde55b25a23ec852e2" aria-controls="R-subsections-07803eefbe511acde55b25a23ec852e2"><label for="R-section-07803eefbe511acde55b25a23ec852e2"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Audio Window</span></label><a class="padding" href="../../../1_manual/4_audio_window.html">Audio Window<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-07803eefbe511acde55b25a23ec852e2" class="morespace collapsible-menu">
+          <li data-nav-id="/1_manual/4_audio_window/1_live_input.html" class=""><a class="padding" href="../../../1_manual/4_audio_window/1_live_input.html">Live Input<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/4_audio_window/2_audio_out_bank.html" class=""><a class="padding" href="../../../1_manual/4_audio_window/2_audio_out_bank.html">Audio Out Bank<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_manual/5_effects.html" class=""><a class="padding" href="../../../1_manual/5_effects.html">Effects Bar<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/6_external_controllers.html" class=""><a class="padding" href="../../../1_manual/6_external_controllers.html">External Controllers<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/7_tools.html" class=""><input type="checkbox" id="R-section-587674c27ff9223b1ffdce24f2fcf0b4" aria-controls="R-subsections-587674c27ff9223b1ffdce24f2fcf0b4"><label for="R-section-587674c27ff9223b1ffdce24f2fcf0b4"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Tools</span></label><a class="padding" href="../../../1_manual/7_tools.html">Tools<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-587674c27ff9223b1ffdce24f2fcf0b4" class="morespace collapsible-menu">
+          <li data-nav-id="/1_manual/7_tools/make_song_file.html" class=""><a class="padding" href="../../../1_manual/7_tools/make_song_file.html">Making a Song File<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/7_tools/make_score_file.html" class=""><a class="padding" href="../../../1_manual/7_tools/make_score_file.html">Making a Score File<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/1_manual/8_preloaded_resources.html" class=""><a class="padding" href="../../../1_manual/8_preloaded_resources.html">Preloaded Songs<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/9_saving_and_loading_files.html" class=""><a class="padding" href="../../../1_manual/9_saving_and_loading_files.html">Saving and Loading Files<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/10_view_messages.html" class=""><a class="padding" href="../../../1_manual/10_view_messages.html">View Messages<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/11_settings.html" class=""><a class="padding" href="../../../1_manual/11_settings.html">Settings<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/1_manual/12_improvising.html" class=""><a class="padding" href="../../../1_manual/12_improvising.html">Improvising with Djazz<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api.html" class="parent "><input type="checkbox" id="R-section-de962242ae288aca3f6a1dd98cf0c730" aria-controls="R-subsections-de962242ae288aca3f6a1dd98cf0c730" checked><label for="R-section-de962242ae288aca3f6a1dd98cf0c730"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu API</span></label><a class="padding" href="../../../3_api.html"><b style="display: inline-block; font-weight: 200; padding-left: .3rem; text-align: left; width: 1.1rem;">3.</b> API<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-de962242ae288aca3f6a1dd98cf0c730" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/1_abstraction_references.html" class=""><input type="checkbox" id="R-section-fef8321c633b34f741d8a92ac000dc4b" aria-controls="R-subsections-fef8321c633b34f741d8a92ac000dc4b"><label for="R-section-fef8321c633b34f741d8a92ac000dc4b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Abstraction Reference</span></label><a class="padding" href="../../../3_api/1_abstraction_references.html">Abstraction Reference<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fef8321c633b34f741d8a92ac000dc4b" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/1_abstraction_references/darr.get_size.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/darr.get_size.html">darr.get_size<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.html">djazz<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/darr.set_at.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/darr.set_at.html">darr.set_at<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz_view.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz_view.html">djazz view<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.analyzer.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.analyzer.html">djazz.analyzer<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz_view_control.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz_view_control.html">djazz view control<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.antescofo_file_to_tracks_dict.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.antescofo_file_to_tracks_dict.html">djazz.antescofo_file_to_tracks_dict<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.antescofo_get_tempo.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.antescofo_get_tempo.html">djazz.antescofo_get_tempo<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.beat_generator.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.beat_generator.html">djazz.audio.beat_generator<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.beat_player.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.beat_player.html">djazz.audio.beat_player<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.beat_reader.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.beat_reader.html">djazz.audio.beat_reader<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.listeners_router.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.listeners_router.html">djazz.audio.listeners_router<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.record.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.record.html">djazz.audio.record<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.supervp_player.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.supervp_player.html">djazz.audio.supervp_player<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz_control.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz_control.html">djazz control<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.transpose_octaves.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.transpose_octaves.html">djazz.audio.transpose_octaves<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.transpose_pitch.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.transpose_pitch.html">djazz.audio.transpose_pitch<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio.html">djazz.audio<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.audio_out_track.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.audio_out_track.html">djazz.audio_out_track<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.bang_speed.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.bang_speed.html">djazz.bang_speed<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/1_abstraction_references/djazz.beat_clock.html" class=""><a class="padding" href="../../../3_api/1_abstraction_references/djazz.beat_clock.html">djazz.beat_clock<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/2_externals.html" class=""><input type="checkbox" id="R-section-e8792b186280afdf02181a4395457f8b" aria-controls="R-subsections-e8792b186280afdf02181a4395457f8b"><label for="R-section-e8792b186280afdf02181a4395457f8b"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Externals</span></label><a class="padding" href="../../../3_api/2_externals.html">Externals<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-e8792b186280afdf02181a4395457f8b" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/2_externals/antescofo.html" class=""><a class="padding" href="../../../3_api/2_externals/antescofo.html">Antescofo<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/2_externals/midifile.html" class=""><a class="padding" href="../../../3_api/2_externals/midifile.html">Midifile<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/2_externals/supervp.html" class=""><a class="padding" href="../../../3_api/2_externals/supervp.html">supervp<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/3_file_formats_used.html" class=""><a class="padding" href="../../../3_api/3_file_formats_used.html">File formats used<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/4_external_controls_and_views.html" class=""><input type="checkbox" id="R-section-cd234e8b268effbb4d5d4f115acb40e0" aria-controls="R-subsections-cd234e8b268effbb4d5d4f115acb40e0"><label for="R-section-cd234e8b268effbb4d5d4f115acb40e0"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu External controls and views</span></label><a class="padding" href="../../../3_api/4_external_controls_and_views.html">External controls and views<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-cd234e8b268effbb4d5d4f115acb40e0" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/4_external_controls_and_views/1_parameters.html" class=""><a class="padding" href="../../../3_api/4_external_controls_and_views/1_parameters.html">Parameters<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/4_external_controls_and_views/2_dicts.html" class=""><a class="padding" href="../../../3_api/4_external_controls_and_views/2_dicts.html">Dicts<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/5_improvisation.html" class=""><input type="checkbox" id="R-section-a5f5365ae453b23d7a3ba7167da05ff3" aria-controls="R-subsections-a5f5365ae453b23d7a3ba7167da05ff3"><label for="R-section-a5f5365ae453b23d7a3ba7167da05ff3"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Improvisation with the Factor Oracle</span></label><a class="padding" href="../../../3_api/5_improvisation.html">Improvisation with the Factor Oracle<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-a5f5365ae453b23d7a3ba7167da05ff3" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/5_improvisation/1_factor_oracle.html" class=""><a class="padding" href="../../../3_api/5_improvisation/1_factor_oracle.html">The Factor Oracle<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/5_improvisation/2_factor_oracle_player.html" class=""><a class="padding" href="../../../3_api/5_improvisation/2_factor_oracle_player.html">The Factor Oracle Player<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/6_architecture.html" class="parent "><input type="checkbox" id="R-section-c068588df7641bbc6f35a050a776c9ab" aria-controls="R-subsections-c068588df7641bbc6f35a050a776c9ab" checked><label for="R-section-c068588df7641bbc6f35a050a776c9ab"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu System Architecture</span></label><a class="padding" href="../../../3_api/6_architecture.html">System Architecture<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-c068588df7641bbc6f35a050a776c9ab" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/6_architecture/1_asynchronous_data_mvcvc/images.html" class="active"><a class="padding" href="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images.html">Asynchronous Data and the MVCVC Design<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/6_architecture/2_synchronous_data_model/images.html" class=""><a class="padding" href="../../../3_api/6_architecture/2_synchronous_data_model/images.html">Synchronous Data in the Model<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/7_adding_to_djazz.html" class=""><input type="checkbox" id="R-section-0ddbb073a538844382944bf6bf840560" aria-controls="R-subsections-0ddbb073a538844382944bf6bf840560"><label for="R-section-0ddbb073a538844382944bf6bf840560"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Adding to Djazz</span></label><a class="padding" href="../../../3_api/7_adding_to_djazz.html">Adding to Djazz<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-0ddbb073a538844382944bf6bf840560" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/7_adding_to_djazz/1_general_principles_and_method.html" class=""><a class="padding" href="../../../3_api/7_adding_to_djazz/1_general_principles_and_method.html">Adding to Djazz<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/7_adding_to_djazz/2_midi_effects.html" class=""><a class="padding" href="../../../3_api/7_adding_to_djazz/2_midi_effects.html">MIDI Effects<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/7_adding_to_djazz/3_audio_effects.html" class=""><a class="padding" href="../../../3_api/7_adding_to_djazz/3_audio_effects.html">Audio Effects<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/7_adding_to_djazz/4_improvisers.html" class=""><a class="padding" href="../../../3_api/7_adding_to_djazz/4_improvisers.html">Audio Effects<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/8_going_further.html" class=""><input type="checkbox" id="R-section-70cb9c304e736af4fe364793a824e4cc" aria-controls="R-subsections-70cb9c304e736af4fe364793a824e4cc"><label for="R-section-70cb9c304e736af4fe364793a824e4cc"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Going further</span></label><a class="padding" href="../../../3_api/8_going_further.html">Going further<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-70cb9c304e736af4fe364793a824e4cc" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/8_going_further/1_changing_the_analysis_in_the_factor_oracle.html" class=""><a class="padding" href="../../../3_api/8_going_further/1_changing_the_analysis_in_the_factor_oracle.html">Changing the analysis in the factor oracle<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/8_going_further/2_enabling_listeners_and_real_time_analysis.html" class=""><a class="padding" href="../../../3_api/8_going_further/2_enabling_listeners_and_real_time_analysis.html">Enabling listeners and Real-Time Analysis<i class="fa-fw fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/3_api/8_going_further/3_dynamic_object_creation_and_destruction.html" class=""><a class="padding" href="../../../3_api/8_going_further/3_dynamic_object_creation_and_destruction.html">Dynamic Object Creation and Destruction<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li>
+          <li data-nav-id="/3_api/9_notes_on_rewriting_djazz.html" class=""><input type="checkbox" id="R-section-fb10f19f0503c6533c08278dc5e28de5" aria-controls="R-subsections-fb10f19f0503c6533c08278dc5e28de5"><label for="R-section-fb10f19f0503c6533c08278dc5e28de5"><i class="fa-fw fas fa-chevron-down"></i><i class="fa-fw fas fa-chevron-right"></i><span class="a11y-only">Submenu Notes on Rewriting Djazz</span></label><a class="padding" href="../../../3_api/9_notes_on_rewriting_djazz.html">Notes on Rewriting Djazz<i class="fa-fw fas fa-check read-icon"></i></a><ul id="R-subsections-fb10f19f0503c6533c08278dc5e28de5" class="morespace collapsible-menu">
+          <li data-nav-id="/3_api/9_notes_on_rewriting_djazz/2_max_dictionaris_in_js_and_max.html" class=""><a class="padding" href="../../../3_api/9_notes_on_rewriting_djazz/2_max_dictionaris_in_js_and_max.html">Dicts in Max and javascript<i class="fa-fw fas fa-check read-icon"></i></a></li></ul></li></ul></li>
+          </ul>
+        </div>
+        <div id="R-shortcuts">
+          <div class="nav-title padding">More</div>
+          <ul class="space">
+            <li><a class="padding" href="https://github.com/danielbrownmusic/djazz_with_data"><i class='fa-fw fab fa-github'></i> GitHub repo</a></li>
+            <li><a class="padding" href="../../../index.html"><i class='fa-fw fas fa-bullhorn'></i> Credits</a></li>
+            <li><a class="padding" href="../../../tags.html"><i class='fa-fw fas fa-tags'></i> Tags</a></li>
+            <li><a class="padding" href="../../../categories.html"><i class='fa-fw fas fa-layer-group'></i> Categories</a></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showVariantSwitch showVisitedLinks showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks showVariantSwitch showVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="../../../3_api/6_architecture/1_asynchronous_data_mvcvc/images.html" lang="en" selected>English</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch showVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-relearn-auto" value="relearn-auto" selected>Relearn Light/Dark</option>
+                      <option id="R-select-variant-relearn-light" value="relearn-light">Relearn Light</option>
+                      <option id="R-select-variant-relearn-dark" value="relearn-dark">Relearn Dark</option>
+                      <option id="R-select-variant-relearn-bright" value="relearn-bright">Relearn Bright</option>
+                      <option id="R-select-variant-zen-auto" value="zen-auto">Zen Light/Dark</option>
+                      <option id="R-select-variant-zen-light" value="zen-light">Zen Light</option>
+                      <option id="R-select-variant-zen-dark" value="zen-dark">Zen Dark</option>
+                      <option id="R-select-variant-retro-auto" value="retro-auto">Retro Learn/Neon</option>
+                      <option id="R-select-variant-neon" value="neon">Neon</option>
+                      <option id="R-select-variant-learn" value="learn">Learn</option>
+                      <option id="R-select-variant-blue" value="blue">Blue</option>
+                      <option id="R-select-variant-green" value="green">Green</option>
+                      <option id="R-select-variant-red" value="red">Red</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks showVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+            <span class="github-buttons"></span>
+            <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+            <script>
+              function githubButtonsScheme(){
+                var scheme = 'light';
+                var colorPropertyValue = window.getComputedStyle( document.querySelector( '#R-sidebar' ) ).getPropertyValue( 'background-color' );
+                var colorValues = colorPropertyValue.match( /\d+/g ).map( function( e ){ return parseInt(e,10); });
+                if( colorValues.length === 3 && ((0.2126 * colorValues[0]) + (0.7152 * colorValues[1]) + (0.0722 * colorValues[2]) < 165) ){
+                  scheme = 'dark';
+                }
+                return scheme;
+              }
+              function githubButtonsInit(){
+                if( !window.githubButtons ){
+                  setTimeout( githubButtonsInit, 50 );
+                  return;
+                }
+                var scheme = githubButtonsScheme();
+                var githubButtonsHTML = `
+                  <a class="github-button" href="https://github.com/McShelby/hugo-theme-relearn/archive/main.zip" data-color-scheme="${scheme}" data-icon="octicon-cloud-download"  aria-label="Download McShelby/hugo-theme-relearn on GitHub">Download</a>
+                  <a class="github-button" href="https://github.com/McShelby/hugo-theme-relearn" data-color-scheme="${scheme}" data-icon="octicon-star" data-show-count="true"  aria-label="Star McShelby/hugo-theme-relearn on GitHub">Star</a>
+                  <a class="github-button" href="https://github.com/McShelby/hugo-theme-relearn/fork" data-color-scheme="${scheme}" data-icon="octicon-repo-forked"   data-show-count="true" aria-label="Fork McShelby/hugo-theme-relearn on GitHub">Fork</a>
+                 `;
+                document.querySelector( '.github-buttons' ).innerHTML = githubButtonsHTML;
+                document.querySelectorAll( '.github-button' ).forEach( function( anchor ){
+                  anchor.dataset.colorScheme = scheme;
+                  window.githubButtons.render( anchor, function( el ){
+                    anchor.parentNode.replaceChild( el, anchor );
+                  });
+                });
+              }
+              document.addEventListener( 'themeVariantLoaded', function( e ){
+                setTimeout( githubButtonsInit, 400 );
+              });
+              window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                setTimeout( githubButtonsInit, 400 );
+              });
+            </script>
+            <script async src="../../../js/github-buttons.js?1736171195"></script>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="../../../js/clipboard.min.js?1736171195" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-color.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-dispatch.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-drag.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-ease.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-interpolate.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-selection.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-timer.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-transition.min.js?1736171195" defer></script>
+    <script src="../../../js/d3/d3-zoom.min.js?1736171195" defer></script>
+    <script src="../../../js/js-yaml.min.js?1736171195" defer></script>
+    <script src="../../../js/mermaid.min.js?1736171195" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="../../../js/theme.js?1736171195" defer></script>
+  </body>
+</html>

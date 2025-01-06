@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Improvisation :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generator Components</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components.html</guid>
+      <description>flowchart TB; in(( )) out(( )) subgraph SP[Score Player]; direction TB in1(( )) speed1[Speed Control] bc[Beat Clock] out1(( )) in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1 end subgraph I[Improviser]; direction TB in2(( )) speed2[Speed Control] label[hold label] FOP[Factor Oracle Player] out2(( )) in2 --&gt; |label |label in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2 end in--&gt;in1 in--&gt;in2 out1--&gt;out out2--&gt;out The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.</description>
+    </item>
+    <item>
+      <title>Factor Oracle and Player</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html</guid>
+      <description>The factor oracle The factor oracle data structure is described in detail in the following references: reference 1 reference 2 reference 3</description>
+    </item>
+    <item>
+      <title>Labels</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html</guid>
+      <description>Definition:&#xA;A beat is a collection of notes that occurs between two timepoints.</description>
+    </item>
+  </channel>
+</rss>

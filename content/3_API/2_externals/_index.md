@@ -1,4 +1,4 @@
 +++
-title = "externals"
+title = "Externals"
 weight = 20
 +++

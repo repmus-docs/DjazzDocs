@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Labels :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html</link>
+    <description>Definition:&#xA;A beat is a collection of notes that occurs between two timepoints.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/3_labels/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

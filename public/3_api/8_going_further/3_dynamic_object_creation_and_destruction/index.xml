@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic Object Creation and Destruction :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/3_dynamic_object_creation_and_destruction.html</link>
+    <description>This section describes an untested method for simplifying dynamic object creation and destruction in Max, using the MVC design described in another section.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/3_dynamic_object_creation_and_destruction/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

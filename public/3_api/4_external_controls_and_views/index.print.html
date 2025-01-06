@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/Djazz_2.0_documentation/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Djazz_2.0_documentation/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the external_controllers subpatcher at the top level of the.">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta name="twitter:title" content="External controls and views :: Djazz">
+    <meta name="twitter:description" content="To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the external_controllers subpatcher at the top level of the.">
+    <meta property="og:url" content="http://localhost:1313/Djazz_2.0_documentation/3_api/4_external_controls_and_views.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="External controls and views :: Djazz">
+    <meta property="og:description" content="To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the external_controllers subpatcher at the top level of the.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta itemprop="name" content="External controls and views :: Djazz">
+    <meta itemprop="description" content="To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the external_controllers subpatcher at the top level of the.">
+    <meta itemprop="wordCount" content="36">
+    <meta itemprop="image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <title>External controls and views :: Djazz</title>
+    <link href="http://localhost:1313/Djazz_2.0_documentation/3_api/4_external_controls_and_views.html" rel="canonical" type="text/html" title="External controls and views :: Djazz">
+    <link href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/index.xml" rel="alternate" type="application/rss+xml" title="External controls and views :: Djazz">
+    <link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/nucleus.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/perfect-scrollbar.min.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/theme.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/theme-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-style">
+    <link href="/Djazz_2.0_documentation/css/chroma-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/Djazz_2.0_documentation/css/variant.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/print.css?1736191438" rel="stylesheet" media="print">
+    <link href="/Djazz_2.0_documentation/css/format-print.css?1736191438" rel="stylesheet">
+    <script src="/Djazz_2.0_documentation/js/variant.js?1736191438"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/Djazz_2.0_documentation';
+      window.index_js_url="/Djazz_2.0_documentation/index.search.js?1736191438";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="/Djazz_2.0_documentation/3_api/4_external_controls_and_views.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/Djazz_2.0_documentation/3_api.html"><span itemprop="name">API</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">External controls and views</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html" title="Labels (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/1_parameters.html" title="Parameters (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="external-controls-and-views">External controls and views</h1>
+
+<p>To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the <em>external_controllers</em> subpatcher at the top level of the.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of External controls and views</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="parameters">Parameters</h1>
+
+<p>Parameters</p>
+<p>Djazz uses Max <em>parameters</em> to attach a device, ewither a controller or a view, to the system.  The Max parameter system is similar to its pattr system: when a message is received in the form
+&lt;<em>parameter name</em> &gt; &lt;<em>parameter value</em> &gt;, the parameter with the called name is updated with the given value.  Unlike pattrs, though, whose scope is contained within an object or abstraction, parameters have global scope.</p>
+<p>All pattrs in <em>djazz.view</em> are parameter enabled.</p>
+<p>The object _djazz.parameter_handler.js_ß maintains an array of parameter listeners, one for each parameter, and outputs parameter names and values upon when values are changed.  Device interfaces can be connected to the inlet or outlet of this object to modify or display parameter values.</p>
+<h6 id="to-create-a-max-patcher-that-serves-as-an-interface-for-an-external-device">To create a Max patcher that serves as an interface for an external device:</h6>
+<ul>
+<li>Control devices should output messages in the form &lt;<em>parameter name</em>&gt; &lt;<em>parameter value</em>&gt;.</li>
+<li>View devices should output messages in the form &lt;<em>parameter name</em>&gt; &lt;<em>parameter value</em>&gt;.
+See the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/djazz.launchpad_interface.html"> djazz.launchpad_interface</a>
+ patcher as an example of an abstraction that does both.</li>
+</ul>
+<p>A list of all parameters and their current values can be accessed by opening &ldquo;Parameters&rdquo; in the Max menu.</p>
+<p><strong>NOTE to developers interested in JS Max listeners:</strong> The JS Max objects Parameterlistener and maxobjlisteners are actually hard to deal with because <em>you can’t delete them</em>. So they continue to live, inaccessible but possibly still affecting output, until garbage collection comes their way.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="dicts">Dicts</h1>
+
+<p>Dictionaries are used in Djazz in different ways, for representing songs, architecture, and as another example for the launchpad, to keep track of how buttons are mapped to parameters and how parameters are mapped to lights. For this, several different types of dictionaries were required:</p>
+<ul>
+<li>Two <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#device-specific-dicts"><strong>device-specific</strong></a> dicts</li>
+<li>One <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#mapping-dict"><strong>mapping</strong></a> dict</li>
+<li>Two <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#runtime-parameter-dicts"><strong>runtime parameter</strong></a> dicts</li>
+</ul>
+<p>The format for each of these dicts can be done in different ways. Some criteria exist:</p>
+<ul>
+<li>User-created files should be easy to create, either by editing the text or with a max object; prefereably both.</li>
+<li>Data access in the dicts at runtime must be efficient.</li>
+</ul>
+<p>These two criteria ask for different formats. Also, we might need to change them in the future, to accomodate new devices.</p>
+<p>To address these issues, <strong>database accessor</strong> files exist to translate between the formats of the various dicts.  Each one exports a set of methods that access data or modify data. the implementation of the methods are hidden to the user.
+Each one is specific to the context it acts in. The exported methods have the same names, but the implementation is different depending on the structure of the dict it reads or writes to.
+thus, we can use a single javascript object to read the desired dictionaries and then translate them into the format the system needs.
+Each accessor is imported into the module using a require statement.  The module names passed to these require statements are given as jsarguments to the object.  If we change or add a new dict format, we write a new reader, which only involves rewriting the implementation of the exported methods—and replace it in the appropriate require field.</p>
+<h5 id="device-specific-dicts">Device-specific dicts</h5>
+<p>The two <strong>device-specific</strong> dicts are imported from JSON files; thus are two <strong>device-specific</strong> files:</p>
+<ul>
+<li>the <strong>device</strong> file</li>
+<li>the <strong>grid</strong> file</li>
+</ul>
+<p>These must be written in order to connect a new device with view and control capabilities, like a Launchpad, to Djazz.</p>
+<h6 id="device-dict">Device dict</h6>
+<p>the <strong>device</strong> file contains device-specific data:</p>
+<ul>
+<li>the device name (used for routing messages in Djazz)</li>
+<li>any metadata about the device itself</li>
+<li>the number of midi controls</li>
+<li>the number of cc controls</li>
+<li>the MIDI/CC codes for each color. Colors are represented by two variables, their <em>hue</em> (the name of the color itself) and their <em>value</em> (bright or dim).</li>
+<li>the MIDI/CC codes for each button&rsquo;s illumination behavior. For the Launchpad Pro MK3, buttons can glow statically, they can flash, or they can pulse.</li>
+</ul>
+<p>For the Launchpad Pro MK3, the data file is this:</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;device&#34;</span> <span class="p">:</span> <span class="s2">&#34;Launchpad Mini&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;manual&#34;</span> <span class="p">:</span> <span class="s2">&#34;https://leemans.ch/latex/doc_launchpad-programmers-reference.pdf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;midi_count&#34;</span> <span class="p">:</span> <span class="mi">120</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cc_count&#34;</span> <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;colors&#34;</span> <span class="p">:</span> 	    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;none&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;red&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;orange&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">17</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">51</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;yellow&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">41</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">51</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;green&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">16</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">48</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;brown&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">38</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">35</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviors&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;static&#34;</span>        <span class="p">:</span> <span class="mi">12</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;flashing&#34;</span>      <span class="p">:</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h6 id="grid-dict">Grid dict</h6>
+<p>the <strong>grid</strong> file describes the way a song grid can be represented on the Launchpad. It contains the following information:</p>
+<ul>
+<li>
+<p>the device name</p>
+</li>
+<li>
+<p>the cell numbers that represent song chapters. these are listed in order of the chapters they represent. In the following code example, then, &ldquo;cc 89&rdquo; represents chapter 1, &ldquo;cc 79&rdquo; represents chapter 2, etc.</p>
+</li>
+<li>
+<p>the colors that represent the state of a chapter in the grid. A grid cell (chapter or bar)
+is in one of the following states:</p>
+<ul>
+<li><strong>playing</strong>: the cell is currently being played</li>
+<li><strong>waiting</strong>: the cell has been selected to be played, and will start playing as soon as the next beat occurs</li>
+<li><strong>off</strong>: neither waiting or playing</li>
+<li><strong>unused</strong>: the song does not contain the chapter or bar associated with this cell</li>
+</ul>
+</li>
+<li>
+<p>the cell numbers that represent song bars (listed in order like chapter numbers)</p>
+</li>
+<li>
+<p>the colors that represent the state of a bar in the grid (same as chapter states).</p>
+</li>
+<li>
+<p>optional metadata about the device, such as the links to manufacturer&rsquo;s information</p>
+</li>
+</ul>
+<p>For the Launchpad Pro MK3, the grid file is this:</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;device&#34;</span> <span class="p">:</span> <span class="s2">&#34;Launchpad Pro MK3&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;manual&#34;</span> <span class="p">:</span> <span class="s2">&#34;https://fael-downloads-prod.focusrite.com/customer/prod/s3fs-public/downloads/LPP3_prog_ref_guide_200415.pdf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;grid&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;chapter&#34;</span> <span class="p">:</span>     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;cells&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;cc 89&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 79&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 69&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 59&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;cc 49&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 39&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 29&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 19&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;colors&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;unused&#34;</span>    <span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;off&#34;</span>       <span class="p">:</span> <span class="s2">&#34;green dim static&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;waiting&#34;</span>   <span class="p">:</span> <span class="s2">&#34;green dim static&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;playing&#34;</span>   <span class="p">:</span> <span class="s2">&#34;green bright static&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;bar&#34;</span> <span class="p">:</span>         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;cells&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 81&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 82&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 83&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 84&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 85&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 86&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 87&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 88&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 71&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 72&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 73&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 74&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 75&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 76&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 77&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 78&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 61&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 62&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 63&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 64&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 65&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 66&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 67&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 68&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 51&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 52&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 53&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 54&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 55&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 56&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 57&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 58&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;colors&#34;</span> <span class="p">:</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;unused&#34;</span>    <span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;off&#34;</span>       <span class="p">:</span> <span class="s2">&#34;brown dim static&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;waiting&#34;</span>   <span class="p">:</span> <span class="s2">&#34;red dim static&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;playing&#34;</span>   <span class="p">:</span> <span class="s2">&#34;red bright static&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h5 id="mapping-dict">Mapping dict</h5>
+<p>A <strong>mapping</strong> file is a file that the user creates, using the editing tool in Djazz, that contains the mappings between the Launchpad cells and the parameters she wants to control. It also imports into it the grid.</p>
+<h5 id="runtime-parameter-dicts">Runtime parameter dicts</h5>
+<p>Launchpads have both view and control capabilities; that is, they can send input to Djazz (<em>control</em>) as well as show output (<em>view</em>).</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="/Djazz_2.0_documentation/js/clipboard.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/perfect-scrollbar.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/theme.js?1736191438" defer></script>
+  </body>
+</html>

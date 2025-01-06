@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/Djazz_2.0_documentation/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Djazz_2.0_documentation/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="ARCHITECTURE Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern. Each of these components will be discussed below.">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta name="twitter:title" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta name="twitter:description" content="ARCHITECTURE Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern. Each of these components will be discussed below.">
+    <meta property="og:url" content="http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta property="og:description" content="ARCHITECTURE Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern. Each of these components will be discussed below.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta itemprop="name" content="Asynchronous Data and the MVCVC Design :: Djazz">
+    <meta itemprop="description" content="ARCHITECTURE Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern. Each of these components will be discussed below.">
+    <meta itemprop="wordCount" content="1377">
+    <meta itemprop="image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <title>Asynchronous Data and the MVCVC Design :: Djazz</title>
+    <link href="http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html" rel="canonical" type="text/html" title="Asynchronous Data and the MVCVC Design :: Djazz">
+    <link href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/index.xml" rel="alternate" type="application/rss+xml" title="Asynchronous Data and the MVCVC Design :: Djazz">
+    <link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/nucleus.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/perfect-scrollbar.min.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/theme.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/theme-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-style">
+    <link href="/Djazz_2.0_documentation/css/chroma-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/Djazz_2.0_documentation/css/variant.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/print.css?1736191438" rel="stylesheet" media="print">
+    <link href="/Djazz_2.0_documentation/css/format-print.css?1736191438" rel="stylesheet">
+    <script src="/Djazz_2.0_documentation/js/variant.js?1736191438"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/Djazz_2.0_documentation';
+      window.index_js_url="/Djazz_2.0_documentation/index.search.js?1736191438";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/Djazz_2.0_documentation/3_api.html"><span itemprop="name">API</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/Djazz_2.0_documentation/3_api/6_architecture.html"><span itemprop="name">System Architecture</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Asynchronous Data and the MVCVC Design</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/6_architecture/1_general_methods.html" title="General Approach (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/6_architecture/3_synchronous_data_model.html" title="Synchronous Data in the Model (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="asynchronous-data-and-the-mvcvc-design">Asynchronous Data and the MVCVC Design</h1>
+
+<h5 id="architecture">ARCHITECTURE</h5>
+<p>Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern.  Each of these components will be discussed below.  This particular interpretation of MVCVC was influenced by the design specifications for audio plugin development for the <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">WWISE audio engine</a> distributed by <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">Audiokinetic</a>.</p>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+V[View];
+C[Control];
+M[Model];
+VC[View Control];
+
+V --&gt; C
+C --&gt; M
+M --&gt; VC
+VC --&gt; V
+</pre>
+<p>This design is primarily to maintain an organised control flow of asynchronous data&ndash;data that is input by the user.  This is done using Max&rsquo;s pattr system; any user-controlled variable is stored as a separate pattr in the view, control, the model, and possibly the view control.  Their values are passed through each of these components in a directed path, possibly undergoing name translation or value conversion along the way:</p>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+subgraph V[View];
+end
+
+subgraph C[Control];
+direction TB
+    tvc[translate view to control]
+    ctrlpattrs[control pattrs]
+    tcm[translate control to model]
+    tvc --&gt; ctrlpattrs--&gt; tcm
+end
+
+subgraph M[Model];
+end
+
+subgraph VC[View Control];
+direction TB
+    tmv[translate model to view]
+end
+
+V --&gt; tvc
+tcm --&gt; M
+tmv --&gt; V
+M --&gt; tmv
+
+</pre>
+<p>While the path resembles a loop, <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">output restriction</a> in the view in fact keep messages from being passed on, thus avoiding circularity.</p>
+<h4 id="model">MODEL</h4>
+<p>The model (djazz.maxpat) is the actual Djazz patcher, in the sense that all the functionality occurs in this patcher: MIDI and audio input and output processing, timing synchronization, improvisation calculation, etc.</p>
+<p>Abstractions in the model contain pattrs which are set by sending messages in the form &lt;<em>pattr name</em>&gt; &lt;<em>pattr value</em>&gt;.
+The <em>pattrhub</em> Max object distributes these messages to the appropriate pattr objects.</p>
+<h4 id="contr0l">CONTR0L</h4>
+<p>The control acts as the interface to pass messages to the model.  It is similar to a shell in an operating system, or a parameter bank in an audio plugin.  Its input represents the set of all possible asynchronous messages that can be sent to Djazz.  Its job is to translate these messages to their appropriate messages that the model understands, and to handle any value initialization and message dependencies.</p>
+<p>There are many pattrs in the model.</p>
+<ul>
+<li>Not all pattrs may be desired to be used, or exposed to the user.</li>
+<li>The organization of the pattr hierarchy in the model may not reflect the user&rsquo;s conception</li>
+<li>it may be wished to call pattrs in the model via other variables that need some processing to determine their value.</li>
+</ul>
+<p>The control, then, acts a shell which exposes the messages that can be sent to Djazz. By replacing the control, you can change the commands it responds to without changing the model itself.</p>
+<p>To make modularity easier, pattrs in the control are grouped in encapsulations.  This means that calling nested pattrs demands the &ldquo;::&rdquo; syntax (see example below).</p>
+<h4 id="view-control">VIEW CONTROL</h4>
+<p>The model outputs pattrs to any view that wants to receive them. It does this the same way as the control: a pattrstorage object is at the top level of the model patcher, and when a pattr value is updated, it outputs the pattr name and value.</p>
+<p>There are two types of pattrs that the model outputs: those that are specifically for a view, and the parameters that were sent from the control.
+Values in abstractions in the model that are to be sent to the view control are stored as pattrs inside subpatchers named &ldquo;view,&rdquo; so that they can be extracted from the other pattrs passed out of hte model.</p>
+<h4 id="view">VIEW</h4>
+<p>The view is a collection of bpatchers containing graphical controls and data fields.  It triggers messages to be sent to the control.  Different views could be used, and even several views at the same time.  The Launchpad interfaces are also views.</p>
+<p><strong>Note:</strong> with this method, the interior pattrhub objects end up not being used at all, but it’s still good to leave them in so that these objects can be reused and are not dependent on being called this way.</p>
+<p>Finally, unused variables simply aren’t called. But to be absolutely sure that uncalled variables don’t give us trouble, by storing state that have forgotten about, or by accidentally being called, due to sharing names accidentally with a control variable, we can <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html#pattr-visibility">turn off their visibility to the pattrstorage system</a>, which means they can never be called.</p>
+<p>To avoid an infinite loop, we make use the pattrstorage object’s <em>outputmode</em> attribute.
+In the control and model, the pattrstorage <em>outputmode</em> is set to 2: any changed values are sent out.
+But in the view, the output mode is 6: values that are changed by objects in the pattr system are not sent out from the pattrstorage object. That is, only values that are changed by user interaction are sent out. Thus the values received by pattrhub are set, but not sent to the control.  This way, pattr values can be sent back from the model into the view (via the view control object which filters them and translates their names if necessary), without these pattr values being again passed out to the control (which would create an infinite loop).</p>
+<h5 id="example">EXAMPLE</h5>
+<p>As an example, we follow the message sent when the pitch on MIDI track 13 is changed, using either the up, down, or reset-pitch button:<br>
+<a href="#R-image-ae1aea36536c24edbb5bf008b426f192" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/0-view-midi-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ae1aea36536c24edbb5bf008b426f192"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/0-view-midi-track-labeled.png"></a></p>
+<p>The corresponding pattr in the view is named <em>transpose_pitch</em>, and takes an integer value.  The up, down, and reset buttons are proper to the usage conceived for this particular graphical interface, so their logic is contained within the view; they modify the <em>transpose_pitch</em> pattr and do not send any messages directly to the control.</p>
+<p><a href="#R-image-5a1d141a694d85fda3a3e3c871954559" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5a1d141a694d85fda3a3e3c871954559"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png"></a></p>
+<p>In the view, the triggered pattr is located in the bpatcher named <em>track_13</em>, which itself is inside the bpatcher named <em>midi</em>.  When triggered, the pattrstorage object inside the view updates its value and sends out the message <em>midi::track_13::transpose_pitch 0</em>.  This message is sent out the second view outlet and into <em>djazz.control</em>.</p>
+<p>In <em>djazz_control</em>, the pattrhub object distributes the message to the corresponding subpatcher named <em>midi</em>, which contains a <em>djazz.control.track</em> abstraction named__track_13_, which contains a pattr object named <em>transpose_pitch</em>.
+<a href="#R-image-9f2232cef4cd9d194554fc3091803aec" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/2-control-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9f2232cef4cd9d194554fc3091803aec"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/2-control-labeled.png"></a>
+<a href="#R-image-69c9e2cd34320a0ce0e5be87d8bcac0a" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/3-control-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-69c9e2cd34320a0ce0e5be87d8bcac0a"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/3-control-midi-labeled.png"></a>
+<a href="#R-image-826015a400a4f9321e75b2106f0724c4" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/4-ctrl-midi-track-pattrs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-826015a400a4f9321e75b2106f0724c4"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/4-ctrl-midi-track-pattrs.png"></a></p>
+<p>This pattr now sends its updated value 0 directly (not via the pattrstorage object in djazz.control) through the <em>djazz.control.midi.translate_track</em> abstraction in order to rename it for the correct pattr object in the model:</p>
+<p><a href="#R-image-afece408005b2dc7acab8b3cc534956f" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/5-ctrl-midi-track-translate.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-afece408005b2dc7acab8b3cc534956f"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/5-ctrl-midi-track-translate.png"></a>
+<a href="#R-image-104d04f81ecc16a21b3057d886c19f23" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-104d04f81ecc16a21b3057d886c19f23"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png"></a></p>
+<p>The message sent to the model is <em>midi::midi_out::midi_out_bank::track_13::effect_list::transpose_pitch::semitones 0</em>. It is received by the pattrhub object in the model and sent to the corresponding patcher:<br>
+<a href="#R-image-0ec15f836e7554ceacccdb5ad288704c" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/7-model-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0ec15f836e7554ceacccdb5ad288704c"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/7-model-labeled.png"></a>
+<a href="#R-image-2b4a4b548da773d9dbadffc13a88e809" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/8-model-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2b4a4b548da773d9dbadffc13a88e809"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/8-model-midi-labeled.png"></a>
+<a href="#R-image-b2c4309b4317a8791b7763e9b4d74fc0" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/9-model-midi-out-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b2c4309b4317a8791b7763e9b4d74fc0"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/9-model-midi-out-labeled.png"></a>
+<a href="#R-image-fe620c78b9b87bafcc99f9528d445f90" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/10-model-midi-out-bank-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fe620c78b9b87bafcc99f9528d445f90"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/10-model-midi-out-bank-labeled.png"></a>
+<a href="#R-image-0d8dd769604bc8fed02fbe8d3abb1119" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/11-model-midi-out-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0d8dd769604bc8fed02fbe8d3abb1119"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/11-model-midi-out-track-labeled.png"></a>
+<a href="#R-image-b1b1e685bc752f35368d4468cbda6700" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/12-model-midi-out-effect-list-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b1b1e685bc752f35368d4468cbda6700"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/12-model-midi-out-effect-list-labeled.png"></a>
+<a href="#R-image-936afffbde680d3c02ef058c5af6c062" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/13-model-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-936afffbde680d3c02ef058c5af6c062"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/13-model-transpose-pitch.png"></a></p>
+<p>When the pattr in the model is updated, the model&rsquo;s pattrstorage sends its name and value to the view control, which translates it and sends it back to the view.</p>
+<p>The state of the variable can be seen in each of the four debug windows (view, control, model, and view control).</p>
+<p><a href="#R-image-814472558d4ba21fc537414132e6d6a6" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17a-debug-view-and-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-814472558d4ba21fc537414132e6d6a6"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17a-debug-view-and-control.png"></a>
+<a href="#R-image-1988d1a248ccfe15d273de92d905f4a6" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17b-debug-model-and-view-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1988d1a248ccfe15d273de92d905f4a6"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17b-debug-model-and-view-control.png"></a></p>
+<h6 id="pattr-visibility">Pattr Visibility</h6>
+<p>For more complex abstractions that use several <em>pattrs</em>, as well as abstractions that lend themselves to reuse, such as the beat-generators which are nested in midi- and audio-beat-generators, Djazz uses the second method of pattr passing:<br>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+    subgraph B[B];
+        subgraph C[C];
+        direction TB
+            p[pattr my_pattr]
+        end
+    end
+end
+in --&gt;|A::B::C::my_pattr|p
+</pre></p>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+direction TB
+    pA[pattr my_pattr_A]
+subgraph B[B];
+direction TB
+    pB[pattr my_pattr_B]
+subgraph C[C];
+direction TB
+    pC[pattr my_pattr_C]
+end
+end
+end
+in --&gt;|my_pattr_A|pA
+pA --&gt;|my_pattr_B|pB
+pB --&gt;|my_pattr_C|pC
+
+</pre>
+<p>Pattrs within nested abstractions are &ldquo;hidden&rdquo; from calls to the exterior abstraction. They are updated by calling a pattr in the exterior abstraction, which translates them to the appropriate pattr call to the interior abstraction; sometimes this sequence of calls to nested pattrs has several levels.
+In Max, a pattr is never actually hidden, as it can always be called using the double-colon syntax corresponding to the object in which it is located.  But a pattr can be hidden to the pattrstorage object that references it by setting the pattr&rsquo;s <em>visibility</em> attribute to zero.  The small object pattrvis.js was written to turn on and off the visibility of all the pattrs in an abstraction; it can act hierarchically as well, turning on or off all the visibility of pattrs in subpatchers.<br>
+The pattrvis.js object is used in the appropriate abstractions, and does not have an effect on the functionnality of the program.  It can be used to keep the debugging windows more readable, when nested pattrs have their visibility off. To inspect pattr messages passed to nested abstractions, turn their visibilities on by passing 1 to the pattrvis.js object in the corresponding abstraction.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="/Djazz_2.0_documentation/js/clipboard.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/perfect-scrollbar.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-color.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-dispatch.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-drag.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-ease.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-interpolate.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-selection.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-timer.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-transition.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-zoom.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/js-yaml.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/mermaid.min.js?1736191438" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="/Djazz_2.0_documentation/js/theme.js?1736191438" defer></script>
+  </body>
+</html>

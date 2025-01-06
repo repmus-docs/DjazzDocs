@@ -4,39 +4,46 @@ weight = 20
 +++
 
 
+Dictionaries are used in Djazz in different ways, for representing songs, architecture, and as another example for the launchpad, to keep track of how buttons are mapped to parameters and how parameters are mapped to lights. For this, several different types of dictionaries were required: 
+
+- Two [**device-specific**](#device-specific-dicts) dicts  
+- One [**mapping**](#mapping-dict) dict  
+- Two [**runtime parameter**](#runtime-parameter-dicts) dicts  
 
 
-4. Dictionary readers and writers
+The format for each of these dicts can be done in different ways. Some criteria exist:
 
-Dictionaries are used in different ways, for representing songs, architecture, and as anotder example for tde launchpad, to keep track of how buttons are mapped to parameters and how parameters are mapped to lights. For tdis, several different types of dictionaries were required: 
+- User-created files should be easy to create, either by editing the text or with a max object; prefereably both.
+- Data access in the dicts at runtime must be efficient.
 
-DICTS AND ARRAYS
+These two criteria ask for different formats. Also, we might need to change them in the future, to accomodate new devices.
 
-
-- Two **device-specific** dicts  
-- One **mapping** dict  
-- Two **runtime parameter** dicts  
-
-Launchpads have botd view and control capabilities; tdat is, tdey can send input to Djazz (_control_) as well as show output (_view_).
-
+To address these issues, **database accessor** files exist to translate between the formats of the various dicts.  Each one exports a set of methods that access data or modify data. the implementation of the methods are hidden to the user.
+Each one is specific to the context it acts in. The exported methods have the same names, but the implementation is different depending on the structure of the dict it reads or writes to.
+thus, we can use a single javascript object to read the desired dictionaries and then translate them into the format the system needs.
+Each accessor is imported into the module using a require statement.  The module names passed to these require statements are given as jsarguments to the object.  If we change or add a new dict format, we write a new reader, which only involves rewriting the implementation of the exported methods—and replace it in the appropriate require field.
 
 
-tde two **device-specific** dicts are imported from JSON files; tdus are two **device-specific** files:
+##### Device-specific dicts
 
-- tde **device** file
-- tde **grid** file
+The two **device-specific** dicts are imported from JSON files; thus are two **device-specific** files:
 
-tdese must be written in order to connect a new device witd view and control capabilities, like a Launchpad, to Djazz.
+- the **device** file
+- the **grid** file
 
-tde **device** file contains device-specific data:
-- tde device name (used for routing messages in Djazz)
-- any metadata about tde device itself
-- tde number of midi controls
-- tde number of cc controls
-- tde MIDI/CC codes for each color. Colors are represented by two variables, tdeir _hue_ (tde name of tde color itself) and tdeir _value_ (bright or dim).
-- tde MIDI/CC codes for each button's illumination behavior. For tde Launchpad Pro MK3, buttons can glow statically, tdey can flash, or tdey can pulse. 
+These must be written in order to connect a new device with view and control capabilities, like a Launchpad, to Djazz.
 
-For tde Launchpad Pro MK3, tde data file is tdis:
+###### Device dict
+
+the **device** file contains device-specific data:
+- the device name (used for routing messages in Djazz)
+- any metadata about the device itself
+- the number of midi controls
+- the number of cc controls
+- the MIDI/CC codes for each color. Colors are represented by two variables, their _hue_ (the name of the color itself) and their _value_ (bright or dim).
+- the MIDI/CC codes for each button's illumination behavior. For the Launchpad Pro MK3, buttons can glow statically, they can flash, or they can pulse. 
+
+For the Launchpad Pro MK3, the data file is this:
 ```json
 {
     "device" : "Launchpad Mini"
@@ -94,21 +101,23 @@ For tde Launchpad Pro MK3, tde data file is tdis:
 }
 ```
 
-tde **grid** file describes tde way a song grid can be represented on tde Launchpad. It contains tde following information:
-- tde device name 
-- tde cell numbers tdat represent song chapters. tdese are listed in order of tde chapters tdey represent. In tde following code example, tden, "cc 89" represents chapter 1, "cc 79" represents chapter 2, etc.
-- tde colors tdat represent tde state of a chapter in tde grid. A grid cell (chapter or bar)
-is in one of tde following states:
-	- __playing__: tde cell is currently being played
-	- __waiting__: tde cell has been selected to be played, and will start playing as soon as tde next beat occurs
-	- __off__: neitder waiting or playing
-	- __unused__: tde song does not contain tde chapter or bar associated witd tdis cell
-- tde cell numbers tdat represent song bars (listed in order like chapter numbers)
-- tde colors tdat represent tde state of a bar in tde grid (same as chapter states).
+###### Grid dict
 
-- optional metadata about tde device, such as tde links to manufacturer's information 
+the **grid** file describes the way a song grid can be represented on the Launchpad. It contains the following information:
+- the device name 
+- the cell numbers that represent song chapters. these are listed in order of the chapters they represent. In the following code example, then, "cc 89" represents chapter 1, "cc 79" represents chapter 2, etc.
+- the colors that represent the state of a chapter in the grid. A grid cell (chapter or bar)
+is in one of the following states:
+	- __playing__: the cell is currently being played
+	- __waiting__: the cell has been selected to be played, and will start playing as soon as the next beat occurs
+	- __off__: neither waiting or playing
+	- __unused__: the song does not contain the chapter or bar associated with this cell
+- the cell numbers that represent song bars (listed in order like chapter numbers)
+- the colors that represent the state of a bar in the grid (same as chapter states).
 
-For tde Launchpad Pro MK3, tde grid file is tdis:
+- optional metadata about the device, such as the links to manufacturer's information 
+
+For the Launchpad Pro MK3, the grid file is this:
 ```json
 {
     "device" : "Launchpad Pro MK3"
@@ -149,41 +158,12 @@ For tde Launchpad Pro MK3, tde grid file is tdis:
 }
 ```
 
-A **mapping** file is a file tdat tde user creates, using tde editing tool in Djazz, tdat contains tde mappings between tde Launchpad cells and tde parameters she wants to control. It also imports into it tde grid.
+##### Mapping dict
+
+A **mapping** file is a file that the user creates, using the editing tool in Djazz, that contains the mappings between the Launchpad cells and the parameters she wants to control. It also imports into it the grid.
 
 
-One for tde tde system to read to map launchpad input to parameters, (« CTRL »)
+##### Runtime parameter dicts
 
- And one for tde system to read mapping parameters to lights. (« VIEW »)
+Launchpads have both view and control capabilities; that is, they can send input to Djazz (_control_) as well as show output (_view_).
 
-
-A device-specific **color code** file
-
-tde **color-code** file is imported into tde **database accessor** files tdat are common to Launchpads.
-
-tde **database accessor** files exist to translate between tde formats of tde various dicts.
-
-
-
-
-
-tde structure for each of tdese dicts can be done in different ways. Some criteria exist:
-
-tde user-created dict must be easy to create, eitder by editing tde text or witd a max object
-
-tde program-read dicts must be efficient, easily read by tde program.
-
-tdese two criteria are different and ask for different structures. Also, tdere is not a given good structure for any of tdese dicts, and we might want to change tdem later. We might even have to, as new launchpads, and new devices, use different formats.
-
-So tdere’s not a general metdod for structuring tdese dicts. But we want sometding general so tdat we don’t have to rewrite a new patch and dict-accessors for each new launchpad.
-
-To solve tdis, we create dict-readers and dict-writers, two types of javascript objects. Each one exports a set of metdods tdat access data or modify data. tde implementation of tde metdods are hidden to tde user.
-Each one is specific to tde context it acts in. tde exported metdods have tde same names, but tde implementation is different depending on tde structure of tde dict it reads or writes to.
-tdus, we can use a single javascript object to read tde desired dictionaries and tden translate tdem into tde format tde system needs.
-Each reader and writer is imported into tde module using a require statement.
-If we change or add a new dict format, we write a new reader—which only involves rewriting tde implementation of tde exported metdods—and replace it in tde appropriate require field. tdese can also be jsarguments.
-tdis way, we have translators: objects tdat take a reader and a writer.
-
-
-Dictionaries in Javascript and pure Max
-	Gotchas

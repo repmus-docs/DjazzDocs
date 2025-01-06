@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Externals :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Antescofo</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/antescofo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/antescofo.html</guid>
+      <description>Antescofo is used in two places:&#xA;The master control , in its subpatcher djazz.</description>
+    </item>
+    <item>
+      <title>Midifile</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/midifile.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/midifile.html</guid>
+      <description>This is a small C application that is called from the shell in the make-score-file tool.</description>
+    </item>
+    <item>
+      <title>supervp</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/supervp.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals/supervp.html</guid>
+      <description>SuperVP is used in the djazz.audio_beat_player abstraction. It is called via the djazz.</description>
+    </item>
+  </channel>
+</rss>

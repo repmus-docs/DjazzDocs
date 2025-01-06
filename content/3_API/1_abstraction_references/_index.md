@@ -1,6 +1,6 @@
 +++
 
-title = "Index of important abstractions"
+title = "Abstraction Reference"
 weight = 10
 +++
 

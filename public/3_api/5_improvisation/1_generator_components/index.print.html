@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/Djazz_2.0_documentation/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Djazz_2.0_documentation/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="flowchart TB; in(( )) out(( )) subgraph SP[Score Player]; direction TB in1(( )) speed1[Speed Control] bc[Beat Clock] out1(( )) in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1 end subgraph I[Improviser]; direction TB in2(( )) speed2[Speed Control] label[hold label] FOP[Factor Oracle Player] out2(( )) in2 --&gt; |label |label in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2 end in--&gt;in1 in--&gt;in2 out1--&gt;out out2--&gt;out The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta name="twitter:title" content="Generator Components :: Djazz">
+    <meta name="twitter:description" content="flowchart TB; in(( )) out(( )) subgraph SP[Score Player]; direction TB in1(( )) speed1[Speed Control] bc[Beat Clock] out1(( )) in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1 end subgraph I[Improviser]; direction TB in2(( )) speed2[Speed Control] label[hold label] FOP[Factor Oracle Player] out2(( )) in2 --&gt; |label |label in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2 end in--&gt;in1 in--&gt;in2 out1--&gt;out out2--&gt;out The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.">
+    <meta property="og:url" content="http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="Generator Components :: Djazz">
+    <meta property="og:description" content="flowchart TB; in(( )) out(( )) subgraph SP[Score Player]; direction TB in1(( )) speed1[Speed Control] bc[Beat Clock] out1(( )) in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1 end subgraph I[Improviser]; direction TB in2(( )) speed2[Speed Control] label[hold label] FOP[Factor Oracle Player] out2(( )) in2 --&gt; |label |label in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2 end in--&gt;in1 in--&gt;in2 out1--&gt;out out2--&gt;out The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta itemprop="name" content="Generator Components :: Djazz">
+    <meta itemprop="description" content="flowchart TB; in(( )) out(( )) subgraph SP[Score Player]; direction TB in1(( )) speed1[Speed Control] bc[Beat Clock] out1(( )) in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1 end subgraph I[Improviser]; direction TB in2(( )) speed2[Speed Control] label[hold label] FOP[Factor Oracle Player] out2(( )) in2 --&gt; |label |label in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2 end in--&gt;in1 in--&gt;in2 out1--&gt;out out2--&gt;out The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.">
+    <meta itemprop="wordCount" content="448">
+    <meta itemprop="image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <title>Generator Components :: Djazz</title>
+    <link href="http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components.html" rel="canonical" type="text/html" title="Generator Components :: Djazz">
+    <link href="/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components/index.xml" rel="alternate" type="application/rss+xml" title="Generator Components :: Djazz">
+    <link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/nucleus.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/perfect-scrollbar.min.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/theme.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/theme-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-style">
+    <link href="/Djazz_2.0_documentation/css/chroma-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/Djazz_2.0_documentation/css/variant.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/print.css?1736191438" rel="stylesheet" media="print">
+    <link href="/Djazz_2.0_documentation/css/format-print.css?1736191438" rel="stylesheet">
+    <script src="/Djazz_2.0_documentation/js/variant.js?1736191438"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/Djazz_2.0_documentation';
+      window.index_js_url="/Djazz_2.0_documentation/index.search.js?1736191438";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="/Djazz_2.0_documentation/3_api/5_improvisation/1_generator_components.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/Djazz_2.0_documentation/3_api.html"><span itemprop="name">API</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/Djazz_2.0_documentation/3_api/5_improvisation.html"><span itemprop="name">Improvisation</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Generator Components</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/5_improvisation.html" title="Improvisation (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html" title="Factor Oracle and Player (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="generator-components">Generator Components</h1>
+
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+in(( ))
+out(( ))
+
+subgraph SP[Score Player];
+direction TB
+    in1(( ))
+    speed1[Speed Control]
+    bc[Beat Clock]
+    out1(( ))
+    in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1
+end
+
+
+subgraph I[Improviser];
+direction TB
+    in2(( ))
+    speed2[Speed Control]
+    label[hold label]
+    FOP[Factor Oracle Player]
+    out2(( ))
+    in2 --&gt; |label |label
+    in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2
+end
+
+in--&gt;in1
+in--&gt;in2
+out1--&gt;out
+out2--&gt;out
+
+
+</pre>
+<p>The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.  In improvise mode, the beat number is not considered. The label produced by the analyzer is used, as described above.</p>
+<p>The beat generator can play in two modes: score player and improviser. Each of these also contain two modes: play at the tempo given by the tap,
+or play at a different speed: double speed, quadruple speed, half speed, and one and a half speed.  This speed change is controlled
+by an object&ndash;the &ldquo;Speed Control&rdquo; that, when messages are passed to the generator, modifies the timing of their distribution to the generator&rsquo;s internal objects.
+Even though both the score player and the improviser use the Speed Control, the musical result is different, because the Score Player receives
+beat <em>number</em> messages and the Improviser receives beat <em>label</em> messages. The musical result is described in the <a href="http://localhost:1313/Djazz_2.0_documentation//1_manual/12_improvising.html">manual section on improvisation</a>
+.  Following is a description of the abstractions that control these processes.</p>
+<p>The Score Player contains two subpatchers, a &ldquo;Master Clock Follower&rdquo; and an &ldquo;Internal Clock Follower.&rdquo; In Score Player mode,
+if the Speed Control is active, beat numbers are sent to the Internal Clock Follower.  The Internal Clock Follower contains its own Beat Clock object. It is passed the same asynchronous messages as the Master Beat Clock,
+concerning the song beat data like the end beat, the current section beats, and whether the current chapter is being looped.
+If the Speed Control is inactive, the beat number messages given by the Master Beat Clock are simply passed through. If Speed Control is active, beat numbers are output at a different tempo than the input tap.</p>
+<p>In the Improviser, it is the beat label messages are passed. Beat labels are passed in at the master tempo. When a label is received, it is saved in
+a message object and a bang is sent to the Speed Control. If active, the speed control at its modified tempo, which trigger the saved
+label to be passed to the factor oracle player. The result is that the factor oracle player outputs beats that conform to
+the harmony of the given beat, even though they are at a different tempo.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="/Djazz_2.0_documentation/js/clipboard.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/perfect-scrollbar.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-color.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-dispatch.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-drag.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-ease.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-interpolate.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-selection.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-timer.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-transition.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-zoom.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/js-yaml.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/mermaid.min.js?1736191438" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="/Djazz_2.0_documentation/js/theme.js?1736191438" defer></script>
+  </body>
+</html>

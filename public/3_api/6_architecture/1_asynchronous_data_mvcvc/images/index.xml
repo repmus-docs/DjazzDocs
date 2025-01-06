@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asynchronous Data and the MVCVC Design :: Djazz</title>
+    <link>http://localhost:1313/3_api/6_architecture/1_asynchronous_data_mvcvc/images.html</link>
+    <description>flowchart TB; V[View]; C[Control]; M[Model]; VC[View Control]; V --&gt; C C --&gt; M M --&gt; VC VC --&gt; V flowchart TB; subgraph V[View]; end subgraph C[Control]; direction TB tvc[translate view to control] ctrlpattrs[control pattrs] tcm[translate control to model] tvc --&gt; ctrlpattrs--&gt; tcm end subgraph M[Model]; end subgraph VC[View Control]; direction TB tmv[translate model to view] end V --&gt; tvc tcm --&gt; M tmv --&gt; V M --&gt; tmv Architecture Djazz uses the Model-View-Control-View Control design pattern.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/3_api/6_architecture/1_asynchronous_data_mvcvc/images/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

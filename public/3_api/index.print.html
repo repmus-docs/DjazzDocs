@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/Djazz_2.0_documentation/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Djazz_2.0_documentation/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta name="twitter:title" content="API :: Djazz">
+    <meta property="og:url" content="http://localhost:1313/Djazz_2.0_documentation/3_api.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="API :: Djazz">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <meta itemprop="name" content="API :: Djazz">
+    <meta itemprop="image" content="http://localhost:1313/Djazz_2.0_documentation/images/hero.png">
+    <title>API :: Djazz</title>
+    <link href="http://localhost:1313/Djazz_2.0_documentation/3_api.html" rel="canonical" type="text/html" title="API :: Djazz">
+    <link href="/Djazz_2.0_documentation/3_api/index.xml" rel="alternate" type="application/rss+xml" title="API :: Djazz">
+    <link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fontawesome-all.min.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/nucleus.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/auto-complete.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/perfect-scrollbar.min.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/Djazz_2.0_documentation/css/fonts.css?1736191438" rel="stylesheet"></noscript>
+    <link href="/Djazz_2.0_documentation/css/theme.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/theme-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-style">
+    <link href="/Djazz_2.0_documentation/css/chroma-relearn-auto.css?1736191438" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/Djazz_2.0_documentation/css/variant.css?1736191438" rel="stylesheet">
+    <link href="/Djazz_2.0_documentation/css/print.css?1736191438" rel="stylesheet" media="print">
+    <link href="/Djazz_2.0_documentation/css/format-print.css?1736191438" rel="stylesheet">
+    <script src="/Djazz_2.0_documentation/js/variant.js?1736191438"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='.';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/Djazz_2.0_documentation';
+      window.index_js_url="/Djazz_2.0_documentation/index.search.js?1736191438";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="/Djazz_2.0_documentation/3_api.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">API</span><meta itemprop="position" content="1"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/1_manual/12_improvising.html" title="Improvising with Djazz (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/Djazz_2.0_documentation/3_api/1_abstraction_references.html" title="Abstraction Reference (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable chapter narrow" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="chapter">
+            <header class="headline">
+            </header>
+<div class="article-subheading">Chapter 3</div>
+
+<h1 id="api">API</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of API</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="abstraction-reference">Abstraction Reference</h1>
+
+<p>Hmmmm&hellip;</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Abstraction Reference</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="darrget_size">darr.get_size</h1>
+
+<p>Returns the number of keys in a dict</p>
+<p>When using a dict to mimic an array, use this to retrieve the length of the array.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_int_">0    <em>int</em></h6>
+<p>number of keys in dict</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>symbol</em></strong><br>
+dict name</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazz">djazz</h1>
+
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+AudioIn1((Audio\nIn L))
+AudioIn2((Audio\nIn R))
+MidiIn((MIDI In))
+TapIn((Tap\nIn))
+PattrIn((Pattr\nIn))
+DataIn((File\nData\nIn))
+PresetIn((Presets In))
+
+Master[Master Control]
+Audio[Djazz Audio]
+Midi[Djazz MIDI]
+PattrStorage[PattrStorage]
+
+click Master &#34;./../components/master_control.html&#34; &#34;Master Control&#34;
+click Audio &#34;audio.html&#34; &#34;Master Control&#34;
+click Midi &#34;midi.html&#34; &#34;Master Control&#34;
+
+
+AudioOut1(((Audio\nOut 1L)))
+AudioOut2(((Audio\nOut 1R)))
+AudioOut3(((Audio\nOut 2L)))
+AudioOut4(((Audio\nOut 2R)))
+AudioOut5(((Audio\nOut 3L)))
+AudioOut6(((Audio\nOut 3R)))
+MidiOut(((MIDI Out)))
+PattrOut(((Pattr Out)))
+
+
+AudioIn1---&gt;Audio
+AudioIn2---&gt;Audio
+
+TapIn--&gt;Master
+
+PattrIn--&gt;Master
+PattrIn--&gt;Audio
+PattrIn--&gt;Midi
+
+DataIn--&gt;Audio
+DataIn--&gt;Midi
+DataIn--&gt;Master
+
+Master--&gt;Audio
+Master--&gt;Midi
+
+MidiIn--&gt;Midi
+
+Audio--&gt;AudioOut1
+Audio--&gt;AudioOut2
+Audio--&gt;AudioOut3
+Audio--&gt;AudioOut4
+Audio--&gt;AudioOut5
+Audio--&gt;AudioOut6
+
+Midi--&gt;MidiOut
+
+PresetIn--&gt;PattrStorage
+PattrStorage--&gt;PattrOut
+
+</pre>
+<h1 id="inlets">INLETS</h1>
+<h3 id="1-emsp-_signal_">1   <em>signal</em></h3>
+<h6 id="audio-in-1">Audio In 1</h6>
+<p><em>signal</em> Audio signal is sent to djazz_audio_in</p>
+<h3 id="2-emsp-_signal_">2   <em>signal</em></h3>
+<h6 id="audio-in-2">Audio In 2</h6>
+<p><em>signal</em> Audio signal is sent to djazz_audio_in</p>
+<h3 id="3-emsp-_list_">3   <em>list</em></h3>
+<h6 id="midi-in">Midi In</h6>
+<p><em>list</em> (int pitch, int velocity, int channel) sent to djazz_midi_in</p>
+<h3 id="4-emsp-_bang_">4   <em>bang</em></h3>
+<h6 id="triggers-next-beat">Triggers next beat</h6>
+<p><em>bang</em> All active tracks MIDI and audio tracks will play their data located at the current beat in tempo when a bang is received. Any armed recording tracks will record any input during this beat in tempo.</p>
+<h3 id="5-emsp-_list_">5   <em>list</em></h3>
+<h6 id="asynchronous-input-such-as-that-sent-from-pattr-objects">Asynchronous input (such as that sent from pattr objects)</h6>
+<p><em>list</em> (symbol argument-name anything argument-value) See the section on <a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">pattrs</a></p>
+<h3 id="6-emsp-_symbol_">6   <em>symbol</em></h3>
+<h6 id="loads-records-needed-for-playback">Loads records needed for playback</h6>
+<p><em>symbol</em> The name of a Max dict that has been loaded with a JSON file. These are either song files or score files.</p>
+<h3 id="7-emsp-_anything_">7   <em>anything</em></h3>
+<h6 id="messages-to-the-pattrstorage-objects">Messages to the pattrstorage objects</h6>
+<p><em>anything</em> This is only used to send the &ldquo;clientwindow&rdquo; message to the pattrstorage object, which is useful for debugging. Any preset-related messages could be sent, but they should actually be sent to djazz_control.</p>
+<h1 id="outlets">OUTLETS</h1>
+<h3 id="0-emsp--_signal_">0    <em>signal</em></h3>
+<h6 id="audio-track-1-out-1">Audio Track 1 Out 1</h6>
+<p>Audio signal</p>
+<h3 id="1-emsp--_signal_">1    <em>signal</em></h3>
+<h6 id="audio-track-1-out-2">Audio Track 1 Out 2</h6>
+<p>Audio signal</p>
+<h3 id="2-emsp--_signal_">2    <em>signal</em></h3>
+<h6 id="audio-track-2-out-1">Audio Track 2 Out 1</h6>
+<p>Audio signal</p>
+<h3 id="3-emsp--_signal_">3    <em>signal</em></h3>
+<h6 id="audio-track-2-out-2">Audio Track 2 Out 2</h6>
+<p>Audio signal</p>
+<h3 id="4-emsp--_signal_">4    <em>signal</em></h3>
+<h6 id="audio-track-3-out-1">Audio Track 3 Out 1</h6>
+<p>Audio signal</p>
+<h3 id="5-emsp--_signal_">5    <em>signal</em></h3>
+<h6 id="audio-track-3-out-2">Audio Track 3 Out 2</h6>
+<p>Audio signal</p>
+<h3 id="6-emsp--_list_">6    <em>list</em></h3>
+<h6 id="midi-output">MIDI output</h6>
+<p>A MIDI note is sent out as a list (int pitch, int velocity, int channel)</p>
+<h3 id="7-emsp--_list_">7    <em>list</em></h3>
+<h6 id="view-control-data">View control data</h6>
+<h3 id="attributes">ATTRIBUTES</h3>
+<p>None</p>
+<h3 id="messages">MESSAGES</h3>
+<p><a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">###</a> MESSAGES <br>
+-See <a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">asynchronous messages</a>.<br>
+-See <p>Page not found: /3_api/1_abstraction_references/components/master_control</p> for details about the following:</p>
+<p>/master_control</p>
+<p><p>Page not found: /3_api/1_abstraction_references/components/master_control#loop-section-active</p>
+0/1
+<p>Page not found: /3_api/1_abstraction_references/components/master_control</p>
+list (int int) start-beat end-beat
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">master::start_beat</a>  int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">master::end_beat</a>    int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">master::initial_tempo</a>   float<br>
+-See <a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">Audio In</a> for details about the following:<br>
+/audio_in<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_in::record_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_in::max_repetitions</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_in::save::folder_path</a>  symbol<br>
+-See <a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">Audio Out</a> for details about the following:<br>
+/audio_out<br>
+(for n from 1-3):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::beat_players::beat_player_n::crossfade_time_in_ms</a>     int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::beat_players::beat_player_n::audio_buffer_offset_in_ms</a>    int<br>
+(for n from 1-3):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::listeners::listener_n</a>     0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::listeners::include_master</a> 0/1<br>
+(for n from 1-3):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::audio_out_bank::track_n::volume</a> int 0-127<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::audio_out_bank::track_n::mute</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::audio_out_bank::track_n::solo</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::audio_out_bank::track_n::active</a> 0/1<br>
+(for n from 1-3):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::loop_length</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::speed_numerator</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::end_beat</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::next_beat</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::loop_section_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::speed_denominator</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::speed_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::loop_section_beats</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::pitch_range</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::max_continuity</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::improvise</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::transpose_octave</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::generators::audio_beat_generator_n::transpose_pitch</a> int<br>
+(for n from 1-3):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">audio::audio_out::data_loaders::track_loader_n::repetition</a> int<br>
+(for n from 1-15):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::mute</a>    0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::active</a>  0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::solo</a>    0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::volume</a>  int 0-127<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::port</a>    symbol<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::channel_out</a> int 1-16<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::ctrl_msg</a>    int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::effect_list::transpose_octave::octaves</a> int -255-+255<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::midi_out_bank::track_n::effect_list::transpose_pitch::semitones</a> int -255-+255<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::data_loaders::scores::score_file_1::file_path</a>   symbol<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::data_loaders::scores::score_file_2::file_path</a>   symbol<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::data_loaders::track_loader_1::repetition</a> int 0-255<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::data_loaders::track_loader_2::repetition</a> int 0-255<br>
+(for n from 1-15):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::listeners::listener_n</a><br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::listeners::include_master</a><br>
+(for n from 1-15):<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::loop_length</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::speed_numerator</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::end_beat</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::start_beat</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::loop_section_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::speed_denominator</a> int<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::speed_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::loop_section_beats</a> list (int int)<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::pitch_range</a> 0-255<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::max_continuity</a> 0-255<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_out::generators::midi_beat_generator_n::improvise</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_in::folder_path</a>  symbol<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_in::record_active</a> 0/1<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">midi::midi_in::save::folder_path</a> symbol<br>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">SEE</a> ALSO</p>
+<h1 id="see-also">SEE ALSO</h1>
+<p><a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">djazz_data</a>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">djazz_control</a>
+<a href="/Djazz_2.0_documentation/3_api/1_abstraction_references/djazz.html">djazz_view_control</a></p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="darrset_at">darr.set_at</h1>
+
+<p>Sets the entry at the given index</p>
+<p>When using a dict to mimic an array, use this as the assignment operator [] or <em>set</em>.</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: (<em>int</em> <em>anything</em>) index, entry</p>
+<p><strong><em>symbol</em></strong><br>
+right inlet: dict name</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazz-view">djazz view</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzanalyzer">djazz.analyzer</h1>
+
+<p>Takes a label representing the current musical state, and returns another label to be used by the improvisation algorithm.</p>
+<p>The input label can be passed to it by <em>anything</em>&ndash;the master control, other generators, or the same generator in which this analyzer resides.<br>
+Currently only passes  the chord label for the next beat, passed by the master control, directly through without modification.<br>
+So for now this object exists more as a placeholder. This is where real-time music analysis code should go.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_list_-_symbol_-_symbol_">0    <em>list</em>: <em>symbol</em> <em>symbol</em></h6>
+<p>label + new <em>symbol</em></p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>symbol</em></strong><br>
+a label representing the current musical state to be used by the improvisation algorithm.</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.listener_control<br>
+djazz.listeners_router<br>
+djazz.beat_generator<br>
+djazz.midi.midi_beat_generator<br>
+djazz.audio.beat_generator</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazz-view-control">djazz view control</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzantescofo_file_to_tracks_dict">djazz.antescofo_file_to_tracks_dict</h1>
+
+<p>Converts an antescofo file into a Max dict (which can then be saved as a JSON file).</p>
+<p>Dict format:<br>
+tracks<br>
+<em>int</em><br>
+beat <br>
+<em>int</em> <br>
+notes <br>
+<em>int</em>: note data <br>
+<em>int</em>: note data<br>
+<em>int</em><br>
+&hellip;</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_symbol_">0    <em>symbol</em></h6>
+<p>tracks dict name</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>symbol</em></strong><br>
+full path to antescofo file</p>
+<p><strong>clear</strong><br>
+clears the Max dict</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzantescofo_get_tempo">djazz.antescofo_get_tempo</h1>
+
+<p>Uses antescofo to infer the current tempo based on time between input messages.</p>
+<p>Loads the file <em>antescofo_djazz.txt</em>, which must be in the Max search path (currently in data/antescofo_scores).</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_float_">0    <em>float</em></h6>
+<p>tempo inferred from time between inputs</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>bang</em></strong><br>
+left inlet: bangs will cause inferred tempo to be output. Initial tempo must be set and bangs must not deviate far from current tempo. Two bangs must occur before tempo is inferred.</p>
+<p><strong>initial_tempo</strong><br>
+left inlet: ( + <em>float</em>) tempo to set antescofo&rsquo;s tempo inference mechanism. Initial input tempo must be close to this.</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiobeat_generator">djazz.audio.beat_generator</h1>
+
+<p>Upon receipt of a beat number, label, and tempo, sends data about the next beat to read to the beat reader.</p>
+<p>Pattr messages (must be passed via an external pattrhub/pattrstorage):<br>
+transpose_pitch (<em>int</em>) -255 - +255<br>
+transpose_octave (<em>int</em>) -255 - +255<br>
+next_beat (<em>int</em>) 0-255<br>
+end_beat (<em>int</em>) 0-255<br>
+speed_active (<em>int</em>) 0/1<br>
+speed_numerator (<em>int</em>) 1-255<br>
+speed_denominator (<em>int</em>) 1-255<br>
+loop_length (<em>int</em>) 1-8<br>
+loop_section_active (<em>int</em>) 0/1<br>
+loop_section_beats (<em>list</em>: <em>int</em> <em>int</em>)<br>
+improvise (<em>int</em>) 0/1<br>
+pitch_range (<em>int</em>) 0-11<br>
+max_continuity (<em>int</em>) 0-255</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_list_">0    <em>list</em></h6>
+<p>(<em>int</em> <em>int</em> <em>int</em> <em>int</em>) 1. beat generator number, 2. track number, 3. start time in ms, 4. end time in ms</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>symbol</em></strong><br>
+right inlet: label for analyzer</p>
+<p><strong>beat</strong><br>
+left inlet: (+ <em>int</em>) incoming beat number</p>
+<p><strong>label</strong><br>
+left inlet: (+ <em>symbol</em>) incoming beat label</p>
+<p><strong>tempo</strong><br>
+left inlet: (+ <em>float</em>) current tempo</p>
+<p><strong>factor_oracle</strong><br>
+left inlet: (+ <em>symbol</em>) dict name</p>
+<p><strong>beat_dict_name</strong><br>
+left inlet: (+ <em>symbol</em>) dict name</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.beat_generator<br>
+djazz.audio.audio_out</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiobeat_player">djazz.audio.beat_player</h1>
+
+<p>Plays back a beat of audio at a time from a buffer, where beats are passed in in a dict.</p>
+<p>Uses supervp to playback in tempo and with pitch transposition.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--signal">0    signal</h6>
+<p>audio out 1</p>
+<h6 id="1-emsp--signal">1    signal</h6>
+<p>audio out 2</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: (<em>int</em> <em>float</em> <em>int</em> <em>int</em>) 1. pitch transposition, 2. tempo, 3. start time, 4. end time</p>
+<p><strong>audio_buffer_offset_in_ms</strong><br>
+middle inlet: (+ <em>int</em>) adjusts the latency of the audio output. Default is 170 ms.</p>
+<p><strong>crossfade_time_in_ms</strong><br>
+middle inlet: (+ <em>int</em>) adjusts the crossfade time between beats.</p>
+<p><strong>audio_buffer_name</strong><br>
+right inlet: (+ <em>symbol</em>) audio buffer to play from</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.audio.beat_generator<br>
+djazz.audio.supervp_player</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiobeat_reader">djazz.audio.beat_reader</h1>
+
+<p>Reads the note data at the given beat data and sends it out to the beat player.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_list_">0    <em>list</em></h6>
+<p>(<em>int</em> <em>int</em> <em>int</em>) 1. track number, 2. start time in ms 3. end time in ms</p>
+<h6 id="1-emsp--_int_">1    <em>int</em></h6>
+<p>beat count</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: (<em>symbol</em> <em>int</em> <em>float</em>) 1. beat dict name, 2. pitch transposition, 3. tempo</p>
+<p><strong><em>symbol</em></strong><br>
+right inlet: beat <em>list</em> dict name</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiolisteners_router">djazz.audio.listeners_router</h1>
+
+<p>Controls which other audio generator(s) a generator will listen to</p>
+<p>Pattr messages (must be passed via an external pattrhub/pattrstorage):<br>
+include_master (<em>int</em>) 0/1<br>
+listener_1 (<em>int</em> 1-3) which player listener 1 is listening to<br>
+listener_2 (<em>int</em> 1-3) which player listener 2 is listening to<br>
+listener_3 (<em>int</em> 1-3) which player listener 3 is listening to</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_symbol_">0    <em>symbol</em></h6>
+<p>label received from player being listened to</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+right inlet: (<em>int</em> <em>symbol</em>) listener number and label passed from listener</p>
+<p><strong>label</strong><br>
+left inlet: (<em>symbol</em>) the label passed from the master control. Will be passed through if include_master is set to 1</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.analyzer</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiorecord">djazz.audio.record</h1>
+
+<p>Records an audio buffer and a beat <em>list</em>, given the appropriate input.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--repetitions--_int_">0    repetitions + <em>int</em></h6>
+<p>sends every time a new repetition is added to beat <em>list</em></p>
+<h6 id="1-emsp--setsize--_int_-crop-0--_int_">1    setsize + <em>int</em>, crop 0 + <em>int</em></h6>
+<p>sets the size of the buffer when recording is started/stopped, with/without clearing it, respectively</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong>signal</strong><br>
+left inlet: audio in 1</p>
+<p><strong>signal</strong><br>
+in1: audio in 2</p>
+<p><strong>audio_buffer_name</strong><br>
+right inlet: (+ <em>symbol</em>) name of audio buffer to record to</p>
+<p><strong>audio_score_dict_name</strong><br>
+right inlet: (+ <em>symbol</em>) name of audio score (+ beat <em>list</em>) to write to</p>
+<p><strong>beat</strong><br>
+right inlet: (+ <em>int</em>) starts writing a new beat when received</p>
+<p><strong>initial_tempo</strong><br>
+right inlet: (+ <em>float</em>) bpm by which to calculate next beat and note durations</p>
+<p><strong>loop_section_beats</strong><br>
+right inlet: (+ <em>list</em>: <em>int</em> <em>int</em>) start beat, end beat<br>
+will begin a new repetition whenever end beat is reached, restarting at start beat</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.audio</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiosupervp_player">djazz.audio.supervp_player</h1>
+
+<p>Wraps the supervp player for audio playback</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--signal">0    signal</h6>
+<p>audio out 1</p>
+<h6 id="1-emsp--signal">1    signal</h6>
+<p>audio out 2</p>
+<h6 id="2-emsp--signal">2    signal</h6>
+<p>position in audio file</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: <em>float</em> <em>float</em> <em>float</em> <em>int</em>:1. start time in ms, 2. end time in ms, 3. duration in ms, 4. transposition (in semitones)</p>
+<p><strong><em>int</em></strong><br>
+in1: crossfade time between beats in ms</p>
+<p><strong><em>symbol</em></strong><br>
+right inlet: buffer name to play from</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazz-control">djazz control</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiotranspose_octaves">djazz.audio.transpose_octaves</h1>
+
+<p>Adjusts message being sent to djaz.audio.beat_player so that the audio will be transposed up the desired number of octaves.</p>
+<p>Pattr messages (must be passed via an external pattrhub/pattrstorage):<br>
+octaves (<em>int</em>) -255 to 255</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_list_">0    <em>list</em></h6>
+<p>(<em>symbol</em> <em>int</em> <em>float</em>) 1. beat dict name, 2. pitch transposition, 3. tempo</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: (+ <em>list</em>: <em>symbol</em> <em>int</em> <em>float</em>) 1. beat dict name, 2. pitch transposition 3. tempo</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudiotranspose_pitch">djazz.audio.transpose_pitch</h1>
+
+<p>Adjusts message being sent to djaz.audio.beat_player so that the audio will be transposed up the desired number of semitones.</p>
+<p>Pattr messages (must be passed via an external pattrhub/pattrstorage):<br>
+semitones (<em>int</em>) -255 to 255</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_list_">0    <em>list</em></h6>
+<p><em>symbol</em> <em>int</em> <em>float</em>; 1. beat dict name, 2. pitchtransposition, 3. tempo</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>list</em></strong><br>
+left inlet: (+ <em>list</em>: <em>symbol</em> <em>int</em> <em>float</em>) 1. beat dict name, 2. pitch transposition, 3. tempo</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudio">djazz.audio</h1>
+
+<p>Handles all the audio portion of djazz.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--signal">0    signal</h6>
+<p>audio out 1 left</p>
+<h6 id="1-emsp--signal">1    signal</h6>
+<p>audio out 1 right</p>
+<h6 id="2-emsp--signal">2    signal</h6>
+<p>audio out 2 left</p>
+<h6 id="3-emsp--signal">3    signal</h6>
+<p>audio out 2 right</p>
+<h6 id="4-emsp--signal">4    signal</h6>
+<p>audio out 3 left</p>
+<h6 id="5-emsp--signal">5    signal</h6>
+<p>audio out 3 right</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong>signal</strong><br>
+left inlet: audio in 1</p>
+<p><strong>signal</strong><br>
+in1: audio in 2<br>
+<strong>-</strong></p>
+<p><strong>audio_buffer_name</strong><br>
+in2: (+ <em>symbol</em>) name of audio buffer to record to and play from</p>
+<p><strong>record_active</strong><br>
+in2: (+ 0/1) 1 arms the audio buffer to record; will not start recording until a beat number is received. 0 turns off record state.</p>
+<p><strong>initial_tempo</strong><br>
+in2: (+ <em>float</em>) bpm by which to calculate next beat and note durations</p>
+<p><strong>loop_section_beats</strong><br>
+in2: (+ <em>list</em>: <em>int</em> <em>int</em>) start beat, end beat<br>
+will begin a new repetition whenever end beat is reached, restarting at start beat</p>
+<p><strong>max_repetitions</strong><br>
+in2: (+ <em>int</em>) will stop recording when this number is reached</p>
+<p><strong>in</strong><br>
+right inlet: (+ <em>symbol</em>) folder name audio data to load for audio in subpatcher</p>
+<p><strong>out</strong><br>
+right inlet: (+ <em>symbol</em>) folder name audio data to load for audio out subpatcher</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.audio.record<br>
+djazz.audio.supervp_player</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzaudio_out_track">djazz.audio_out_track</h1>
+
+<p>Passes audio signal through. Control with djazz.view.audio_track.</p>
+<p>Pattr messages (must be passed via an external pattrhub/pattrstorage):<br>
+volume (<em>int</em>) 0-127<br>
+active (<em>int</em>) 0/1<br>
+solo (<em>int</em>) 0/1<br>
+mute (<em>int</em>) 0/1</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--signal">0    signal</h6>
+<p>audio signal 1/L</p>
+<h6 id="1-emsp--signal">1    signal</h6>
+<p>audio signal 2/R</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong>signal</strong><br>
+left inlet: audio signal 1/L<br>
+right inlet: audio signal 2/R</p>
+<h5 id="see-also">SEE ALSO</h5>
+<p>djazz.view.audio_out_track<br>
+djazz.solo_bank</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzbang_speed">djazz.bang_speed</h1>
+
+<p>When active, will output beats in the polyrhythm given by numerator/denominator. Incoming beats will not be output, except for those that fall in phase with the output beats.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_bang_">0    <em>bang</em></h6>
+<h2 id="-bangs-over-time-in-the-polyrhythm-determined-by-_numerator_-and-_denominator_">-bangs over time in the polyrhythm determined by <em><em>numerator</em></em> and <em><em>denominator</em></em></h2>
+<h6 id="1-emsp--_float_">1    <em>float</em></h6>
+<h2 id="-tempo-using-output-bangs-as-beat">-tempo using output bangs as beat</h2>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>bang</em></strong><br>
+depends on polyrhythm state<br>
+left inlet: When effect off (active = 0), passed directly through. When effect on (active = 1), triggers a new polyrhythm, or is ignored if a polyrhythm is in course.</p>
+<p><strong>active</strong><br>
+left inlet: (+ 0/1) turns effect off or on</p>
+<p><strong>numerator</strong><br>
+left inlet: (+ <em>int</em>) number of evenly spaced bangs to output in the space of <em><em>denominator</em></em> beats at the given tempo</p>
+<p><strong>denominator</strong><br>
+left inlet: (+ <em>int</em>)  number of beats to output <em><em>numerator</em></em> evenly spaced bangs over</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="djazzbeat_clock">djazz.beat_clock</h1>
+
+<p>Inputs bangs and outputs a beat number, based on loop, step, start, and end parameters.</p>
+<p>Will not output when end beat is reached or after.</p>
+<h5 id="outlets">OUTLETS</h5>
+<h6 id="0-emsp--_int_">0    <em>int</em></h6>
+<p>next beat</p>
+<h6 id="1-emsp--_bang_">1    <em>bang</em></h6>
+<p><em>bang</em> when loop occurs</p>
+<h6 id="2-emsp--_bang_">2    <em>bang</em></h6>
+<p><em>bang</em> when end is reached</p>
+<h5 id="messages">MESSAGES</h5>
+<p><strong><em>bang</em></strong><br>
+left inlet: <em>bang</em> for next beat</p>
+<p><strong>next_beat</strong><br>
+right inlet: (+ <em>int</em>) sets the next beat to play when next <em>bang</em> is received</p>
+<p><strong>end</strong><br>
+right inlet: (+ <em>int</em>) sets the end beat; when reached, no more output will occur</p>
+<p><strong>step</strong><br>
+right inlet: (+ <em>int</em>) how many beats to advance upon receiving a <em>bang</em>; default is 1</p>
+<h5 id="see-also">SEE ALSO</h5>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="externals">Externals</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Externals</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="antescofo">Antescofo</h1>
+
+<p><a href="/Djazz_2.0_documentation/3_api/2_externals/antescofo.html">Antescofo</a> is used in two places:</p>
+<ol>
+<li>
+<p>The <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/master_control.html">master control</a>
+, in its subpatcher <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.antescofo_get_tempo.html">djazz.antescofo_get_tempo</a>
+ to calculate the tempo. Uses the score &ldquo;djazz_antescofo.txt&rdquo; in the <em>djazz_data/scores</em> folder.</p>
+</li>
+<li>
+<p>The <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.midi_beat_reader.html">MIDI beat reader</a>
+, to sequence and send out midi notes in the proper tempo and rhythm. Uses the score &ldquo;antescofo_play_beat.txt&rdquo; in the <em>djazz_data/scores</em> folder.</p>
+</li>
+</ol>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="midifile">Midifile</h1>
+
+<p>This is a small C application that is called from the shell in the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.make_score_file.html">make-score-file</a>
+ tool.  It converts MIDI data to a .txt file, which is then converted by the tool into JSON.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="supervp">supervp</h1>
+
+<p>SuperVP is used in the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.audio_beat_player.html">djazz.audio_beat_player</a>
+ abstraction. It is called via the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.audio.supervp_player.html">djazz.audio.supervp_player</a>
+ wrapper abstraction.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="file-formats-used">File formats used</h1>
+
+<p>Audio data is saved in WAV form.  Besides this, all Djazz data is saved to and loaded from JSON in order to be imported into Max dictionaries.  This includes MIDI data.</p>
+<p>The antescofo .txt files included with song folders is converted to JSON when loaded.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="improvisation">Improvisation</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Improvisation</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="generator-components">Generator Components</h1>
+
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+in(( ))
+out(( ))
+
+subgraph SP[Score Player];
+direction TB
+    in1(( ))
+    speed1[Speed Control]
+    bc[Beat Clock]
+    out1(( ))
+    in1 --&gt;|bang| speed1 --&gt;|bang| bc --&gt;|beat number| out1
+end
+
+
+subgraph I[Improviser];
+direction TB
+    in2(( ))
+    speed2[Speed Control]
+    label[hold label]
+    FOP[Factor Oracle Player]
+    out2(( ))
+    in2 --&gt; |label |label
+    in2 --&gt;|label| speed2 --&gt;|bang| label --&gt;|label| FOP --&gt;|beat number| out2
+end
+
+in--&gt;in1
+in--&gt;in2
+out1--&gt;out
+out2--&gt;out
+
+
+</pre>
+<p>The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.  In improvise mode, the beat number is not considered. The label produced by the analyzer is used, as described above.</p>
+<p>The beat generator can play in two modes: score player and improviser. Each of these also contain two modes: play at the tempo given by the tap,
+or play at a different speed: double speed, quadruple speed, half speed, and one and a half speed.  This speed change is controlled
+by an object&ndash;the &ldquo;Speed Control&rdquo; that, when messages are passed to the generator, modifies the timing of their distribution to the generator&rsquo;s internal objects.
+Even though both the score player and the improviser use the Speed Control, the musical result is different, because the Score Player receives
+beat <em>number</em> messages and the Improviser receives beat <em>label</em> messages. The musical result is described in the <a href="http://localhost:1313/Djazz_2.0_documentation//1_manual/12_improvising.html">manual section on improvisation</a>
+.  Following is a description of the abstractions that control these processes.</p>
+<p>The Score Player contains two subpatchers, a &ldquo;Master Clock Follower&rdquo; and an &ldquo;Internal Clock Follower.&rdquo; In Score Player mode,
+if the Speed Control is active, beat numbers are sent to the Internal Clock Follower.  The Internal Clock Follower contains its own Beat Clock object. It is passed the same asynchronous messages as the Master Beat Clock,
+concerning the song beat data like the end beat, the current section beats, and whether the current chapter is being looped.
+If the Speed Control is inactive, the beat number messages given by the Master Beat Clock are simply passed through. If Speed Control is active, beat numbers are output at a different tempo than the input tap.</p>
+<p>In the Improviser, it is the beat label messages are passed. Beat labels are passed in at the master tempo. When a label is received, it is saved in
+a message object and a bang is sent to the Speed Control. If active, the speed control at its modified tempo, which trigger the saved
+label to be passed to the factor oracle player. The result is that the factor oracle player outputs beats that conform to
+the harmony of the given beat, even though they are at a different tempo.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="factor-oracle-and-player">Factor Oracle and Player</h1>
+
+<h3 id="the-factor-oracle">The factor oracle</h3>
+<p>The factor oracle data structure is described in detail in the following references:
+<a href="/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html">reference 1</a>
+<a href="/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html">reference 2</a>
+<a href="/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html">reference 3</a></p>
+<h3 id="the-factor-oracle-player">The factor oracle player</h3>
+<p>The factor oracle player creates the improvisation. As its name suggests, it contains and makes use of the &ldquo;factor_oracle&rdquo; Max abstraction.</p>
+<p>The algorithm for choosing beats from the factor oracle is described in <a href="/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html">this paper</a>.</p>
+<p>When the maximum continuity is reached, it takes a suffix link and searches for a matching label. If no matching label is found, it chooses a random state.</p>
+<p>The analyzer uses the same set of symbols as the factor oracle. It is used both offline, to create a file of labeled beats for a song, and online, to convert the data at the beginning of each beat into a symbol to be passed to the factor oracle player.
+This symbol is then used as the query to the factor oracle to produce the next beat.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="labels">Labels</h1>
+
+<p>Definition:</p>
+<p>A beat is a collection of notes that occurs between two timepoints. These timepoints are considered to occur at regular intervals.
+Thus a piece of music that has a pulse can be considered a sequence of beats.</p>
+<p>At each new beat, calculate a new beat&rsquo;s worth of music to play. The calculation consists of finding a beat in the database that is the
+“best match” (or at least a “good match”) based on the data that exists at the beginning of the new beat.</p>
+<p>This data can be based on any of the following:</p>
+<ol>
+<li>
+<p>The location in the song/musical piece.  For example, “the A minor 7 chord that occurs at the beginning
+of measure 13.”  A good match is a beat from the database that occurs over the same chord. This could be
+the same beat as in the original piece, or it could be a different
+beat that has the same chord, which is more interesting. This creates correct adherence to musical form, if such form exists in the piece.</p>
+</li>
+<li>
+<p>What we just played in the last beat. For example, an ascending scale in the previous beat could look for a melody that starts on the next
+note in the scale in the next beat. This creates continuity.</p>
+</li>
+<li>
+<p>What other listeners have played. This creates responsiveness.</p>
+</li>
+</ol>
+<p>In the current usage of Djazz, this match is based only on option 1: the chord symbol that occurs on the given beat.</p>
+<h4 id="label-matching">Label matching</h4>
+<p>Matching is done by
+comparing labels. Each beat has a label which reflects the data described above. It is a string of symbols. The nature of this string is
+determined by the user. In the current usage of Djazz, this string represents the chord symbol, which consists of the chord root and its
+quality, separated by an underline. Chord roots are numbered from zero to eleven, with zero representing C; thus, C# (or Db) is 1, D is 2, etc.
+For example, &ldquo;0_maj7&rdquo; represents a C major seventh chord.</p>
+<p>A match can be made by exact comparison, or by “fuzzy” methods. In the current usage of Djazz, a chord represents a match if the quality is
+the same, but the root can be a small distance away from the desired one.
+The melody is then transposed to match the correct root.</p>
+<p>Offline analysis currently consists of adding the chord labels to each beat. The user inputs this using a graphical tool that takes chord
+information and stores it in a list of beats; that is, no analysis is done save for copying the &ldquo;chord chart&rdquo; into a data file.
+This data file, which also contains other data like the song tempo, time signature, section starting and ending beats, and song title, is loaded
+into Djazz when a song is played.</p>
+<p>Online analysis, as a result, is just a case of reading the chord label from the dictionary when a beat number is generated. This is in fact done
+by the master clock: it sends out the tempo, chord label, beat number, in immediate succession each time a tap is input.</p>
+<p>The methods here are general, and the current usage of Djazz can be changed to admit other types of music. This would involve
+using an extant system, devising a new one, or modifying an extant one to label beats. Optionally defining the definition of a
+match, if it is not defined as exact.</p>
+<p>The following criteria must be met:
+The online analyzer uses the same set of labels as the offline analyzer, if an offline analyzer is used.</p>
+<p>Also, the architecture is modular, which means that other methods of improvisation are possible. That means that another object can replace the
+factor oracle player within &ldquo;improviser&rdquo; as long as it adheres to the following criteria:</p>
+<ol>
+<li>It receives a label at the beginning of each beat</li>
+<li>It produces a beat number, in response to the label, that represents the next beat to play.</li>
+</ol>
+<h4 id="example-song-with-the-same-chord-for-all-beats">Example: Song with the same chord for all beats.</h4>
+<p>In the case where all the beat labels are the same, the factor oracle player algorithm will ground out to simply choosing a measure aleatorically.</p>
+<p>In some cases this could be desired. It is perhaps more interesting, though, to take advantage of the label-matching behavior to create one&rsquo;s own labels, and thus direct the improvisation.</p>
+<p>Following the description of the <a href="/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html#label-matching">matching criteria</a>, the first half of the label must be a <a href="/Djazz_2.0_documentation/3_api/5_improvisation/3_labels.html">chord root symbol</a>, but the second half can be anything: it will be matched by exact string matching.</p>
+<p>A song with beats labeled thus:</p>
+<table>
+<thead>
+<tr>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th>E m7</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td>E m7</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>courld be written as</p>
+<table>
+<thead>
+<tr>
+<th>E 1</th>
+<th>E 2</th>
+<th>E 3</th>
+<th>E 4</th>
+<th>E 1</th>
+<th>E 2</th>
+<th>E 3</th>
+<th>E 4</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E 1</td>
+<td>E 2</td>
+<td>E 3</td>
+<td>E 4</td>
+<td>E 1</td>
+<td>E 2</td>
+<td>E 3</td>
+<td>E 4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>which would always select a measure labelled with a 2 to follow a measure labelled with a 1, a 3 to follow a 2, etc. Like this, formal positions in sections could be preserved.</p>
+<table>
+<thead>
+<tr>
+<th>E a</th>
+<th>E f</th>
+<th>E d</th>
+<th>E c</th>
+<th>E a</th>
+<th>E b</th>
+<th>E a</th>
+<th>E b</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E d</td>
+<td>E f</td>
+<td>E c</td>
+<td>E 4</td>
+<td>E 1</td>
+<td>E 2</td>
+<td>E 3</td>
+<td>E 4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Djazz supplies a software framework for empirical inquiry into the suitability of a particular data encoding for music:
+ascertaining the “correctness” of an analysis via listening to the resulting synthesis.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="external-controls-and-views">External controls and views</h1>
+
+<p>To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the <em>external_controllers</em> subpatcher at the top level of the.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of External controls and views</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="parameters">Parameters</h1>
+
+<p>Parameters</p>
+<p>Djazz uses Max <em>parameters</em> to attach a device, ewither a controller or a view, to the system.  The Max parameter system is similar to its pattr system: when a message is received in the form
+&lt;<em>parameter name</em> &gt; &lt;<em>parameter value</em> &gt;, the parameter with the called name is updated with the given value.  Unlike pattrs, though, whose scope is contained within an object or abstraction, parameters have global scope.</p>
+<p>All pattrs in <em>djazz.view</em> are parameter enabled.</p>
+<p>The object _djazz.parameter_handler.js_ß maintains an array of parameter listeners, one for each parameter, and outputs parameter names and values upon when values are changed.  Device interfaces can be connected to the inlet or outlet of this object to modify or display parameter values.</p>
+<h6 id="to-create-a-max-patcher-that-serves-as-an-interface-for-an-external-device">To create a Max patcher that serves as an interface for an external device:</h6>
+<ul>
+<li>Control devices should output messages in the form &lt;<em>parameter name</em>&gt; &lt;<em>parameter value</em>&gt;.</li>
+<li>View devices should output messages in the form &lt;<em>parameter name</em>&gt; &lt;<em>parameter value</em>&gt;.
+See the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/djazz.launchpad_interface.html"> djazz.launchpad_interface</a>
+ patcher as an example of an abstraction that does both.</li>
+</ul>
+<p>A list of all parameters and their current values can be accessed by opening &ldquo;Parameters&rdquo; in the Max menu.</p>
+<p><strong>NOTE to developers interested in JS Max listeners:</strong> The JS Max objects Parameterlistener and maxobjlisteners are actually hard to deal with because <em>you can’t delete them</em>. So they continue to live, inaccessible but possibly still affecting output, until garbage collection comes their way.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="dicts">Dicts</h1>
+
+<p>Dictionaries are used in Djazz in different ways, for representing songs, architecture, and as another example for the launchpad, to keep track of how buttons are mapped to parameters and how parameters are mapped to lights. For this, several different types of dictionaries were required:</p>
+<ul>
+<li>Two <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#device-specific-dicts"><strong>device-specific</strong></a> dicts</li>
+<li>One <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#mapping-dict"><strong>mapping</strong></a> dict</li>
+<li>Two <a href="/Djazz_2.0_documentation/3_api/4_external_controls_and_views/2_dicts.html#runtime-parameter-dicts"><strong>runtime parameter</strong></a> dicts</li>
+</ul>
+<p>The format for each of these dicts can be done in different ways. Some criteria exist:</p>
+<ul>
+<li>User-created files should be easy to create, either by editing the text or with a max object; prefereably both.</li>
+<li>Data access in the dicts at runtime must be efficient.</li>
+</ul>
+<p>These two criteria ask for different formats. Also, we might need to change them in the future, to accomodate new devices.</p>
+<p>To address these issues, <strong>database accessor</strong> files exist to translate between the formats of the various dicts.  Each one exports a set of methods that access data or modify data. the implementation of the methods are hidden to the user.
+Each one is specific to the context it acts in. The exported methods have the same names, but the implementation is different depending on the structure of the dict it reads or writes to.
+thus, we can use a single javascript object to read the desired dictionaries and then translate them into the format the system needs.
+Each accessor is imported into the module using a require statement.  The module names passed to these require statements are given as jsarguments to the object.  If we change or add a new dict format, we write a new reader, which only involves rewriting the implementation of the exported methods—and replace it in the appropriate require field.</p>
+<h5 id="device-specific-dicts">Device-specific dicts</h5>
+<p>The two <strong>device-specific</strong> dicts are imported from JSON files; thus are two <strong>device-specific</strong> files:</p>
+<ul>
+<li>the <strong>device</strong> file</li>
+<li>the <strong>grid</strong> file</li>
+</ul>
+<p>These must be written in order to connect a new device with view and control capabilities, like a Launchpad, to Djazz.</p>
+<h6 id="device-dict">Device dict</h6>
+<p>the <strong>device</strong> file contains device-specific data:</p>
+<ul>
+<li>the device name (used for routing messages in Djazz)</li>
+<li>any metadata about the device itself</li>
+<li>the number of midi controls</li>
+<li>the number of cc controls</li>
+<li>the MIDI/CC codes for each color. Colors are represented by two variables, their <em>hue</em> (the name of the color itself) and their <em>value</em> (bright or dim).</li>
+<li>the MIDI/CC codes for each button&rsquo;s illumination behavior. For the Launchpad Pro MK3, buttons can glow statically, they can flash, or they can pulse.</li>
+</ul>
+<p>For the Launchpad Pro MK3, the data file is this:</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;device&#34;</span> <span class="p">:</span> <span class="s2">&#34;Launchpad Mini&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;manual&#34;</span> <span class="p">:</span> <span class="s2">&#34;https://leemans.ch/latex/doc_launchpad-programmers-reference.pdf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;midi_count&#34;</span> <span class="p">:</span> <span class="mi">120</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cc_count&#34;</span> <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;colors&#34;</span> <span class="p">:</span> 	    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;none&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;red&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;orange&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">17</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">51</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;yellow&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">41</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">51</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;green&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">16</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">48</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;brown&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;dim&#34;</span>       <span class="p">:</span> <span class="mi">38</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;bright&#34;</span>    <span class="p">:</span> <span class="mi">35</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviors&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;static&#34;</span>        <span class="p">:</span> <span class="mi">12</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;flashing&#34;</span>      <span class="p">:</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h6 id="grid-dict">Grid dict</h6>
+<p>the <strong>grid</strong> file describes the way a song grid can be represented on the Launchpad. It contains the following information:</p>
+<ul>
+<li>
+<p>the device name</p>
+</li>
+<li>
+<p>the cell numbers that represent song chapters. these are listed in order of the chapters they represent. In the following code example, then, &ldquo;cc 89&rdquo; represents chapter 1, &ldquo;cc 79&rdquo; represents chapter 2, etc.</p>
+</li>
+<li>
+<p>the colors that represent the state of a chapter in the grid. A grid cell (chapter or bar)
+is in one of the following states:</p>
+<ul>
+<li><strong>playing</strong>: the cell is currently being played</li>
+<li><strong>waiting</strong>: the cell has been selected to be played, and will start playing as soon as the next beat occurs</li>
+<li><strong>off</strong>: neither waiting or playing</li>
+<li><strong>unused</strong>: the song does not contain the chapter or bar associated with this cell</li>
+</ul>
+</li>
+<li>
+<p>the cell numbers that represent song bars (listed in order like chapter numbers)</p>
+</li>
+<li>
+<p>the colors that represent the state of a bar in the grid (same as chapter states).</p>
+</li>
+<li>
+<p>optional metadata about the device, such as the links to manufacturer&rsquo;s information</p>
+</li>
+</ul>
+<p>For the Launchpad Pro MK3, the grid file is this:</p>
+<div class="highlight wrap-code"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;device&#34;</span> <span class="p">:</span> <span class="s2">&#34;Launchpad Pro MK3&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;manual&#34;</span> <span class="p">:</span> <span class="s2">&#34;https://fael-downloads-prod.focusrite.com/customer/prod/s3fs-public/downloads/LPP3_prog_ref_guide_200415.pdf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;grid&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;chapter&#34;</span> <span class="p">:</span>     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;cells&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;cc 89&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 79&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 69&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 59&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;cc 49&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 39&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 29&#34;</span><span class="p">,</span> <span class="s2">&#34;cc 19&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;colors&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;unused&#34;</span>    <span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;off&#34;</span>       <span class="p">:</span> <span class="s2">&#34;green dim static&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;waiting&#34;</span>   <span class="p">:</span> <span class="s2">&#34;green dim static&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;playing&#34;</span>   <span class="p">:</span> <span class="s2">&#34;green bright static&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;bar&#34;</span> <span class="p">:</span>         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;cells&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 81&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 82&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 83&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 84&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 85&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 86&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 87&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 88&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 71&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 72&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 73&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 74&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 75&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 76&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 77&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 78&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 61&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 62&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 63&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 64&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 65&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 66&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 67&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 68&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;midi 51&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 52&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 53&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 54&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 55&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 56&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 57&#34;</span><span class="p">,</span> <span class="s2">&#34;midi 58&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;colors&#34;</span> <span class="p">:</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;unused&#34;</span>    <span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;off&#34;</span>       <span class="p">:</span> <span class="s2">&#34;brown dim static&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;waiting&#34;</span>   <span class="p">:</span> <span class="s2">&#34;red dim static&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;playing&#34;</span>   <span class="p">:</span> <span class="s2">&#34;red bright static&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div><h5 id="mapping-dict">Mapping dict</h5>
+<p>A <strong>mapping</strong> file is a file that the user creates, using the editing tool in Djazz, that contains the mappings between the Launchpad cells and the parameters she wants to control. It also imports into it the grid.</p>
+<h5 id="runtime-parameter-dicts">Runtime parameter dicts</h5>
+<p>Launchpads have both view and control capabilities; that is, they can send input to Djazz (<em>control</em>) as well as show output (<em>view</em>).</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="system-architecture">System Architecture</h1>
+
+<h5 id="synchronous-and-asynchoronous-input">Synchronous and Asynchoronous Input</h5>
+<p>Input is passed to patchers two ways: synchronously and asynchronously, depending on the type of input data.
+Synchoronous data;</p>
+<ul>
+<li>beat number (<em>int</em>),</li>
+<li>current tempo (<em>float</em>)</li>
+<li>beat label (<em>symbol</em>)</li>
+<li>loop section beats (<em>list: int int</em>) the start and end beat of the section being looped. This is used to calculate the length of repetitions for live MIDI and audio input.  It can change when the current beat advances to the next chapter, so this data is triggered and sent out by the master control instead of asynchronously.</li>
+<li>dict names (<em>symbol</em>), such as those for beat lists and factor oracles . This is because data must be loaded before other control variables can be set.</li>
+</ul>
+<p>This data is passed serially through patch cords. Send and receive Max objects are not used, to ensure synchrony, as well as to aid debugging and avoid complicating the control flow.</p>
+<p>Asynchronous data is anything changed by the user using the GUI. A lot of this data is well known to audio interface users: track volume, MIDI and audio effects like pitch transposition, for instance.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of System Architecture</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="general-approach">General Approach</h1>
+
+<p>Synchronous data is passed using patch lines. Sends and receives are avoided in order to allow event probes, protect encapsulation, and generally keep patchers readable.</p>
+<p>Asynchronous data is stored in pattrs, and updated with pattrhubs and pattrstorages.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="asynchronous-data-and-the-mvcvc-design">Asynchronous Data and the MVCVC Design</h1>
+
+<h5 id="architecture">ARCHITECTURE</h5>
+<p>Djazz uses the familiar Model-View-Control-View Control (MVCVC) design pattern.  Each of these components will be discussed below.  This particular interpretation of MVCVC was influenced by the design specifications for audio plugin development for the <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">WWISE audio engine</a> distributed by <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">Audiokinetic</a>.</p>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+V[View];
+C[Control];
+M[Model];
+VC[View Control];
+
+V --&gt; C
+C --&gt; M
+M --&gt; VC
+VC --&gt; V
+</pre>
+<p>This design is primarily to maintain an organised control flow of asynchronous data&ndash;data that is input by the user.  This is done using Max&rsquo;s pattr system; any user-controlled variable is stored as a separate pattr in the view, control, the model, and possibly the view control.  Their values are passed through each of these components in a directed path, possibly undergoing name translation or value conversion along the way:</p>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+subgraph V[View];
+end
+
+subgraph C[Control];
+direction TB
+    tvc[translate view to control]
+    ctrlpattrs[control pattrs]
+    tcm[translate control to model]
+    tvc --&gt; ctrlpattrs--&gt; tcm
+end
+
+subgraph M[Model];
+end
+
+subgraph VC[View Control];
+direction TB
+    tmv[translate model to view]
+end
+
+V --&gt; tvc
+tcm --&gt; M
+tmv --&gt; V
+M --&gt; tmv
+
+</pre>
+<p>While the path resembles a loop, <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html">output restriction</a> in the view in fact keep messages from being passed on, thus avoiding circularity.</p>
+<h4 id="model">MODEL</h4>
+<p>The model (djazz.maxpat) is the actual Djazz patcher, in the sense that all the functionality occurs in this patcher: MIDI and audio input and output processing, timing synchronization, improvisation calculation, etc.</p>
+<p>Abstractions in the model contain pattrs which are set by sending messages in the form &lt;<em>pattr name</em>&gt; &lt;<em>pattr value</em>&gt;.
+The <em>pattrhub</em> Max object distributes these messages to the appropriate pattr objects.</p>
+<h4 id="contr0l">CONTR0L</h4>
+<p>The control acts as the interface to pass messages to the model.  It is similar to a shell in an operating system, or a parameter bank in an audio plugin.  Its input represents the set of all possible asynchronous messages that can be sent to Djazz.  Its job is to translate these messages to their appropriate messages that the model understands, and to handle any value initialization and message dependencies.</p>
+<p>There are many pattrs in the model.</p>
+<ul>
+<li>Not all pattrs may be desired to be used, or exposed to the user.</li>
+<li>The organization of the pattr hierarchy in the model may not reflect the user&rsquo;s conception</li>
+<li>it may be wished to call pattrs in the model via other variables that need some processing to determine their value.</li>
+</ul>
+<p>The control, then, acts a shell which exposes the messages that can be sent to Djazz. By replacing the control, you can change the commands it responds to without changing the model itself.</p>
+<p>To make modularity easier, pattrs in the control are grouped in encapsulations.  This means that calling nested pattrs demands the &ldquo;::&rdquo; syntax (see example below).</p>
+<h4 id="view-control">VIEW CONTROL</h4>
+<p>The model outputs pattrs to any view that wants to receive them. It does this the same way as the control: a pattrstorage object is at the top level of the model patcher, and when a pattr value is updated, it outputs the pattr name and value.</p>
+<p>There are two types of pattrs that the model outputs: those that are specifically for a view, and the parameters that were sent from the control.
+Values in abstractions in the model that are to be sent to the view control are stored as pattrs inside subpatchers named &ldquo;view,&rdquo; so that they can be extracted from the other pattrs passed out of hte model.</p>
+<h4 id="view">VIEW</h4>
+<p>The view is a collection of bpatchers containing graphical controls and data fields.  It triggers messages to be sent to the control.  Different views could be used, and even several views at the same time.  The Launchpad interfaces are also views.</p>
+<p><strong>Note:</strong> with this method, the interior pattrhub objects end up not being used at all, but it’s still good to leave them in so that these objects can be reused and are not dependent on being called this way.</p>
+<p>Finally, unused variables simply aren’t called. But to be absolutely sure that uncalled variables don’t give us trouble, by storing state that have forgotten about, or by accidentally being called, due to sharing names accidentally with a control variable, we can <a href="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc.html#pattr-visibility">turn off their visibility to the pattrstorage system</a>, which means they can never be called.</p>
+<p>To avoid an infinite loop, we make use the pattrstorage object’s <em>outputmode</em> attribute.
+In the control and model, the pattrstorage <em>outputmode</em> is set to 2: any changed values are sent out.
+But in the view, the output mode is 6: values that are changed by objects in the pattr system are not sent out from the pattrstorage object. That is, only values that are changed by user interaction are sent out. Thus the values received by pattrhub are set, but not sent to the control.  This way, pattr values can be sent back from the model into the view (via the view control object which filters them and translates their names if necessary), without these pattr values being again passed out to the control (which would create an infinite loop).</p>
+<h5 id="example">EXAMPLE</h5>
+<p>As an example, we follow the message sent when the pitch on MIDI track 13 is changed, using either the up, down, or reset-pitch button:<br>
+<a href="#R-image-ae1aea36536c24edbb5bf008b426f192" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/0-view-midi-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ae1aea36536c24edbb5bf008b426f192"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/0-view-midi-track-labeled.png"></a></p>
+<p>The corresponding pattr in the view is named <em>transpose_pitch</em>, and takes an integer value.  The up, down, and reset buttons are proper to the usage conceived for this particular graphical interface, so their logic is contained within the view; they modify the <em>transpose_pitch</em> pattr and do not send any messages directly to the control.</p>
+<p><a href="#R-image-5a1d141a694d85fda3a3e3c871954559" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5a1d141a694d85fda3a3e3c871954559"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png"></a></p>
+<p>In the view, the triggered pattr is located in the bpatcher named <em>track_13</em>, which itself is inside the bpatcher named <em>midi</em>.  When triggered, the pattrstorage object inside the view updates its value and sends out the message <em>midi::track_13::transpose_pitch 0</em>.  This message is sent out the second view outlet and into <em>djazz.control</em>.</p>
+<p>In <em>djazz_control</em>, the pattrhub object distributes the message to the corresponding subpatcher named <em>midi</em>, which contains a <em>djazz.control.track</em> abstraction named__track_13_, which contains a pattr object named <em>transpose_pitch</em>.
+<a href="#R-image-9f2232cef4cd9d194554fc3091803aec" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/2-control-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9f2232cef4cd9d194554fc3091803aec"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/2-control-labeled.png"></a>
+<a href="#R-image-69c9e2cd34320a0ce0e5be87d8bcac0a" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/3-control-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-69c9e2cd34320a0ce0e5be87d8bcac0a"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/3-control-midi-labeled.png"></a>
+<a href="#R-image-826015a400a4f9321e75b2106f0724c4" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/4-ctrl-midi-track-pattrs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-826015a400a4f9321e75b2106f0724c4"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/4-ctrl-midi-track-pattrs.png"></a></p>
+<p>This pattr now sends its updated value 0 directly (not via the pattrstorage object in djazz.control) through the <em>djazz.control.midi.translate_track</em> abstraction in order to rename it for the correct pattr object in the model:</p>
+<p><a href="#R-image-afece408005b2dc7acab8b3cc534956f" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/5-ctrl-midi-track-translate.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-afece408005b2dc7acab8b3cc534956f"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/5-ctrl-midi-track-translate.png"></a>
+<a href="#R-image-104d04f81ecc16a21b3057d886c19f23" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-104d04f81ecc16a21b3057d886c19f23"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png"></a></p>
+<p>The message sent to the model is <em>midi::midi_out::midi_out_bank::track_13::effect_list::transpose_pitch::semitones 0</em>. It is received by the pattrhub object in the model and sent to the corresponding patcher:<br>
+<a href="#R-image-0ec15f836e7554ceacccdb5ad288704c" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/7-model-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0ec15f836e7554ceacccdb5ad288704c"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/7-model-labeled.png"></a>
+<a href="#R-image-2b4a4b548da773d9dbadffc13a88e809" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/8-model-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2b4a4b548da773d9dbadffc13a88e809"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/8-model-midi-labeled.png"></a>
+<a href="#R-image-b2c4309b4317a8791b7763e9b4d74fc0" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/9-model-midi-out-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b2c4309b4317a8791b7763e9b4d74fc0"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/9-model-midi-out-labeled.png"></a>
+<a href="#R-image-fe620c78b9b87bafcc99f9528d445f90" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/10-model-midi-out-bank-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-fe620c78b9b87bafcc99f9528d445f90"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/10-model-midi-out-bank-labeled.png"></a>
+<a href="#R-image-0d8dd769604bc8fed02fbe8d3abb1119" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/11-model-midi-out-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-0d8dd769604bc8fed02fbe8d3abb1119"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/11-model-midi-out-track-labeled.png"></a>
+<a href="#R-image-b1b1e685bc752f35368d4468cbda6700" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/12-model-midi-out-effect-list-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b1b1e685bc752f35368d4468cbda6700"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/12-model-midi-out-effect-list-labeled.png"></a>
+<a href="#R-image-936afffbde680d3c02ef058c5af6c062" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/13-model-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-936afffbde680d3c02ef058c5af6c062"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/13-model-transpose-pitch.png"></a></p>
+<p>When the pattr in the model is updated, the model&rsquo;s pattrstorage sends its name and value to the view control, which translates it and sends it back to the view.</p>
+<p>The state of the variable can be seen in each of the four debug windows (view, control, model, and view control).</p>
+<p><a href="#R-image-814472558d4ba21fc537414132e6d6a6" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17a-debug-view-and-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-814472558d4ba21fc537414132e6d6a6"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17a-debug-view-and-control.png"></a>
+<a href="#R-image-1988d1a248ccfe15d273de92d905f4a6" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17b-debug-model-and-view-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1988d1a248ccfe15d273de92d905f4a6"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="/Djazz_2.0_documentation/3_api/6_architecture/2_asynchronous_data_mvcvc/images/pattr-example/17b-debug-model-and-view-control.png"></a></p>
+<h6 id="pattr-visibility">Pattr Visibility</h6>
+<p>For more complex abstractions that use several <em>pattrs</em>, as well as abstractions that lend themselves to reuse, such as the beat-generators which are nested in midi- and audio-beat-generators, Djazz uses the second method of pattr passing:<br>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+    subgraph B[B];
+        subgraph C[C];
+        direction TB
+            p[pattr my_pattr]
+        end
+    end
+end
+in --&gt;|A::B::C::my_pattr|p
+</pre></p>
+
+<pre class="mermaid align-left zoomable">
+flowchart LR;
+in(( ))
+subgraph A[A];
+direction TB
+    pA[pattr my_pattr_A]
+subgraph B[B];
+direction TB
+    pB[pattr my_pattr_B]
+subgraph C[C];
+direction TB
+    pC[pattr my_pattr_C]
+end
+end
+end
+in --&gt;|my_pattr_A|pA
+pA --&gt;|my_pattr_B|pB
+pB --&gt;|my_pattr_C|pC
+
+</pre>
+<p>Pattrs within nested abstractions are &ldquo;hidden&rdquo; from calls to the exterior abstraction. They are updated by calling a pattr in the exterior abstraction, which translates them to the appropriate pattr call to the interior abstraction; sometimes this sequence of calls to nested pattrs has several levels.
+In Max, a pattr is never actually hidden, as it can always be called using the double-colon syntax corresponding to the object in which it is located.  But a pattr can be hidden to the pattrstorage object that references it by setting the pattr&rsquo;s <em>visibility</em> attribute to zero.  The small object pattrvis.js was written to turn on and off the visibility of all the pattrs in an abstraction; it can act hierarchically as well, turning on or off all the visibility of pattrs in subpatchers.<br>
+The pattrvis.js object is used in the appropriate abstractions, and does not have an effect on the functionnality of the program.  It can be used to keep the debugging windows more readable, when nested pattrs have their visibility off. To inspect pattr messages passed to nested abstractions, turn their visibilities on by passing 1 to the pattrvis.js object in the corresponding abstraction.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="synchronous-data-in-the-model">Synchronous Data in the Model</h1>
+
+<p>Because Djazz is beat-based, most objects are built to receive and process information at recurring instances.  Djazz is played by inputting a tap, either manually, or from a built-in metronome, or from another application. The tap triggers a beat, which triggers notes to be output from the factor oracle or the score, which triggers note data to be output from antescofo, which triggers sound to be output by the audio or midi outputs.</p>
+<p>Upon receiving a tap, Djazz plays music by selecting sections from scores in one of two ways: playing it back &ldquo;straight,&rdquo; or by calculating an improvisation using the factor oracle algorithm.  This results in a reshuffling of the beats, which lines up with the harmonic content of the song.  The factor oracle algorithm can be modified with pattern-matching methods. The input to the factor oracle come from scores and real-time input, either audio or MIDI, and is output as audio or MIDI. It uses Antescofo to generate notes both from scores and generated as improvisations in tempo.</p>
+<h6 id="top-level">TOP LEVEL</h6>
+
+<pre class="mermaid align-left zoomable">
+graph TB;
+    A[Master Clock] 
+	B[Audio]
+	C[MIDI]
+	A--&gt;|tempo, beat number, label| B
+	A--&gt;|tempo, beat number, label| C
+</pre>
+<p>In a nutshell, Djazz is made up of the following:</p>
+<ul>
+<li>several players which function independently.</li>
+<li>master control for synchronising timing and for broadcasting global commands.</li>
+</ul>
+<p>The master control sends out the following data synchronously to all the players:</p>
+<ol>
+<li>tempo,</li>
+<li>beat,</li>
+<li>beat label.</li>
+</ol>
+<p>It sends this data immediately in succession and in this order to midi and audio generators. This order is important, so that the generators can calculate the correct information to play at the beginning of each beat.  It determinmes this data in the following ways:</p>
+<ul>
+<li>It contains a <em>beat clock</em> abstraction which acts as a master clock; it outputs a beat number when it receives a bang.  It increments its beat number with each output, but also keeps track of position in a song form and adjusts the beat in accordance if looped.</li>
+<li>It keeps track of tempo if tempo is manually input and fluctuates. This uses antescofo.</li>
+<li>It reads from the song dict to get label.</li>
+</ul>
+<h5 id="generators">GENERATORS</h5>
+<p>The abstractions that do most of the work in Djazz are the <em>generators</em>.  They accept the data passed by the master control and convert them into appropriate musical output.  There are two types of generators: MIDI and audio.  Their construction is very similar; the difference is a result of the way audio data is played differently from MIDI data.</p>
+<h5 id="midi-generators">MIDI GENERATORS</h5>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+gIn(( ))
+g1[Generator 1]
+g2[Generator 2]
+g3[Generator 3]
+g4[Generator 4]
+g5[Generator 5]
+
+mbPlayer[MIDI Beat Player]
+
+t1[MIDI\nTrack 1]
+t2[MIDI\nTrack 2]
+t3[MIDI\nTrack 3]
+t4[MIDI\nTrack 4]
+t5[MIDI\nTrack 5]
+
+gOut((( )))
+
+gIn --&gt; g1 --&gt; mbPlayer
+gIn --&gt; g2 --&gt; mbPlayer
+gIn --&gt; g3 --&gt; mbPlayer
+gIn --&gt; g4 --&gt; mbPlayer
+gIn --&gt; g5 --&gt; mbPlayer
+
+mbPlayer --&gt; t1 --&gt; gOut
+mbPlayer --&gt; t2 --&gt; gOut
+mbPlayer --&gt; t3 --&gt; gOut
+mbPlayer --&gt; t4 --&gt; gOut
+mbPlayer --&gt; t5 --&gt; gOut
+
+</pre>
+<h5 id="audio-generators">AUDIO GENERATORS</h5>
+<p>To write</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="adding-to-djazz">Adding to Djazz</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Adding to Djazz</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="adding-to-djazz">Adding to Djazz</h1>
+
+<p>To add functionality to Djazz, use the following method:</p>
+<h6 id="in-model">IN MODEL:</h6>
+<ul>
+<li>Create your patcher.  Use pattr objects for asynchronous input.  You can include a pattrhub object to broadcast pattr messages for reusability&rsquo;s sake, but this is not needed if the patcher is inside the model patcher (djazz.maxpat).</li>
+<li>Connect your patcher in the appropriate place inside djazz.maxpat. See the <a href="/Djazz_2.0_documentation/3_api/7_adding_to_djazz/1_general_principles_and_method.html">specific descriptions</a> for examples.</li>
+</ul>
+<h6 id="in-control">IN CONTROL:</h6>
+<ul>
+<li>Inside <em>djazz.control</em>, place a subpatcher, possibly containing other subpatchers, with pattr objects, so that the patcher/pattr hierarchy reflects the way in which you want your new functionality to be called.</li>
+<li>Create a translator subpatcher and connect the output of the control subpatcher to it. This translator subpatcher should convert the message passed into djazz.control (&lt;<em>control variable name</em>&gt; &lt;<em>control variable value</em>&gt;) to the message needed by the model (&lt;<em>model variable name</em>&gt; &lt;<em>model variable value</em>&gt;). The Max <em>regexp</em> and __ objects are good for this.  You can use the <em>Debug View</em> button to open the lists of pattrs in the model and control to make sure things are being named properly.</li>
+<li>Parameter-enable the pattrs if you want to trigger them with external devices via Djazz&rsquo;s <a href="/Djazz_2.0_documentation/3_api/7_adding_to_djazz/1_general_principles_and_method.html">parameter handler</a> patcher. Alternatively, you could pattern-enable the pattrs in the view (following section). Only parameter-enable one set of pattrs: those in the control or those in the view.</li>
+<li>Connect the translator to the control output that goes to the model.</li>
+</ul>
+<h6 id="in-a-view">IN A VIEW:</h6>
+<ul>
+<li>Create a bpatcher containing the graphic controls and views for your patcher. Attach pattr objects to the controls.</li>
+<li>Create a translator subpatcher and connect the output of the control subpatcher to it. This translator subpatcher should convert the message passed out of your bpatcher (&lt;<em>view variable name</em>&gt; &lt;<em>view variable value</em>&gt;) to the message needed by the control (&lt;<em>control variable name</em>&gt; &lt;<em>control variable value</em>&gt;). The Max <em>regexp</em> and __ objects are good for this.</li>
+<li>When placed in djazz.view, the pattrstorage system will handle the messaging; you don&rsquo;t have to connect your bpatcher to an output.</li>
+</ul>
+<h6 id="in-a-view-control">IN A VIEW CONTROL:</h6>
+<ul>
+<li>If necessary, add a subpatcher with pattrs, and a corresponding trnaslator, to djazz.view_control if you want to pass data from the model back into your view subpatcher.</li>
+</ul>
+<p><strong>Be sure to give all your pattrs initial values, and that these initial values are the same in the view, control, model, and possibly view control.</strong></p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="midi-effects">MIDI Effects</h1>
+
+<p>Effects that modify MIDI output should be placed inside the djazz.midi_out_effect_list abstraction inside the djazz.midi_out_track abstraction:</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="audio-effects">Audio Effects</h1>
+
+<p>Effects that modify audio output should be placed in one of two places, depending how they function.  There are two places where audio can be modified:</p>
+<ol>
+<li>
+<p>If the object does not process audio data itself, but determines parameters to pass to the supervp player, so that it plays audio data back differently, it should be placed in the djazz.audio_beat_generator abstraction.  This is how Djazz&rsquo;s audio_transpose_pitch and audio_transpose_octave effects work:</p>
+</li>
+<li>
+<p>If the object processes audio itself, it should be placed between an djazz.beat_player object and an audio.out object:</p>
+</li>
+</ol>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="audio-effects">Audio Effects</h1>
+
+<p>The factor oracle player, which Djazz uses to improvise, can be modified or replaced by another algorithm.  There are several levels of depth to which you can modify the improvisation functionality; read the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/5_improvisation.html">API section on improvisation</a>
+.  Here is just an explanation for where to put a new improviser Max object or abstraction.</p>
+<p>Replace the <em>improviser.maxpat</em> abstraction in <em>djazz.beat_generator</em>.  Your new improviser object should conform to the same input and output messages as the <em>improviser.maxpat</em> (see the <a href="http://localhost:1313/Djazz_2.0_documentation//3_API/1_abstraction_references/djazz.improviser.html">reference page</a>
+).</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="going-further">Going further</h1>
+
+<p>The sections in this chapter refer to functionality that is not in Djazz, but where the architecture is organized to offer a development environment that encourages musical exploration as well as design issues in music programming.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Going further</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="changing-the-analysis-in-the-factor-oracle">Changing the analysis in the factor oracle</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="enabling-listeners-and-real-time-analysis">Enabling listeners and Real-Time Analysis</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="dynamic-object-creation-and-destruction">Dynamic Object Creation and Destruction</h1>
+
+<p>This section describes an untested method for simplifying dynamic object creation and destruction in Max, using the MVC design described in another section.  It was originally intended to be used with Djazz.  It was coded using Javascript arrays and dictionaries of Max object instances, which ran into threading issues when these instances were created and destroyed before the Javascript thread was updated. Since then, Max has introduced Array objects (non-Javascript), which hopefully will obviate this problem; all code could be done in pure Max.</p>
+<h6 id="dynamic-creation-and-destruction-of-objects-arrays-and-dicts">Dynamic creation and destruction of objects: arrays and dicts</h6>
+<ul>
+<li>Hierarchies</li>
+<li>Saving and reloading architecture</li>
+</ul>
+<p>Objects in Djazz should be created and destroyed, so you can set up variable numbers of different types of players, and different midi and audio outputs.  The resulting configurations can then be saved and reloaded.</p>
+<p>There are two data structures for saving objects: dictionaries and arrays, because some objects occur as ordered sets [midi tracks, effects], while others don’t (players, although they could).</p>
+<p>Ordered sets are placed in arrays using javascript. This way they can be addressed using their indices in the array, and array operations can be used to keep track and change them.</p>
+<p>In javascript you can make arrays of objects.  To delete them, you have to both remove them from the patcher and remove them from the array or you will get undefined stuff.</p>
+<p>The midi out bank is an example of a hierarchy of objects containing arrays. The bank contains tracks, and the tracks contain (among other things) midi effects. Tracks can be created and deleted, and so can effects. [SLIDE: tree]</p>
+<p>In addition, there are effects that apply to groups of tracks:</p>
+<ul>
+<li>BANK</li>
+<li>TRACK GROUP</li>
+<li>TRACK</li>
+<li>EFFECT_LIST</li>
+<li>EFFECT</li>
+</ul>
+<p>To make this structure:<br>
+Each object in the hierarchy contains a javascript object with the variable name &ldquo;components,&rdquo; which is responsible for creating, deleting, and dispatching messages to, and gathering data from the hierarchy objects it contains.<br>
+Each « component » object contains an array of objects.<br>
+When objects are created, they are also placed in the array.</p>
+<p>The code in each of these component objects is similar, and they could be abstracted into classes (prototypes) that components are derived from, if this method seems important enough to do that.</p>
+<p>The bank can be saved as a dictionary.</p>
+<p>Dictionary entries can be dictionaries and arrays, and array entries can be dictionaries and arrays.<br>
+The midi bank dictionary contains arrays which contain dictionaries which contain arrays. Arbitrary nesting of dictionaries and arrays is possible. Access and modification becomes complicated, which I’ll talk about in section 4.</p>
+<p>To save a midi bank layout:</p>
+<p>Javascript objects can declare attributes: values that can be accessed like normal max objects.  Attributes can be dictionaries. Attribute values can also have custom getters and setters, which means that the attribute value does not have be something actually stored. A getter can dynamically construct it when it is invoked, and a setter can do something other than save the given value.<br>
+The midi bank thus has an attribute « bank_dict » that, when queried, builds a dictionary from its components’ data. It writes an array of its tracks, calling each of its tracks to give it the required data for its given array index.  It calls each track by requesting a dict attribute from the track representing its components. The track builds a dict in the same way, calling its effect components. This process continues until a recursively-built dictionary is completed, then the midi bank passes it to the caller which writes it as a json file.<br>
+To reload the midi bank, the opposite occurs: the attribute value setter builds the track list by creating each track and then sending it the corresponding track dict so that it can build itself.<br>
+The actual dict values are at no time saved.</p>
+<p>[EXAMPLE]</p>
+<p>This can be applied to the entire architecture of a session, including all the players. It will be once we’ve worked out what all the players will be and how they will be arranged.<br>
+Because of the hierarchical arrangement of dictionaries, the midi bank can have its own set of presets that can be loaded and saved inside the preset of an entire session.<br>
+To load an entire session including the pattr presets, the architecture dictionary has to be loaded first, and then the preset file.<br>
+Both the model and the view contain these component objects.<br>
+Communication between the view and model is in the rightmost wire.<br>
+Building from these dicts in the model and the view treat the dict like a model, and the model and view become its views.<br>
+Communication between the control and model during construction must be handled carefully and I’m interested in how to do it better. Originally I thought it would be great to include the dict attributes in the pattr system. Then they could be controlled in the same way that the rest of the parameters are controlled.<br>
+The problem is this. [SLIDE] Javascript operates on a different (low-priority) thread than Max objects. When it calls Max to creat an object (new default), it passes control to this thread and continues to the next javascript command—we don’t know when the max command will finish in relation to the javascript.<br>
+As components in the view hierarchy are built, we can’t assume that their analogs in the model are built at the same time. Thus messages cannot be passed from one to the other.<br>
+Thus we cannot count on the pattr system working when the hierarchies are constructed. It has to use a different system.</p>
+<p>Creating effects: to create a midi effect, several easy standards must be met:</p>
+<ul>
+<li>MIDI notes follow a given value (list of numbers)</li>
+<li>MIDI comes in the left inlet and out the left inlet</li>
+<li>A control/view and a model patch</li>
+<li>Communication btw control and model occur via pattr, so pattrs with the same name (possibly hierarchic) must exist in both patches</li>
+<li>Control and model patchers must be put in appropriately named subfolders of a folder titled by the effect name.</li>
+</ul>
+<p>If you do this, the effect will show up in the effect list.<br>
+This gives an easy, max-less way for developers to add their own effects.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="notes-on-rewriting-djazz">Notes on Rewriting Djazz</h1>
+
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          <section>
+            <h1 class="a11y-only">Subsections of Notes on Rewriting Djazz</h1>
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="dicts-in-max-and-javascript">Dicts in Max and javascript</h1>
+
+<p>Dicts, like colls, are persistent and global, so use them only as read-only.
+Don&rsquo;t use them as variables to pass around or for keeping track of state. Pattrs basically do this anyway so just use them to keep track of state snapshots.</p>
+<p>You can&rsquo;t put max objects in a dictionary. But you can put them in a javascript array.
+Max patchers basically are dictionaries, though, for objects in them with scripting names (varnames). They must both use hash tables to access their contents.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+          </section>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="/Djazz_2.0_documentation/js/clipboard.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/perfect-scrollbar.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-color.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-dispatch.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-drag.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-ease.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-interpolate.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-selection.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-timer.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-transition.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/d3/d3-zoom.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/js-yaml.min.js?1736191438" defer></script>
+    <script src="/Djazz_2.0_documentation/js/mermaid.min.js?1736191438" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="/Djazz_2.0_documentation/js/theme.js?1736191438" defer></script>
+  </body>
+</html>

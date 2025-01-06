@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.129.0">
+    <meta name="generator" content="Relearn 6.0.0+tip">
+    <meta name="description" content="graph TB; A[Master Clock] B[Audio] C[MIDI] A--&gt;|tempo, beat number, label| B A--&gt;|tempo, beat number, label| C flowchart TB; gIn(( )) g1[Generator 1] g2[Generator 2] g3[Generator 3] g4[Generator 4] g5[Generator 5] mbPlayer[MIDI Beat Player] t1[MIDI\nTrack 1] t2[MIDI\nTrack 2] t3[MIDI\nTrack 3] t4[MIDI\nTrack 4] t5[MIDI\nTrack 5] gOut((( ))) gIn --&gt; g1 --&gt; mbPlayer gIn --&gt; g2 --&gt; mbPlayer gIn --&gt; g3 --&gt; mbPlayer gIn --&gt; g4 --&gt; mbPlayer gIn --&gt; g5 --&gt; mbPlayer mbPlayer --&gt; t1 --&gt; gOut mbPlayer --&gt; t2 --&gt; gOut mbPlayer --&gt; t3 --&gt; gOut mbPlayer --&gt; t4 --&gt; gOut mbPlayer --&gt; t5 --&gt; gOut Description of Components in Model:">
+    <meta name="author" content="Daniel Brown">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:1313/images/hero.png">
+    <meta name="twitter:title" content="control flow :: Djazz">
+    <meta name="twitter:description" content="graph TB; A[Master Clock] B[Audio] C[MIDI] A--&gt;|tempo, beat number, label| B A--&gt;|tempo, beat number, label| C flowchart TB; gIn(( )) g1[Generator 1] g2[Generator 2] g3[Generator 3] g4[Generator 4] g5[Generator 5] mbPlayer[MIDI Beat Player] t1[MIDI\nTrack 1] t2[MIDI\nTrack 2] t3[MIDI\nTrack 3] t4[MIDI\nTrack 4] t5[MIDI\nTrack 5] gOut((( ))) gIn --&gt; g1 --&gt; mbPlayer gIn --&gt; g2 --&gt; mbPlayer gIn --&gt; g3 --&gt; mbPlayer gIn --&gt; g4 --&gt; mbPlayer gIn --&gt; g5 --&gt; mbPlayer mbPlayer --&gt; t1 --&gt; gOut mbPlayer --&gt; t2 --&gt; gOut mbPlayer --&gt; t3 --&gt; gOut mbPlayer --&gt; t4 --&gt; gOut mbPlayer --&gt; t5 --&gt; gOut Description of Components in Model:">
+    <meta property="og:url" content="http://localhost:1313/3_api/6_architecture/control_flow.html">
+    <meta property="og:site_name" content="Djazz">
+    <meta property="og:title" content="control flow :: Djazz">
+    <meta property="og:description" content="graph TB; A[Master Clock] B[Audio] C[MIDI] A--&gt;|tempo, beat number, label| B A--&gt;|tempo, beat number, label| C flowchart TB; gIn(( )) g1[Generator 1] g2[Generator 2] g3[Generator 3] g4[Generator 4] g5[Generator 5] mbPlayer[MIDI Beat Player] t1[MIDI\nTrack 1] t2[MIDI\nTrack 2] t3[MIDI\nTrack 3] t4[MIDI\nTrack 4] t5[MIDI\nTrack 5] gOut((( ))) gIn --&gt; g1 --&gt; mbPlayer gIn --&gt; g2 --&gt; mbPlayer gIn --&gt; g3 --&gt; mbPlayer gIn --&gt; g4 --&gt; mbPlayer gIn --&gt; g5 --&gt; mbPlayer mbPlayer --&gt; t1 --&gt; gOut mbPlayer --&gt; t2 --&gt; gOut mbPlayer --&gt; t3 --&gt; gOut mbPlayer --&gt; t4 --&gt; gOut mbPlayer --&gt; t5 --&gt; gOut Description of Components in Model:">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/hero.png">
+    <meta itemprop="name" content="control flow :: Djazz">
+    <meta itemprop="description" content="graph TB; A[Master Clock] B[Audio] C[MIDI] A--&gt;|tempo, beat number, label| B A--&gt;|tempo, beat number, label| C flowchart TB; gIn(( )) g1[Generator 1] g2[Generator 2] g3[Generator 3] g4[Generator 4] g5[Generator 5] mbPlayer[MIDI Beat Player] t1[MIDI\nTrack 1] t2[MIDI\nTrack 2] t3[MIDI\nTrack 3] t4[MIDI\nTrack 4] t5[MIDI\nTrack 5] gOut((( ))) gIn --&gt; g1 --&gt; mbPlayer gIn --&gt; g2 --&gt; mbPlayer gIn --&gt; g3 --&gt; mbPlayer gIn --&gt; g4 --&gt; mbPlayer gIn --&gt; g5 --&gt; mbPlayer mbPlayer --&gt; t1 --&gt; gOut mbPlayer --&gt; t2 --&gt; gOut mbPlayer --&gt; t3 --&gt; gOut mbPlayer --&gt; t4 --&gt; gOut mbPlayer --&gt; t5 --&gt; gOut Description of Components in Model:">
+    <meta itemprop="wordCount" content="1422">
+    <meta itemprop="image" content="http://localhost:1313/images/hero.png">
+    <title>control flow :: Djazz</title>
+    <link href="http://localhost:1313/3_api/6_architecture/control_flow.html" rel="canonical" type="text/html" title="control flow :: Djazz">
+    <link href="../../../3_api/6_architecture/control_flow/index.xml" rel="alternate" type="application/rss+xml" title="control flow :: Djazz">
+    <link href="../../../css/fontawesome-all.min.css?1735432857" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fontawesome-all.min.css?1735432857" rel="stylesheet"></noscript>
+    <link href="../../../css/nucleus.css?1735432857" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1735432857" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/auto-complete.css?1735432857" rel="stylesheet"></noscript>
+    <link href="../../../css/perfect-scrollbar.min.css?1735432857" rel="stylesheet">
+    <link href="../../../css/fonts.css?1735432857" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../../css/fonts.css?1735432857" rel="stylesheet"></noscript>
+    <link href="../../../css/theme.css?1735432857" rel="stylesheet">
+    <link href="../../../css/theme-relearn-auto.css?1735432857" rel="stylesheet" id="R-variant-style">
+    <link href="../../../css/chroma-relearn-auto.css?1735432857" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../../css/variant.css?1735432857" rel="stylesheet">
+    <link href="../../../css/print.css?1735432857" rel="stylesheet" media="print">
+    <link href="../../../css/format-print.css?1735432857" rel="stylesheet">
+    <script src="../../../js/variant.js?1735432857"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.index_js_url="../../../index.search.js?1735432857";
+      // variant stuff
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'retro-auto', 'neon', 'learn', 'blue', 'green', 'red' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../../3_api/6_architecture/control_flow.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../../3_api.html"><span itemprop="name">API</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">control flow</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../3_api/7_adding_to_djazz/1_general_principles_and_method.html" title="Adding to Djazz (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../../3_api/2_externals.html" title="Externals (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="control-flow">control flow</h1>
+
+
+<pre class="mermaid align-left zoomable">
+graph TB;
+    A[Master Clock] 
+	B[Audio]
+	C[MIDI]
+	A--&gt;|tempo, beat number, label| B
+	A--&gt;|tempo, beat number, label| C
+</pre>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+gIn(( ))
+g1[Generator 1]
+g2[Generator 2]
+g3[Generator 3]
+g4[Generator 4]
+g5[Generator 5]
+
+mbPlayer[MIDI Beat Player]
+
+t1[MIDI\nTrack 1]
+t2[MIDI\nTrack 2]
+t3[MIDI\nTrack 3]
+t4[MIDI\nTrack 4]
+t5[MIDI\nTrack 5]
+
+gOut((( )))
+
+gIn --&gt; g1 --&gt; mbPlayer
+gIn --&gt; g2 --&gt; mbPlayer
+gIn --&gt; g3 --&gt; mbPlayer
+gIn --&gt; g4 --&gt; mbPlayer
+gIn --&gt; g5 --&gt; mbPlayer
+
+mbPlayer --&gt; t1 --&gt; gOut
+mbPlayer --&gt; t2 --&gt; gOut
+mbPlayer --&gt; t3 --&gt; gOut
+mbPlayer --&gt; t4 --&gt; gOut
+mbPlayer --&gt; t5 --&gt; gOut
+
+</pre>
+<p>Description of Components in Model:</p>
+<p>Because Djazz is beat-based, most objects are built to receive and process information at recurring instances.</p>
+<p>Djazz is played by inputting a tap—manually, from a built-in metronome, or from another application. The tap triggers a beat, which triggers notes to be output from the factor oracle or the score, which triggers note data to be output from antescofo, which triggers sound to be output by the audio or midi outputs. [SLIDE]</p>
+<p>Djazz plays music in two ways: by selecting sections from scores, and by calculating improvisations using the factor oracle algorithm. The factor oracle algorithm can be modified with pattern-matching methods. The input to the factor oracle come from scores and real-time input, either audio or MIDI, and is output as audio or MIDI. It uses Antescofo to generate notes both from scores and generated as improvisations in tempo.</p>
+<p>You can see this control flow. The tap comes in on the left and comes out as sound from the midi bank on the right. The intermediate translations from tap to beat occur in the objects along the way.</p>
+<p>The architecture:</p>
+<ul>
+<li>several players which function independently.</li>
+<li>master control for synchronising timing and for broadcasting global commands.</li>
+</ul>
+<p>Master Control
+Master Clock
+- outputs a beat number when it receives a bang
+- increments its beat number with each output, but also keeps track of position in a song form and adjusts the beat in accordance if looped.
+- keeps track of tempo if tempo is manually input and fluctuates. This uses antescofo.
+- reads from song dict to get label
+- sends tempo, beat, and chord label, immediately in succession and in that order, to midi and audio generators. This order is important,  so that the generators can calculate the correct information to play at the beginning of each beat.</p>
+<pre><code>1. Architecture
+	Model/Control/View Control/View
+</code></pre>
+<p>Djazz uses the Model-View-Control design pattern.</p>
+<p>The model consists of the objects that do the processing. At the top level, there are various players and the master control described in the previous section.</p>
+<p>Input is passed to patchers two ways: synchronously and asynchronously, depending on the type of input data.
+Synchoronous data;</p>
+<ul>
+<li>beat number (<em>int</em>),</li>
+<li>current tempo (<em>float</em>)</li>
+<li>beat label (<em>symbol</em>)</li>
+<li>loop section beats (<em>list: int int</em>) the start and end beat of the section being looped. This is used to calculate the length of repetitions for live MIDI and audio input.  It can change when the current beat advances to the next chapter, so this data is triggered and sent out by the master control instead of asynchronously.</li>
+<li>dict names (<em>symbol</em>), such as those for beat lists and factor oracles . This is because data must be loaded before other control variables can be set.</li>
+</ul>
+<p>This data is passed serially through patch cords. Send and receive Max objects are not used, to ensure synchrony, as well as to aid debugging and avoid complicating the control flow.</p>
+<p>Asynchronous data is anything changed by the user using the GUI. A lot of this data is well known to audio interface users: track volume, MIDI and audio effects like pitch transposition, for instance.</p>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+V[View];
+C[Control];
+M[Model];
+VC[View Control];
+
+V --&gt; C
+C --&gt; M
+M --&gt; VC
+VC --&gt; V
+</pre>
+
+<pre class="mermaid align-left zoomable">
+flowchart TB;
+
+subgraph V[View];
+end
+
+subgraph C[Control];
+direction TB
+	tvc[translate view to control]
+	ctrlpattrs[control pattrs]
+	tcm[translate control to model]
+	tvc --&gt; ctrlpattrs--&gt; tcm
+end
+
+subgraph M[Model];
+end
+
+subgraph VC[View Control];
+direction TB
+	tmv[translate model to view]
+end
+
+V --&gt; tvc
+tcm --&gt; M
+tmv --&gt; V
+M --&gt; tmv
+
+</pre>
+<p>Pattr translation in control and view control</p>
+<p>Based on the Audiokinetic model of audio plugins.</p>
+<h6 id="model">MODEL</h6>
+<p>The model (djazz.maxpat) is the actual Djazz patcher, in the sense that all the functionality occurs in this patcher: MIDI and audio input and output processing, timing synchronization, improvisation calculation, etc.</p>
+<p>Abstractions in the model contain pattrs which are set by sending messages in the form &lt;<em>pattr name</em>&gt; &lt;<em>pattr value</em>&gt;.
+The <em>pattrhub</em> Max object distributes these messages to the appropriate pattr objects.</p>
+<h6 id="contr0l">CONTR0L</h6>
+<p>The control acts as the interface to pass messages to the model.  It is similar to a shell in an operating system, or a parameter bank in an audio plugin.  Its input represents the set of all possible asynchronous messages that can be sent to Djazz.  Its job is to translate these messages to their appropriate messages that the model understands, and to handle any value initialization and message dependencies.</p>
+<p>There are many pattrs in the model.</p>
+<ul>
+<li>Not all pattrs may be desired to be used, or exposed to the user.</li>
+<li>The organization of the pattr hierarchy in the model may not reflect the user&rsquo;s conception</li>
+<li>it may be wished to call pattrs in the model via other variables that need some processing to determine their value.</li>
+</ul>
+<p>The control, then, acts a shell which exposes the messages that can be sent to Djazz. By replacing the control, you can change the commands it responds to without changing the model itself.</p>
+<p>To make modularity easier, pattrs in the control are grouped in encapsulations.  This means that calling nested pattrs demands the &ldquo;::&rdquo; syntax (see example below).</p>
+<h6 id="view-control">VIEW CONTROL</h6>
+<p>Values in abstractions in the model that are to be sent to the view control are stored as pattrs inside subpatchers named &ldquo;view,&rdquo; so that they can be extracted from the other pattrs passed out of hte model.</p>
+<h6 id="view">VIEW</h6>
+<p>The view is a collection of bpatchers containing graphical controls and data fields.  It triggers messages to be sent to the control.  Different views could be used, and even several views at the same time.  The Launchpad interfaces are also views.</p>
+<p>Every parameter is stored in a pattr object.</p>
+<p><strong>Note: with this method, the interior pattrhub objects end up not being used at all, but it’s still good to leave them in so that these objects can be reused and are not dependent on being called this way.</strong></p>
+<p>Finally, unused variables simply aren’t called. But to be absolutely sure that uncalled variables don’t give us trouble, by storing state that have forgotten about, or by accidentally being called, due to sharing names accidentally with a control variable, we can turn off their visibility to the pattrstorage system, which means they can never be called. There is a javascript object I wrote which will turn off all the pattrs in an object. The first argument tells it what the visibility is, the second whether to recursively change the visibility in sub patchers.</p>
+<h5 id="example">EXAMPLE</h5>
+<p><a href="#R-image-2679dc380c89f767fb4f1f4a410a3ba5" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/0-view-midi-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-2679dc380c89f767fb4f1f4a410a3ba5"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/0-view-midi-track-labeled.png"></a>
+<a href="#R-image-b854f6c6c57e2a0422e38127e6e739cf" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b854f6c6c57e2a0422e38127e6e739cf"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/1-view-midi-track-pattr-transpose-pitch.png"></a>
+<a href="#R-image-1ce4c6c7c8a9423b19530cb980cc0d6d" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/2-control-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1ce4c6c7c8a9423b19530cb980cc0d6d"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/2-control-labeled.png"></a>
+<a href="#R-image-e39e1052eb0d3484ded31d4ef86ba2f9" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/3-control-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e39e1052eb0d3484ded31d4ef86ba2f9"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/3-control-midi-labeled.png"></a>
+<a href="#R-image-689c4cd333fd19fdce427f2b7ea6cf60" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/4-ctrl-midi-track-pattrs.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-689c4cd333fd19fdce427f2b7ea6cf60"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/4-ctrl-midi-track-pattrs.png"></a>
+<a href="#R-image-b3184096d5e15f0372b3fa4d5ec8552c" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/5-ctrl-midi-track-translate.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b3184096d5e15f0372b3fa4d5ec8552c"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/5-ctrl-midi-track-translate.png"></a>
+<a href="#R-image-21ec0e8774a55c29d4e68efd69b734cd" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-21ec0e8774a55c29d4e68efd69b734cd"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/6-ctrl-midi-track-translate-transpose-pitch.png"></a>
+<a href="#R-image-3791a97367da9003011fe6e30ec94ea3" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/7-model-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3791a97367da9003011fe6e30ec94ea3"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/7-model-labeled.png"></a>
+<a href="#R-image-9a1684e5938f61824efcbb2b99dfff99" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/8-model-midi-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9a1684e5938f61824efcbb2b99dfff99"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/8-model-midi-labeled.png"></a>
+<a href="#R-image-b717df2e229190a35142ea849bb5bd5d" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/9-model-midi-out-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b717df2e229190a35142ea849bb5bd5d"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/9-model-midi-out-labeled.png"></a>
+<a href="#R-image-1a2fd34729215a9952d543591def80d4" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/10-model-midi-out-bank-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1a2fd34729215a9952d543591def80d4"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/10-model-midi-out-bank-labeled.png"></a>
+<a href="#R-image-db64f7a5b19871482e0e69bc6c597963" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/11-model-midi-out-track-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-db64f7a5b19871482e0e69bc6c597963"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/11-model-midi-out-track-labeled.png"></a>
+<a href="#R-image-3fdcaa9d3be176fbaf743a631656589d" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/12-model-midi-out-effect-list-labeled.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3fdcaa9d3be176fbaf743a631656589d"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/12-model-midi-out-effect-list-labeled.png"></a>
+<a href="#R-image-5393d5d445b1a43f4254a378f65ab0af" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/13-model-transpose-pitch.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5393d5d445b1a43f4254a378f65ab0af"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/13-model-transpose-pitch.png"></a>
+<a href="#R-image-f7307fe4d4ca2efb6838b301b6315f16" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/14a-view-pattrstorage-start.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f7307fe4d4ca2efb6838b301b6315f16"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/14a-view-pattrstorage-start.png"></a>
+<a href="#R-image-703ef36e297e76bfa6ab9eb884427c9d" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/14b-view-pattrstorage-track-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-703ef36e297e76bfa6ab9eb884427c9d"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/14b-view-pattrstorage-track-3.png"></a>
+<a href="#R-image-e0c3822aee1bdb9e5fcca89a6e632718" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/15a-ctrl-pattrstorage-start.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-e0c3822aee1bdb9e5fcca89a6e632718"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/15a-ctrl-pattrstorage-start.png"></a>
+<a href="#R-image-946f713a2e7c847653cebbc09d9d4da2" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/15b-ctrl-pattrstorage-track-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-946f713a2e7c847653cebbc09d9d4da2"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/15b-ctrl-pattrstorage-track-3.png"></a>
+<a href="#R-image-1a391aa854f28448fcdf91d8a89847b6" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/16a-model-pattrstorage-start.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-1a391aa854f28448fcdf91d8a89847b6"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/16a-model-pattrstorage-start.png"></a>
+<a href="#R-image-7c6d337efeef3607010ced24b2a4afd5" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/16b-model-pattrstorage-track-3.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7c6d337efeef3607010ced24b2a4afd5"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/16b-model-pattrstorage-track-3.png"></a>
+<a href="#R-image-947b252edf29804daab45645c1a8e886" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/17a-debug-view-and-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-947b252edf29804daab45645c1a8e886"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/17a-debug-view-and-control.png"></a>
+<a href="#R-image-84616e5572a1087efd6bd1e7266e7be1" class="lightbox-link"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow figure-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/17b-debug-model-and-view-control.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-84616e5572a1087efd6bd1e7266e7be1"><img alt="midi track labeled" class="bg-white border lazy lightbox noshadow lightbox-image" loading="lazy" src="../../../3_api/6_architecture/control_flow/images/pattr-example/17b-debug-model-and-view-control.png"></a></p>
+<p>The model outputs midi and audio, but it also outputs pattrs to any view that wants to receive them. It does this the same way as the control: a pattrstorage object is at the top level of the model patcher, and when a pattr value is updated, it outputs the pattr name and value.</p>
+<p>There are two types of pattrs that the model outputs: those that are specifically for a view, and the parameters that were sent from the control.</p>
+<p>This flow of pattrs becomes a loop.</p>
+<p>To avoid an infinite loop, we make use the pattrstorage’s outputmode attribute.
+View: infinite loop is avoided via pattrstorage output mode set to 3.
+In the model, the output mode is 2: any changed values are sent out.
+But in the view, the output mode is 6: values that are changed by objects in the pattr system are not sent out. That is, only values that are changed by user interaction are sent out. Thus the values received by pattrhub are set but not passed on. The loop is broken.</p>
+<p>The control flow is clear.
+All of the state is centralised in the parameter banks
+The state can be read in in real time by the client windows (easy to debug)
+The state can be saved as preset files and reloaded.</p>
+<p>The CONTROL PATTRS and DATA PATTRS (dicts) are saved.
+On loading, the data pattrs must be fully loaded first; their priorities are set to 1.
+The control pattrs are independent so their priorities are all 0.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+
+        </div>
+      </main>
+    </div>
+    <script src="../../../js/clipboard.min.js?1735432857" defer></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-color.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-dispatch.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-drag.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-ease.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-interpolate.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-selection.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-timer.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-transition.min.js?1735432857" defer></script>
+    <script src="../../../js/d3/d3-zoom.min.js?1735432857" defer></script>
+    <script src="../../../js/js-yaml.min.js?1735432857" defer></script>
+    <script src="../../../js/mermaid.min.js?1735432857" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{ \"securityLevel\": \"loose\" }");
+    </script>
+    <script src="../../../js/theme.js?1735432857" defer></script>
+  </body>
+</html>

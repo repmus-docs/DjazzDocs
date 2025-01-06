@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Going further :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further.html</link>
+    <description>The sections in this chapter refer to functionality that is not in Djazz, but where the architecture is organized to offer a development environment that encourages musical exploration as well as design issues in music programming.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changing the analysis in the factor oracle</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/1_changing_the_analysis_in_the_factor_oracle.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/1_changing_the_analysis_in_the_factor_oracle.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Enabling listeners and Real-Time Analysis</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/2_enabling_listeners_and_real_time_analysis.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/2_enabling_listeners_and_real_time_analysis.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dynamic Object Creation and Destruction</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/3_dynamic_object_creation_and_destruction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further/3_dynamic_object_creation_and_destruction.html</guid>
+      <description>This section describes an untested method for simplifying dynamic object creation and destruction in Max, using the MVC design described in another section.</description>
+    </item>
+  </channel>
+</rss>

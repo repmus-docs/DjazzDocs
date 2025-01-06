@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adding to Djazz :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding to Djazz</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/1_general_principles_and_method.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/1_general_principles_and_method.html</guid>
+      <description>To add functionality to Djazz, use the following method:&#xA;IN MODEL: Create your patcher.</description>
+    </item>
+    <item>
+      <title>MIDI Effects</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/2_midi_effects.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/2_midi_effects.html</guid>
+      <description>Effects that modify MIDI output should be placed inside the djazz.</description>
+    </item>
+    <item>
+      <title>Audio Effects</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/3_audio_effects.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/3_audio_effects.html</guid>
+      <description>Effects that modify audio output should be placed in one of two places, depending how they function.</description>
+    </item>
+    <item>
+      <title>Audio Effects</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/4_improvisers.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/4_improvisers.html</guid>
+      <description>The factor oracle player, which Djazz uses to improvise, can be modified or replaced by another algorithm.</description>
+    </item>
+  </channel>
+</rss>

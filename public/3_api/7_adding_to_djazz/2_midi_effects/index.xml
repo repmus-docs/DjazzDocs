@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MIDI Effects :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/2_midi_effects.html</link>
+    <description>Effects that modify MIDI output should be placed inside the djazz.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz/2_midi_effects/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

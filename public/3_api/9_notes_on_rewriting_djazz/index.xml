@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Rewriting Djazz :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dicts in Max and javascript</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz/2_max_dictionaris_in_js_and_max.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz/2_max_dictionaris_in_js_and_max.html</guid>
+      <description>Dicts, like colls, are persistent and global, so use them only as read-only.</description>
+    </item>
+  </channel>
+</rss>

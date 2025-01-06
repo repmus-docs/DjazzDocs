@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Factor Oracle and Player :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle.html</link>
+    <description>The factor oracle The factor oracle data structure is described in detail in the following references: reference 1 reference 2 reference 3</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation/2_factor_oracle/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

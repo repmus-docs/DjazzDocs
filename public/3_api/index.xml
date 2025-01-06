@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API :: Djazz</title>
+    <link>http://localhost:1313/Djazz_2.0_documentation/3_api.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/Djazz_2.0_documentation/3_api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Abstraction Reference</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/1_abstraction_references.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/1_abstraction_references.html</guid>
+      <description>Hmmmm…</description>
+    </item>
+    <item>
+      <title>Externals</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/2_externals.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>File formats used</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/3_file_formats_used.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/3_file_formats_used.html</guid>
+      <description>Audio data is saved in WAV form. Besides this, all Djazz data is saved to and loaded from JSON in order to be imported into Max dictionaries.</description>
+    </item>
+    <item>
+      <title>Improvisation</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/5_improvisation.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>External controls and views</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/4_external_controls_and_views.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/4_external_controls_and_views.html</guid>
+      <description>To use a new kind of Launchpad, a Launchpad device file must be created and added to the djazz_data/presets folder, and a corresponding Max objects added in the external_controllers subpatcher at the top level of the.</description>
+    </item>
+    <item>
+      <title>System Architecture</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/6_architecture.html</guid>
+      <description>Synchronous and Asynchoronous Input Input is passed to patchers two ways: synchronously and asynchronously, depending on the type of input data.</description>
+    </item>
+    <item>
+      <title>Adding to Djazz</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/7_adding_to_djazz.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Going further</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/8_going_further.html</guid>
+      <description>The sections in this chapter refer to functionality that is not in Djazz, but where the architecture is organized to offer a development environment that encourages musical exploration as well as design issues in music programming.</description>
+    </item>
+    <item>
+      <title>Notes on Rewriting Djazz</title>
+      <link>http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Djazz_2.0_documentation/3_api/9_notes_on_rewriting_djazz.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

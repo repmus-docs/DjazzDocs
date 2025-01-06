@@ -3,13 +3,6 @@ title = "File formats used"
 weight = 30
 +++
 
-File formats used
-	json
-	song file
-	score/track files for MIDI
-	audio: wav and json
+Audio data is saved in WAV form.  Besides this, all Djazz data is saved to and loaded from JSON in order to be imported into Max dictionaries.  This includes MIDI data.
 
-Folders for consolidating files that go together
-	Saving and loading folders (gotchas)
-
-Json files are imported into dictionaries
+The antescofo .txt files included with song folders is converted to JSON when loaded. 

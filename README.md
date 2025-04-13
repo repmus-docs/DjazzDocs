@@ -2,7 +2,7 @@ Djazz is a generative music program that improvises using material from pre-reco
 
 ## Installation & Usage
 Djazz needs no special installation.
-Download the [Djazz folder here](https://github.com/DYCI2/Djazz_2.0).
+Download the [Djazz folder here](https://github.com/DYCI2/Djazz).
 
 ## License
 

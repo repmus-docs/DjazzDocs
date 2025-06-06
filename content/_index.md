@@ -4,6 +4,6 @@ description = "Software for musical co-creativity."
 title = "Djazz"
 +++
 
-{{% replaceRE "https://danielbrownmusic.github.io/djazz/" "" %}}
+{{% replaceRE "https://github.com/DYCI2/Djazz" "" %}}
 {{< include "README.md" "true" >}}
 {{% /replaceRE %}}

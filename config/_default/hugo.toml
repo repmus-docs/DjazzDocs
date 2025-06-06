@@ -117,7 +117,7 @@ summaryLength = 10
   [[languages.en.menu.shortcuts]]
     name = "<i class='fa-fw fab fa-github'></i> GitHub repo"
     identifier = "ds"
-    url = "https://github.com/danielbrownmusic/djazz_with_data"
+    url = "https://github.com/DYCI2/Djazz"
     weight = 10
 
   [[languages.en.menu.shortcuts]]

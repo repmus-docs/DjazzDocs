@@ -1,5 +1,5 @@
 +++
 title = "Notes on Rewriting Djazz"
-weight = 90
+weight = 100
 +++
 

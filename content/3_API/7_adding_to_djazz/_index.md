@@ -1,4 +1,4 @@
 +++
 title = "Adding to Djazz"
-weight = 70
+weight = 80
 +++

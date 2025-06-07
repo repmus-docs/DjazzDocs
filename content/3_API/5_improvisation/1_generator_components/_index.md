@@ -22,7 +22,7 @@ direction TB
     in1 -->|beat label| improviser -->|beat number| out1
 end
 
-bdnl[Beat Dict Name Lookup "get_beats"]
+bdnl[Beat Dict Name Lookup]
 loop[Looper]
 br[Beat Reader]
 in -->in1

@@ -22,7 +22,7 @@ direction TB
     in1 -->|beat label| improviser -->|beat number| out1
 end
 
-bdnl[Beat Dict Name Lookup ("get_beats")]
+bdnl[Beat Dict Name Lookup "get_beats"]
 loop[Looper]
 br[Beat Reader]
 in -->in1
@@ -32,7 +32,8 @@ out1 -->bdnl -->|beat number| loop -->|beat number| br -->|playback data| out
 
 
 
-The audio and MIDI generators ({{< abstref "djazz.midi.generator" >}}djazz.midi.generator{{< /abstref >}} and {{< abstref "djazz.audio.generator" >}}djazz.audio.generator{{< /abstref >}}, respectively), are the workhorses of the Djazz 2.0 system.
+The audio and MIDI generators ({{< abstref "djazz.midi.generator" >}}djazz.midi.generator{{< /abstref >}} and {{< abstref "djazz.audio.generator" >}}djazz.audio.generator{{< /abstref >}}, respectively), are the workhorses of the Djazz 2.0 system. Their makeup is similar 
+
 
 
 
@@ -64,10 +65,10 @@ direction TB
     label[hold label]
 
     subgraph FOP[Factor Oracle Player];
-    in3(( ))
-    out3(( ))
-    FO[Factor Oracle]
-    in3 -->FO -->out3
+        in3(( ))
+        out3(( ))
+        FO[Factor Oracle]
+        in3 -->FO -->out3
     end
 
     out2(( ))

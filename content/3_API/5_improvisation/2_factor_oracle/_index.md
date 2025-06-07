@@ -36,7 +36,7 @@ As with all the data-related patches in Djazz 2.0, no dict name is specific to t
 
 The method for choosing beats from the factor oracle in a real-time improvisation setting is described in [Jérôme Nika, Marc Chemillier. Improtek: integrating harmonic controls into improvisation in the filiation of OMax. International Computer Music Conference (ICMC), Sep 2012, Ljubljana, Slovenia. pp.180-187.](https://hal.sorbonne-universite.fr/hal-01059330v1)
 
-The {{< abstref >}}factor_oracle_player.maxpat{{ </ abstref >}} abstraction follows the algorithm described in section 3.4, "Constrained Navigation and Continuity," of the above paper. Its design is as follows:
+The {{< abstref "factor_oracle" >}}factor_oracle_player.maxpat{{< /abstref >}} abstraction follows the algorithm described in section 3.4, "Constrained Navigation and Continuity," of the above paper. Its design is as follows:
 
 ![factor oracle player](images/factor_oracle_player.png)
 

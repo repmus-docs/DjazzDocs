@@ -4,7 +4,34 @@ weight = 10
 +++
 
 
+### Generator components and data flow:
 
+{{<mermaid align="left">}}
+flowchart TB;
+
+in(( ))
+out(( ))
+
+subgraph BNG[Beat Generator];
+direction TB
+    in1(( ))
+    scoreplayer[Score Player]
+    improviser[Improviser]
+    out1(( ))
+    in1 -->|bang| scoreplayer -->|beat number| out1
+    in1 -->|beat label| improviser -->|beat number| out1
+end
+
+bdnl[Beat Dict Name Lookup ("get_beats")]
+loop[Looper]
+br[Beat Reader]
+in --> in1
+out1 --> bdnl --> |beat number| loop --> |beat number| br --> |playback data| out
+
+{{< /mermaid >}}
+
+
+# Beat generator components and data flow:
 {{<mermaid align="left">}}
 flowchart TB;
 
@@ -26,10 +53,18 @@ direction TB
     in2(( ))
     speed2[Speed Control]
     label[hold label]
-    FOP[Factor Oracle Player]
+
+    subgraph FOP[Factor Oracle Player]
+    in3(( ))
+    out3(( ))
+    FO[Factor Oracle]
+    in3 --> FO --> out3
+    end
+
     out2(( ))
     in2 --> |label |label
-    in2 -->|label| speed2 -->|bang| label -->|label| FOP -->|beat number| out2
+    in2 -->|label| speed2 -->|bang| label -->|label| in3 
+    out3 -->|beat number| out2
 end
 
 in-->in1

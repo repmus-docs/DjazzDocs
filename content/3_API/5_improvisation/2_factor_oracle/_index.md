@@ -40,9 +40,9 @@ The {{< abstref >}}factor_oracle_player.maxpat{{ </abstref >}} abstraction follo
 
 ![factor oracle player](images/factor_oracle_player.png)
 
-
 When the maximum continuity is reached, it takes a suffix link and searches for a matching label. If no matching label is found, it chooses a random state.
 
+### The analyzer
 
-The analyzer uses the same set of symbols as the factor oracle. It is used both offline, to create a file of labeled beats for a song, and online, to convert the data at the beginning of each beat into a symbol to be passed to the factor oracle player. 
-This symbol is then used as the query to the factor oracle to produce the next beat.
+The analyzer uses the same set of symbols (labels) as the factor oracle. It is used both offline, to create a file of labeled beats for a song, and online, to convert the data at the beginning of each beat into a symbol to be passed to the factor oracle player. 
+This label is then used as the query to the factor oracle to produce the next beat. See {{< apipage "5_improvisation/3_labels" >}}the next section on labels{{< /apipage >}} for more information on the format and analysis of labels in the factor oracle player.

@@ -25,10 +25,19 @@ end
 bdnl[Beat Dict Name Lookup ("get_beats")]
 loop[Looper]
 br[Beat Reader]
-in --> in1
-out1 --> bdnl --> |beat number| loop --> |beat number| br --> |playback data| out
+in -->in1
+out1 -->bdnl -->|beat number| loop -->|beat number| br -->|playback data| out
 
 {{< /mermaid >}}
+
+
+
+The audio and MIDI generators ({{< abstref "djazz.midi.generator" >}}djazz.midi.generator{{< /abstref >}} and {{< abstref "djazz.audio.generator" >}}djazz.audio.generator{{< /abstref >}}, respectively), are the workhorses of the Djazz 2.0 system.
+
+
+
+The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.  In improvise mode, the beat number is not considered. The label produced by the analyzer is used, as described above.
+
 
 
 # Beat generator components and data flow:
@@ -54,15 +63,15 @@ direction TB
     speed2[Speed Control]
     label[hold label]
 
-    subgraph FOP[Factor Oracle Player]
+    subgraph FOP[Factor Oracle Player];
     in3(( ))
     out3(( ))
     FO[Factor Oracle]
-    in3 --> FO --> out3
+    in3 -->FO -->out3
     end
 
     out2(( ))
-    in2 --> |label |label
+    in2 -->|label| label
     in2 -->|label| speed2 -->|bang| label -->|label| in3 
     out3 -->|beat number| out2
 end
@@ -74,9 +83,6 @@ out2-->out
 
 
 {{< /mermaid >}}
-
-
-The generator uses the beat number when improvise mode is not on; it uses this to play the next beat or a different beat if one has been selected by the user.  In improvise mode, the beat number is not considered. The label produced by the analyzer is used, as described above.
 
 The beat generator can play in two modes: score player and improviser. Each of these also contain two modes: play at the tempo given by the tap,
 or play at a different speed: double speed, quadruple speed, half speed, and one and a half speed.  This speed change is controlled 

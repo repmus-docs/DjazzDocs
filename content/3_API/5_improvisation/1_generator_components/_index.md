@@ -9,13 +9,13 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
-subgraph G["Generator      "];
+subgraph G["&emsp Generator"];
 direction TB
 
 in((in))
 out((out))
 
-subgraph BNG[Beat Generator];
+subgraph BNG["&emsp Beat Generator"];
 direction TB
     in1(( ))
     scoreplayer[Score Player]

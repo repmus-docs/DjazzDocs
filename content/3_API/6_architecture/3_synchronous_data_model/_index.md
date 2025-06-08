@@ -35,7 +35,7 @@ It sends this data immediately in succession and in this order to midi and audio
 
 ##### GENERATORS
 
-The abstractions that do most of the work in Djazz are the _generators_.  They accept the data passed by the master control and convert them into appropriate musical output.  There are two types of generators: MIDI and audio.  Their construction is very similar; the difference is a result of the way audio data is played differently from MIDI data.
+The abstractions that do most of the work in Djazz are the _generators_.  They accept the data passed by the master control and convert them into appropriate musical output.  There are two types of generators: MIDI and audio.  Their construction is very similar; the difference is a result of the way audio data is played differently from MIDI data. See the section on {{< apipage "5_improvisation/1_generator_components" >}}Improvisation/Generator Components{{< /apipage >}} for details.
 
 ##### MIDI GENERATORS
 
@@ -86,26 +86,25 @@ subgraph abPlayer1[Audio Beat Player 1];
 direction TB
 	ab1in(( ))
 	ab1out(( ))
-	svp[supersvp]
-	ab1in --> svp --> ab1out
+	svp1[supersvp]
+	ab1in --> svp1 --> ab1out
 end
 
 subgraph abPlayer2[Audio Beat Player 2];
 direction TB
 	ab2in(( ))
 	ab2out(( ))
-	svp[supersvp]
-	ab2in --> svp --> ab2out
+	svp2[supersvp]
+	ab2in --> svp2 --> ab2out
 end
 
 subgraph abPlayer3[Audio Beat Player 3];
 direction TB
 	ab3in(( ))
 	ab3out(( ))
-	svp[supersvp]
-	ab3in --> svp --> ab3out
+	svp3[supersvp]
+	ab3in --> svp3 --> ab3out
 end
-
 
 t1[Audio\nTrack 1]
 t2[Audio\nTrack 2]
@@ -113,8 +112,11 @@ t3[Audio\nTrack 3]
 
 gOut((( )))
 
-gIn --> g1 --> abPlayer1 --> t1 --> gOut
-gIn --> g2 --> abPlayer2 --> t2 --> gOut
-gIn --> g3 --> abPlayer3 --> t3 --> gOut
+gIn --> g1 --> ab1in 
+ab1out --> t1 --> gOut
+gIn --> g2 --> ab2in
+ab2out --> t2 --> gOut
+gIn --> g3 --> abin3 
+ab3out --> t3 --> gOut
 
 {{< /mermaid >}}

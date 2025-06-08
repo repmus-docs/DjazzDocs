@@ -30,7 +30,7 @@ out1 -->bdnl -->|beat dict name| loop -->|beat dict name| br -->|playback data| 
 
 {{< /mermaid >}}
 
-
+**General structure of a generator**
 
 The audio and MIDI generators ({{< abstref "djazz.midi.generator" >}}djazz.midi.generator{{< /abstref >}} and {{< abstref "djazz.audio.generator" >}}djazz.audio.generator{{< /abstref >}}, respectively), are the workhorses of the Djazz 2.0 system. Their makeup is similar 
 

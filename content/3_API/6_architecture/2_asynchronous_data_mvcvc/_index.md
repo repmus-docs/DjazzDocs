@@ -82,23 +82,27 @@ To make modularity easier, pattrs in the control are grouped in encapsulations. 
 {{<mermaid align="left">}}
 flowchart TB;
 
-subgraph storage[storage];
-    p1["user input pattr 1"];
-    p2["user input pattr 2"];
-    p3["user input pattr 3"];
+subgraph control[control]
+    subgraph storage[storage];
+        p1["user input pattr 1"];
+        p2["user input pattr 2"];
+        p3["user input pattr 3"];
+    end
+
+    T1["translator"]
+    T2["translator"]
+
+    q1["model pattr 1"]
+    q2["model pattr 2"]
 end
 
-T1["translator"]
-T2["translator"]
-
-q1["model pattr 1"]
-q2["model pattr 2"]
+M["model"]
 
 p1 --> T1
 p2 --> T1
 p3 --> T2
-T1 --> q1
-T2 --> q2
+T1 --> q1 --> M
+T2 --> q2 --> M
 
 {{< /mermaid >}}
 

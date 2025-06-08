@@ -116,7 +116,7 @@ gIn --> g1 --> ab1in
 ab1out --> t1 --> gOut
 gIn --> g2 --> ab2in
 ab2out --> t2 --> gOut
-gIn --> g3 --> abin3 
+gIn --> g3 --> ab3in 
 ab3out --> t3 --> gOut
 
 {{< /mermaid >}}

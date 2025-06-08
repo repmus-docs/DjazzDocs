@@ -74,4 +74,47 @@ mbPlayer --> t5 --> gOut
 
 ##### AUDIO GENERATORS
 
-To write
+
+{{<mermaid align="left">}}
+flowchart TB;
+gIn(( ))
+g1[Generator 1]
+g2[Generator 2]
+g3[Generator 3]
+
+subgraph abPlayer1[Audio Beat Player 1];
+direction TB
+	ab1in(( ))
+	ab1out(( ))
+	svp[supersvp]
+	ab1in --> svp --> ab1out
+end
+
+subgraph abPlayer2[Audio Beat Player 2];
+direction TB
+	ab2in(( ))
+	ab2out(( ))
+	svp[supersvp]
+	ab2in --> svp --> ab2out
+end
+
+subgraph abPlayer3[Audio Beat Player 3];
+direction TB
+	ab3in(( ))
+	ab3out(( ))
+	svp[supersvp]
+	ab3in --> svp --> ab3out
+end
+
+
+t1[Audio\nTrack 1]
+t2[Audio\nTrack 2]
+t3[Audio\nTrack 3]
+
+gOut((( )))
+
+gIn --> g1 --> abPlayer1 --> t1 --> gOut
+gIn --> g2 --> abPlayer2 --> t2 --> gOut
+gIn --> g3 --> abPlayer3 --> t3 --> gOut
+
+{{< /mermaid >}}

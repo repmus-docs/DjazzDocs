@@ -8,3 +8,4 @@ Synchronous data is passed using patch lines. Sends and receives are avoided in 
 
 Asynchronous data is stored in pattrs, and updated with pattrhubs and pattrstorages.  
 
+See the following two section for details.

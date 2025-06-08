@@ -12,8 +12,8 @@ flowchart TB;
 subgraph G[Generator];
 direction TB
 
-in(( ))
-out(( ))
+in((in))
+out((out))
 
 subgraph BNG[Beat Generator];
 direction TB
@@ -29,7 +29,7 @@ bdnl[Beat Dict Name Lookup]
 loop[Looper]
 br[Beat Reader]
 in -->in1
-out1 -->bdnl -->|beat number| loop -->|beat number| br -->|playback data| out
+out1 -->bdnl -->|beat dict name| loop -->|beat dict name| br -->|playback data| out
 
 end
 

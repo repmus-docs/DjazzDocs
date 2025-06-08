@@ -9,9 +9,6 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
-subgraph G[""];
-direction TB
-
 in((in))
 out((out))
 
@@ -30,8 +27,6 @@ loop[Looper]
 br[Beat Reader]
 in -->BNG
 out1 -->bdnl -->|beat dict name| loop -->|beat dict name| br -->|playback data| out
-
-end
 
 {{< /mermaid >}}
 

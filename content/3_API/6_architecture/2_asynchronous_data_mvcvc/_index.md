@@ -79,6 +79,30 @@ The control, then, acts a shell which exposes the messages that can be sent to D
 
 To make modularity easier, pattrs in the control are grouped in encapsulations.  This means that calling nested pattrs demands the "::" syntax (see example below).
 
+{{<mermaid align="left">}}
+flowchart TB;
+
+subgraph storage[storage];
+    p1["user input pattr 1"];
+    p2["user input pattr 2"];
+    p3["user input pattr 3"];
+end
+
+T1["translator"]
+T2["translator"]
+
+q1["model pattr 1"]
+q2["model pattr 2"]
+
+p1 --> T1
+p2 --> T1
+p3 --> T2
+T1 --> q1
+T2 --> q2
+
+{{< /mermaid >}}
+
+
 #### VIEW CONTROL
 
 The model outputs pattrs to any view that wants to receive them. It does this the same way as the control: a pattrstorage object is at the top level of the model patcher, and when a pattr value is updated, it outputs the pattr name and value.

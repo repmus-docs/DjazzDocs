@@ -9,13 +9,13 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
-subgraph G["        Generator"];
+subgraph G[""];
 direction TB
 
 in((in))
 out((out))
 
-subgraph BNG["     Beat Generator"];
+subgraph BNG["Beat Generator"];
 direction TB
     in1(( ))
     scoreplayer[Score Player]
@@ -28,7 +28,7 @@ end
 bdnl[Beat Dict Name Lookup]
 loop[Looper]
 br[Beat Reader]
-in -->in1
+in -->BNG
 out1 -->bdnl -->|beat dict name| loop -->|beat dict name| br -->|playback data| out
 
 end

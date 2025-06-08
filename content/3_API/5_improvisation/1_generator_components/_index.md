@@ -9,7 +9,7 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
-subgraph G[Generator];
+subgraph G["Generator      "];
 direction TB
 
 in((in))

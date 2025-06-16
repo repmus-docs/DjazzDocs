@@ -8,6 +8,53 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
+TapIn((Tap\nIn))
+PattrIn((Pattr\nIn))
+
+AudioIn((Audio\nIn))
+MidiIn((MIDI In))
+
+DataIn((File\nData\nIn))
+PresetIn((Presets In))
+
+PattrBroadcast[Asynchronous\nInput\nBroadcaster]
+Master[Master Control]
+Audio[Djazz Audio]
+Midi[Djazz MIDI]
+PattrStorage[PattrStorage]
+
+click Master "./../components/master_control.html" "Master Control"
+click Audio "audio.html" "Master Control"
+click Midi "midi.html" "Master Control"
+
+AudioOut(((Audio\nOut)))
+MidiOut(((MIDI Out)))
+PattrOut(((Pattr Out)))
+
+TapIn-->Master
+
+PattrIn-->PattrBroadcast
+AudioIn--->Audio
+MidiIn--->Midi
+DataIn-->Master
+DataIn-->Audio
+DataIn-->Midi
+Master-->Audio
+Master-->Midi
+
+Audio-->AudioOut
+
+Midi-->MidiOut
+
+PresetIn-->PattrStorage
+PattrStorage-->PattrOut
+
+{{< /mermaid >}}
+
+
+
+{{<mermaid align="left">}}
+flowchart TB;
 
 TapIn((Tap\nIn))
 PattrIn((Pattr\nIn))
@@ -21,8 +68,84 @@ PresetIn((Presets In))
 
 PattrBroadcast[Asynchronous\nInput\nBroadcaster]
 Master[Master Control]
-Audio[Djazz Audio]
-Midi[Djazz MIDI]
+
+subgraph Midi[Djazz MIDI];
+direction TB
+  gIn(( ))
+  g1[Generator 1]
+  g2[Generator 2]
+  g3[Generator 3]
+  g4[Generator 4]
+  g5[Generator 5]
+
+  mbPlayer[MIDI Beat Player]
+
+  t1[MIDI\nTrack 1]
+  t2[MIDI\nTrack 2]
+  t3[MIDI\nTrack 3]
+  t4[MIDI\nTrack 4]
+  t5[MIDI\nTrack 5]
+
+  gOut((( )))
+
+  gIn --> g1 --> mbPlayer
+  gIn --> g2 --> mbPlayer
+  gIn --> g3 --> mbPlayer
+  gIn --> g4 --> mbPlayer
+  gIn --> g5 --> mbPlayer
+
+  mbPlayer --> t1 --> gOut
+  mbPlayer --> t2 --> gOut
+  mbPlayer --> t3 --> gOut
+  mbPlayer --> t4 --> gOut
+  mbPlayer --> t5 --> gOut
+end
+
+subgraph Audio[Djazz Audio];
+direction TB
+  agIn(( ))
+  ag1[Generator 1]
+  ag2[Generator 2]
+  ag3[Generator 3]
+
+  subgraph abPlayer1[Audio Beat Player 1];
+  direction TB
+    ab1in(( ))
+    ab1out(( ))
+    svp1[supersvp]
+    ab1in --> svp1 --> ab1out
+  end
+
+  subgraph abPlayer2[Audio Beat Player 2];
+  direction TB
+    ab2in(( ))
+    ab2out(( ))
+    svp2[supersvp]
+    ab2in --> svp2 --> ab2out
+  end
+
+  subgraph abPlayer3[Audio Beat Player 3];
+  direction TB
+    ab3in(( ))
+    ab3out(( ))
+    svp3[supersvp]
+    ab3in --> svp3 --> ab3out
+  end
+
+  at1[Audio\nTrack 1]
+  at2[Audio\nTrack 2]
+  at3[Audio\nTrack 3]
+
+  gOut((( )))
+
+  agIn -->    ag1 --> ab1in 
+  ab1out -->  at1 --> gOut
+  agIn -->    ag2 --> ab2in
+  ab2out -->  at2 --> gOut
+  agIn -->    ag3 --> ab3in 
+  ab3out -->  at3 --> gOut
+end
+
 PattrStorage[PattrStorage]
 
 
@@ -49,8 +172,8 @@ MidiIn--->Midi
 DataIn-->Master
 DataIn-->Audio
 DataIn-->Midi
-Master-->Audio
-Master-->Midi
+Master-->|beat number, beat label, tempo| Audio
+Master-->|beat number, beat label, tempo| Midi
 
 Audio-->AudioOut1
 Audio-->AudioOut2
@@ -65,7 +188,6 @@ PresetIn-->PattrStorage
 PattrStorage-->PattrOut
 
 {{< /mermaid >}}
-
 
 # INLETS
 

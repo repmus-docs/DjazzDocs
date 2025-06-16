@@ -81,29 +81,56 @@ PresetIn((Presets In))
 PattrBroadcast[Asynchronous\nInput\nBroadcaster]
 Master[Master Control]
 
+%% MIDI ------------------------------------------
+
 subgraph Midi[Djazz MIDI];
 direction TB
-  mgIn(( ))
-  mg1[Generator 1]
-  mg2[Generator 2]
-  mg3[Generators 3-15]
 
-  mbPlayer[MIDI Beat Player]
+  subgraph MidiOut[MIDI\nOut]
+  direction TB
+    mInIn(( ))
+    mRecord[MIDI\nRecord]
+    mInOut(())
+  end
 
-  mt1[MIDI\nTrack 1]
-  mt2[MIDI\nTrack 2]
-  mt3[MIDI\nTracks 3-15]
+  subgraph MidiOut[MIDI\nOut]
+  direction TB
+    mgOutIn(( ))
+    mgData[Data\nLoader]
+    mg1[Generator 1]
+    mg2[Generator 2]
+    mg3[Generators 3-15]
 
-  mgOut((( )))
+    mbPlayer[MIDI Beat Player]
 
-  mgIn --> mg1 --> mbPlayer
-  mgIn --> mg2 --> mbPlayer
-  mgIn --> mg3 --> mbPlayer
+    mt1[MIDI\nTrack 1]
+    mt2[MIDI\nTrack 2]
+    mt3[MIDI\nTracks 3-15]
 
-  mbPlayer --> mt1 --> mgOut
-  mbPlayer --> mt2 --> mgOut
-  mbPlayer --> mt3 --> mgOut
+    mgOutOut((( )))
+
+    mgOutIn --> mg1 --> mgData
+    mgOutIn --> mg2 --> mgData
+    mgOutIn --> mg3 --> mgData
+
+    mgData  --> mg1
+    mgData  --> mg2
+    mgData  --> mg3
+
+    mbPlayer --> mt1 --> mgOutOut
+    mbPlayer --> mt2 --> mgOutOut
+    mbPlayer --> mt3 --> mgOutOut
+  end
+
+  mgInOut --> mgData
 end
+
+MidiIn--->mgInIn
+DataIn-->Midi
+Master-->|beat number, beat label, tempo| Midi
+
+%% end MIDI ------------------------------------------
+
 
 subgraph Audio[Djazz Audio];
 direction TB
@@ -157,12 +184,12 @@ TapIn-->Master
 
 PattrIn-->PattrBroadcast
 AudioIn--->agIn
-MidiIn--->mgIn
+
+
 DataIn-->Master
 DataIn-->Audio
-DataIn-->Midi
 Master-->|beat number, beat label, tempo| Audio
-Master-->|beat number, beat label, tempo| Midi
+
 
 agOut-->AudioOut
 

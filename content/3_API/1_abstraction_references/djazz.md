@@ -110,26 +110,17 @@ direction TB
 
   subgraph abPlayer1[Audio Beat Player 1];
   direction TB
-    ab1in(( ))
-    ab1out(( ))
     svp1[supersvp]
-    ab1in --> svp1 --> ab1out
   end
 
   subgraph abPlayer2[Audio Beat Player 2];
   direction TB
-    ab2in(( ))
-    ab2out(( ))
     svp2[supersvp]
-    ab2in --> svp2 --> ab2out
   end
 
   subgraph abPlayer3[Audio Beat Player 3];
   direction TB
-    ab3in(( ))
-    ab3out(( ))
     svp3[supersvp]
-    ab3in --> svp3 --> ab3out
   end
 
   at1[Audio\nTrack 1]
@@ -138,12 +129,12 @@ direction TB
 
   agOut((( )))
 
-  agIn    --> ag1 --> ab1in 
-  ab1out  --> at1 --> agOut
-  agIn    --> ag2 --> ab2in
-  ab2out  --> at2 --> agOut
-  agIn    --> ag3 --> ab3in 
-  ab3out  --> at3 --> agOut
+  agIn      --> ag1 --> abPlayer1 
+  abPlayer1 --> at1 --> agOut
+  agIn      --> ag2 --> abPlayer2
+  abPlayer2 --> at2 --> agOut
+  agIn      --> ag3 --> abPlayer3 
+  abPlayer3 --> at3 --> agOut
 end
 
 PattrStorage[PattrStorage]

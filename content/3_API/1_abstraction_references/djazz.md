@@ -86,7 +86,7 @@ Master[Master Control]
 subgraph Midi[Djazz MIDI];
 direction TB
 
-  subgraph MidiOut[MIDI\nOut]
+  subgraph MidiIn[MIDI\nIn]
   direction TB
     mInIn(( ))
     mRecord[MIDI\nRecord]

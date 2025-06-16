@@ -28,8 +28,8 @@ click Audio "audio.html" "Master Control"
 click Midi "midi.html" "Master Control"
 
 AudioOut(((Audio\nOut)))
-MidiOut(((MIDI Out)))
-PattrOut(((Pattr Out)))
+MidiOut(((MIDI\nOut)))
+PattrOut(((Pattr\nOut)))
 
 TapIn-->Master
 
@@ -71,34 +71,34 @@ Master[Master Control]
 
 subgraph Midi[Djazz MIDI];
 direction TB
-  gIn(( ))
-  g1[Generator 1]
-  g2[Generator 2]
-  g3[Generator 3]
-  g4[Generator 4]
-  g5[Generator 5]
+  mgIn(( ))
+  mg1[Generator 1]
+  mg2[Generator 2]
+  mg3[Generator 3]
+  mg4[Generator 4]
+  mg5[Generator 5]
 
   mbPlayer[MIDI Beat Player]
 
-  t1[MIDI\nTrack 1]
-  t2[MIDI\nTrack 2]
-  t3[MIDI\nTrack 3]
-  t4[MIDI\nTrack 4]
-  t5[MIDI\nTrack 5]
+  mt1[MIDI\nTrack 1]
+  mt2[MIDI\nTrack 2]
+  mt3[MIDI\nTrack 3]
+  mt4[MIDI\nTrack 4]
+  mt5[MIDI\nTrack 5]
 
-  gOut((( )))
+  mgOut((( )))
 
-  gIn --> g1 --> mbPlayer
-  gIn --> g2 --> mbPlayer
-  gIn --> g3 --> mbPlayer
-  gIn --> g4 --> mbPlayer
-  gIn --> g5 --> mbPlayer
+  mgIn --> mg1 --> mbPlayer
+  mgIn --> mg2 --> mbPlayer
+  mgIn --> mg3 --> mbPlayer
+  mgIn --> mg4 --> mbPlayer
+  mgIn --> mg5 --> mbPlayer
 
-  mbPlayer --> t1 --> gOut
-  mbPlayer --> t2 --> gOut
-  mbPlayer --> t3 --> gOut
-  mbPlayer --> t4 --> gOut
-  mbPlayer --> t5 --> gOut
+  mbPlayer --> mt1 --> mgOut
+  mbPlayer --> mt2 --> mgOut
+  mbPlayer --> mt3 --> mgOut
+  mbPlayer --> mt4 --> mgOut
+  mbPlayer --> mt5 --> mgOut
 end
 
 subgraph Audio[Djazz Audio];
@@ -136,14 +136,14 @@ direction TB
   at2[Audio\nTrack 2]
   at3[Audio\nTrack 3]
 
-  gOut((( )))
+  agOut((( )))
 
-  agIn -->    ag1 --> ab1in 
-  ab1out -->  at1 --> gOut
-  agIn -->    ag2 --> ab2in
-  ab2out -->  at2 --> gOut
-  agIn -->    ag3 --> ab3in 
-  ab3out -->  at3 --> gOut
+  agIn    --> ag1 --> ab1in 
+  ab1out  --> at1 --> agOut
+  agIn    --> ag2 --> ab2in
+  ab2out  --> at2 --> agOut
+  agIn    --> ag3 --> ab3in 
+  ab3out  --> at3 --> agOut
 end
 
 PattrStorage[PattrStorage]

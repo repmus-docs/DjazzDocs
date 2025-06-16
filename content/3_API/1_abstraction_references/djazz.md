@@ -19,11 +19,12 @@ MidiIn((MIDI In))
 DataIn((File\nData\nIn))
 PresetIn((Presets In))
 
+PattrBroadcast[Asynchronous\nInput\nBroadcaster]
 Master[Master Control]
 Audio[Djazz Audio]
 Midi[Djazz MIDI]
 PattrStorage[PattrStorage]
-PattrBroadcast[Asynchronous\nInput\nBroadcaster]
+
 
 click Master "./../components/master_control.html" "Master Control"
 click Audio "audio.html" "Master Control"
@@ -47,7 +48,7 @@ DataIn-->Audio
 DataIn-->Midi
 AudioIn1--->Audio
 AudioIn2--->Audio
-MidiIn-->Midi
+MidiIn--->Midi
 DataIn-->Master
 Master-->Audio
 Master-->Midi

@@ -8,11 +8,14 @@ weight = 10
 {{<mermaid align="left">}}
 flowchart TB;
 
+
+TapIn((Tap\nIn))
+PattrIn((Pattr\nIn))
+
 AudioIn1((Audio\nIn L))
 AudioIn2((Audio\nIn R))
 MidiIn((MIDI In))
-TapIn((Tap\nIn))
-PattrIn((Pattr\nIn))
+
 DataIn((File\nData\nIn))
 PresetIn((Presets In))
 
@@ -20,6 +23,7 @@ Master[Master Control]
 Audio[Djazz Audio]
 Midi[Djazz MIDI]
 PattrStorage[PattrStorage]
+PattrBroadcast[Asynchronous\nInput\nBroadcaster]
 
 click Master "./../components/master_control.html" "Master Control"
 click Audio "audio.html" "Master Control"
@@ -35,24 +39,18 @@ AudioOut6(((Audio\nOut 3R)))
 MidiOut(((MIDI Out)))
 PattrOut(((Pattr Out)))
 
-
-AudioIn1--->Audio
-AudioIn2--->Audio
-
 TapIn-->Master
 
-PattrIn-->Master
-PattrIn-->Audio
-PattrIn-->Midi
+PattrIn-->PattrBroadcast
 
 DataIn-->Audio
 DataIn-->Midi
+AudioIn1--->Audio
+AudioIn2--->Audio
+MidiIn-->Midi
 DataIn-->Master
-
 Master-->Audio
 Master-->Midi
-
-MidiIn-->Midi
 
 Audio-->AudioOut1
 Audio-->AudioOut2

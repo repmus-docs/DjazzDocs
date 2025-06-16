@@ -81,7 +81,7 @@ PresetIn((Presets In))
 PattrBroadcast[Asynchronous\nInput\nBroadcaster]
 Master[Master Control]
 
-%% MIDI ------------------------------------------
+
 
 subgraph Midi[Djazz MIDI];
 direction TB
@@ -129,7 +129,7 @@ MidiIn--->mgInIn
 DataIn-->Midi
 Master-->|beat number, beat label, tempo| Midi
 
-%% end MIDI ------------------------------------------
+
 
 
 subgraph Audio[Djazz Audio];

@@ -43,13 +43,12 @@ PattrOut(((Pattr Out)))
 TapIn-->Master
 
 PattrIn-->PattrBroadcast
-
-DataIn-->Audio
-DataIn-->Midi
 AudioIn1--->Audio
 AudioIn2--->Audio
 MidiIn--->Midi
 DataIn-->Master
+DataIn-->Audio
+DataIn-->Midi
 Master-->Audio
 Master-->Midi
 

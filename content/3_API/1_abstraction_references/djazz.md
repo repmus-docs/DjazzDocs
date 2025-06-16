@@ -53,14 +53,26 @@ PattrStorage-->PattrOut
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{<mermaid align="left">}}
 flowchart TB;
 
 TapIn((Tap\nIn))
 PattrIn((Pattr\nIn))
 
-AudioIn1((Audio\nIn L))
-AudioIn2((Audio\nIn R))
+AudioIn((Audio\nIn L/R))
 MidiIn((MIDI In))
 
 DataIn((File\nData\nIn))
@@ -145,35 +157,24 @@ click Audio "audio.html" "Master Control"
 click Midi "midi.html" "Master Control"
 
 
-AudioOut1(((Audio\nOut 1L)))
-AudioOut2(((Audio\nOut 1R)))
-AudioOut3(((Audio\nOut 2L)))
-AudioOut4(((Audio\nOut 2R)))
-AudioOut5(((Audio\nOut 3L)))
-AudioOut6(((Audio\nOut 3R)))
+AudioOut(((Audio\nOut\n1-3 L/R)))
 MidiOut(((MIDI Out)))
 PattrOut(((Pattr Out)))
 
 TapIn-->Master
 
 PattrIn-->PattrBroadcast
-AudioIn1--->Audio
-AudioIn2--->Audio
-MidiIn--->Midi
+AudioIn--->agIn
+MidiIn--->mgIn
 DataIn-->Master
 DataIn-->Audio
 DataIn-->Midi
 Master-->|beat number, beat label, tempo| Audio
 Master-->|beat number, beat label, tempo| Midi
 
-Audio-->AudioOut1
-Audio-->AudioOut2
-Audio-->AudioOut3
-Audio-->AudioOut4
-Audio-->AudioOut5
-Audio-->AudioOut6
+agOut-->AudioOut
 
-Midi-->MidiOut
+mgOut-->MidiOut
 
 PresetIn-->PattrStorage
 PattrStorage-->PattrOut

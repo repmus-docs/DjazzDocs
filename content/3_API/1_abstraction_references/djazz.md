@@ -67,105 +67,154 @@ PattrStorage-->PattrOut
 
 
 {{<mermaid align="left">}}
+
 flowchart TB;
 
-TapIn((Tap\nIn))
-PattrIn((Pattr\nIn))
 
-AudioIn((Audio\nIn L/R))
-MidiIn((MIDI In))
+%% INPUTS -----------------------------------------------
 
-DataIn((File\nData\nIn))
-PresetIn((Presets In))
+AudioInput((Audio\nIn L/R))
+DataInput((File\nData\nIn))
+MasterControl[Master Control]
+MidiInput((MIDI In))
+PattrBroadcaster[Asynchronous\nInput\nBroadcaster]
+PattrInput((Pattr\nIn))
+PresetInput((Presets In))
+TapInput((Tap\nIn))
 
-PattrBroadcast[Asynchronous\nInput\nBroadcaster]
-Master[Master Control]
 
+%% OUTPUTS -----------------------------------------------
 
+AudioOutput(((Audio\nOut\n1-3 L/R)))
+MidiOutput(((MIDI Out)))
+PattrOutput(((Pattr Out)))
+
+%% MIDI -----------------------------------------------
 
 subgraph Midi[Djazz MIDI];
 direction TB
 
+  %% MIDI IN -----------------------------------
   subgraph MidiIn[MIDI\nIn]
   direction TB
+
     mInIn(( ))
-    mRecord[MIDI\nRecord]
-    mInOut(())
+    mRecordBeatList[record beat data]
+    mBuildFactorOracle[build factor oracle]
+
+    mInIn --> mRecordBeatList
+    mRecordBeatList --> mBuildFactorOracle
+    mRecordBeatList --> mInOut
+    mBuildFactorOracle -->mInOut
+
+    mInOut(( ))
+
   end
 
+  %% MIDI OUT -----------------------------------
   subgraph MidiOut[MIDI\nOut]
   direction TB
-    mgOutIn(( ))
-    mgData[Data\nLoader]
+
+    mOutIn(( ))
+    mData[Data\nLoader]
     mg1[Generator 1]
     mg2[Generator 2]
     mg3[Generators 3-15]
 
-    mbPlayer[MIDI Beat Player]
+
+    subgraph mbPlayer[MIDI Beat Player];
+        mbPlayerAntescofo[Antescofo]
+    end
 
     mt1[MIDI\nTrack 1]
     mt2[MIDI\nTrack 2]
     mt3[MIDI\nTracks 3-15]
 
-    mgOutOut((( )))
+    mOutOut(( ))
 
-    mgOutIn --> mg1 --> mgData
-    mgOutIn --> mg2 --> mgData
-    mgOutIn --> mg3 --> mgData
+    mOutIn --> mg1
+    mOutIn --> mg2
+    mOutIn --> mg3
 
-    mgData  --> mg1
-    mgData  --> mg2
-    mgData  --> mg3
+    mData  --> mg1
+    mData  --> mg2
+    mData  --> mg3
 
-    mbPlayer --> mt1 --> mgOutOut
-    mbPlayer --> mt2 --> mgOutOut
-    mbPlayer --> mt3 --> mgOutOut
+    mg1 --> mbPlayer --> mt1 --> mOutOut
+    mg2 --> mbPlayer --> mt2 --> mOutOut
+    mg3 --> mbPlayer --> mt3 --> mOutOut
   end
 
-  mgInOut --> mgData
+  mInOut --> mData
 end
 
-MidiIn--->mgInIn
-DataIn-->Midi
-Master-->|beat number, beat label, tempo| Midi
+MidiInput--->mInIn
+DataInput-->Midi
+MasterControl-->|beat number, beat label, tempo| mOutIn
+mOutOut-->MidiOutput
+
+%% end MIDI ---------------------------------------------
 
 
-
+%% AUDIO ------------------------------------------------
 
 subgraph Audio[Djazz Audio];
 direction TB
-  agIn(( ))
-  ag1[Generator 1]
-  ag2[Generator 2]
-  ag3[Generator 3]
 
-  subgraph abPlayer1[Audio Beat Player 1];
+  %% AUDIO IN -----------------------------------
+  subgraph AudioIn[Audio\nIn]
   direction TB
-    svp1[supersvp]
+
+    aInIn(( ))
+    aRecordBuffer[record audio buffer]
+    aRecordBeatList[record beat data]
+    aBuildFactorOracle[build factor oracle]
+
+    aInIn --> aRecordBuffer
+    aInIn --> aRecordBeatList
+    aRecordBeatList --> aBuildFactorOracle
+    aRecordBuffer --> aInOut
+    aRecordBeatList --> aInOut
+    aBuildFactorOracle -->aInOut
+
+    aInOut(( ))
+
   end
 
-  subgraph abPlayer2[Audio Beat Player 2];
-  direction TB
-    svp2[supersvp]
-  end
+  subgraph AudioOut[Audio Out]
+    aOutIn(( ))
+    ag1[Generator 1]
+    ag2[Generator 2]
+    ag3[Generator 3]
 
-  subgraph abPlayer3[Audio Beat Player 3];
-  direction TB
-    svp3[supersvp]
-  end
+    subgraph abPlayer1[Audio Beat Player 1];
+    direction TB
+        svp1[supersvp]
+    end
 
-  at1[Audio\nTrack 1]
-  at2[Audio\nTrack 2]
-  at3[Audio\nTrack 3]
+    subgraph abPlayer2[Audio Beat Player 2];
+    direction TB
+        svp2[supersvp]
+    end
 
-  agOut((( )))
+    subgraph abPlayer3[Audio Beat Player 3];
+    direction TB
+        svp3[supersvp]
+    end
 
-  agIn      --> ag1 --> abPlayer1 
-  abPlayer1 --> at1 --> agOut
-  agIn      --> ag2 --> abPlayer2
-  abPlayer2 --> at2 --> agOut
-  agIn      --> ag3 --> abPlayer3 
-  abPlayer3 --> at3 --> agOut
+    at1[Audio\nTrack 1]
+    at2[Audio\nTrack 2]
+    at3[Audio\nTrack 3]
+
+    aOutOut(( ))
+
+    aOutIn      --> ag1 --> abPlayer1 
+    abPlayer1 --> at1 --> aOutOut
+    aOutIn      --> ag2 --> abPlayer2
+    abPlayer2 --> at2 --> aOutOut
+    aOutIn      --> ag3 --> abPlayer3 
+    abPlayer3 --> at3 --> aOutOut
+    end
 end
 
 PattrStorage[PattrStorage]
@@ -176,14 +225,12 @@ click Audio "audio.html" "Master Control"
 click Midi "midi.html" "Master Control"
 
 
-AudioOut(((Audio\nOut\n1-3 L/R)))
-MidiOut(((MIDI Out)))
-PattrOut(((Pattr Out)))
+
 
 TapIn-->Master
 
 PattrIn-->PattrBroadcast
-AudioIn--->agIn
+AudioInput--->agIn
 
 
 DataIn-->Master
@@ -191,12 +238,14 @@ DataIn-->Audio
 Master-->|beat number, beat label, tempo| Audio
 
 
-agOut-->AudioOut
+agOut-->AudioOutput
 
-mgOut-->MidiOut
+mOutOut-->MidiOutput
 
 PresetIn-->PattrStorage
 PattrStorage-->PattrOut
+
+
 
 {{< /mermaid >}}
 

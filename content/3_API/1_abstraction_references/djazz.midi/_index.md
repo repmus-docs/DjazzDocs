@@ -9,12 +9,12 @@ weight = 12
 
 flowchart TB;
 
-TapInput ------->|"tempo,
+TapInput -------->|"tempo,
 beat number, 
 beat label"| mGens
 MidiInput-->mInIn
-DataInput------>|score dictionaries| mData
-mInOut -->|dictionaries| mData
+DataInput------->|score dictionaries| mData
+mInOut --->|dictionaries| mData
 mOuts-->|MIDI data| Output
 
 TapInput(("from 
@@ -27,7 +27,11 @@ Output(((MIDI
 Output)))
 
 %% MIDI IN -----------------------------------
-subgraph MidiIn[MIDI In]
+subgraph MidiIn["<div style="width:25em; 
+    height:10em; 
+    display:flex; 
+    justify-content: flex-start; 
+    ">MIDI In</div>"]
 direction TB
 
     mInIn -->|MIDI data| mRecordBeatList
@@ -43,7 +47,11 @@ direction TB
 end
 
 %% MIDI OUT -----------------------------------
-subgraph MidiOut[MIDI\nOut]
+subgraph MidiOut["<div style="width:35em; 
+    height:10em; 
+    display:flex; 
+    justify-content: flex-start; 
+    ">MIDI Out</div>"]
 direction TB
 
     mData[Data Loader]
@@ -55,6 +63,7 @@ direction TB
 
     mGens -->|beat data dictionaries| mPlayer -->|MIDI data| mOuts
 end
+
 
 
 {{< /mermaid >}}

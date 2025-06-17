@@ -71,19 +71,46 @@ PattrStorage-->PattrOut
 flowchart TB;
 
 
-%% INPUTS -----------------------------------------------
+%% FLOW -----------------------------------------------
+
+TapInput---->|bang| MasterIn
+DataInput---->MasterData
+DataInput--->aData
+DataInput--->mData
+MidiInput---->mInIn
+AudioInput--->aInIn
+
+PattrInput-->PattrBroadcaster
+PresetInput---->PattrStorage
+PattrStorage---------->PattrOutput
+
+MasterOut--->|beat number, beat label, tempo| mOutIn
+MasterOut-->|beat number, beat label, tempo| aOutIn
+mOutOut-->MidiOutput
+aOutOut--->AudioOutput
+
+%% INPUTS ------------------------------------------------
 
 AudioInput((Audio\nIn L/R))
 DataInput((File\nData\nIn))
-
 MidiInput((MIDI In))
 TapInput((Tap\nIn))
-
 PresetInput((Presets In))
 PattrInput((Pattr\nIn))
+
+%% OUTPUTS -----------------------------------------------
+
+AudioOutput(((Audio\nOut\n1-3 L/R)))
+MidiOutput(((MIDI Out)))
+PattrOutput(((Pattr Out)))
+
+%% COMPONENTS ------------------------------------------------
+
+PattrStorage[PattrStorage]
 PattrBroadcaster[Asynchronous\nInput\nBroadcaster]
 
-%% MASTER CONTROL --------
+%% MASTER CONTROL -----------------------------------------
+
 subgraph MasterControl[Master Control];
 direction TB
   MasterIn(( ))
@@ -101,17 +128,6 @@ direction TB
   MasterIn-->BeatClock-->|beat number| MasterOut
   MasterIn-->GetBeatLabel-->|beat label| MasterOut
 end
-
-DataInput------->MasterData
-TapInput-->|bang| MasterIn
-
-MasterOut-------->|beat number, beat label, tempo| mOutIn
-MasterOut-------->|beat number, beat label, tempo| aOutIn
-%% OUTPUTS -----------------------------------------------
-
-AudioOutput(((Audio\nOut\n1-3 L/R)))
-MidiOutput(((MIDI Out)))
-PattrOutput(((Pattr Out)))
 
 %% MIDI -----------------------------------------------
 
@@ -170,12 +186,7 @@ direction TB
 
   mInOut --> mData
 end
-
-MidiInput---------->mInIn
-mOutOut-->MidiOutput
-
 %% end MIDI ---------------------------------------------
-
 
 %% AUDIO ------------------------------------------------
 
@@ -248,30 +259,7 @@ direction TB
 
 end
 
-  AudioInput---------->aInIn
-  aOutOut-->AudioOutput
-
-
 %% end AUDIO -------------------------------------------  
-
-PattrStorage[PattrStorage]
-
-DataInput----->aData
-DataInput----->mData
-
-
-PresetInput---------->PattrStorage
-PattrStorage---------->PattrOutput
-
-PattrInput---->PattrBroadcaster
-
-
-
-
-
-
-
-
 
 click Master "./../components/master_control.html" "Master Control"
 click Audio "audio.html" "Master Control"

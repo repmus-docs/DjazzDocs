@@ -5,6 +5,69 @@ weight = 140
 
 Handles all the audio portion of djazz.  
   
+{{<mermaid align="left">}}
+flowchart TB;
+
+TapInput ----->|"tempo,
+beat number, 
+beat label"| mGens
+TapInput -->|"tempo,
+beat number, 
+beat label"| mRecordBeatList
+
+AudioInput--->|audio data|mRecordAudioBuffer
+DataInput---->|score dictionaries| mData
+mOuts--->|audio data| Output
+
+mRecordBeatList --> |dictionary| mData
+mBuildFactorOracle -->|dictionary| mData
+
+TapInput(("from 
+Master Control"))
+AudioInput(("Audio
+Input"))
+DataInput((from 
+data loaders))
+Output(((Audio 
+Output)))
+
+%% Audio IN -----------------------------------
+subgraph AudioIn["<div style="width:40em; 
+    height:10em; 
+    display:flex; 
+    justify-content: flex-start; 
+    ">Audio In</div>"]
+direction TB
+
+    mRecordBeatList --> |dictionary| mBuildFactorOracle
+
+    mRecordAudioBuffer[record audio buffer]
+    mRecordBeatList[record beat data]
+    mBuildFactorOracle[build factor oracle]
+
+end
+
+%% Audio OUT -----------------------------------
+subgraph AudioOut["<div style="width:50em; 
+    height:10em; 
+    display:flex; 
+    justify-content: flex-start; 
+    ">Audio Out</div>"]
+direction TB
+
+    mData[Data Loader]
+    mGens[Generators]
+    mPlayer[Audio Beat Player];
+    mOuts[Audio Outs]
+
+    mData  -->|dictionaries| mGens
+
+    mGens -->|beat data dictionaries| mPlayer -->|Audio data| mOuts
+end
+
+{{< /mermaid >}}
+
+
 ##### OUTLETS  
   
 ###### 0 &emsp;  signal  

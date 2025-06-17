@@ -4,6 +4,7 @@ title = "djazz"
 weight = 10
 +++
 
+## LOW-DETAIL DATA FLOW DIAGRAM
 
 {{<mermaid align="left">}}
 flowchart TB;
@@ -52,19 +53,96 @@ PattrStorage-->PattrOut
 {{< /mermaid >}}
 
 
+## MEDIUM-DETAIL DATA FLOW DIAGRAM
+
+{{<mermaid align="left">}}
+
+flowchart TB;
 
 
+%% FLOW -----------------------------------------------
+
+TapInput---->|bang| MasterControl
+DataInput--->MasterControl
+
+MasterControl--->|beat number, beat label, tempo| MidiGenerators
+MidiInput---->MidiIn
+DataInput----->MidiData
+MidiOuts-->MidiOutput
+
+MasterControl--->|beat number, beat label, tempo| AudioGenerators
+AudioInput---->AudioIn
+DataInput----->AudioData
+AudioOuts-->AudioOutput
 
 
+PresetInput---->PattrStorage
+PattrStorage------>PattrOutput
+PattrInput--->PattrBroadcaster
+
+%% INPUTS ------------------------------------------------
+
+AudioInput((Audio\nIn L/R))
+DataInput((File\nData\nIn))
+MidiInput((MIDI In))
+TapInput((Tap\nIn))
+PresetInput((Presets In))
+PattrInput((Pattr\nIn))
+
+%% OUTPUTS -----------------------------------------------
+
+AudioOutput(((Audio\nOut\n1-3 L/R)))
+MidiOutput(((MIDI Out)))
+PattrOutput(((Pattr Out)))
+
+%% COMPONENTS ------------------------------------------------
+
+PattrStorage[PattrStorage]
+PattrBroadcaster[Asynchronous\nInput\nBroadcaster]
+MasterControl[Master Control]
+
+subgraph Midi[Djazz MIDI];
+  direction TB
+
+  MidiIn-->MidiData
+
+  MidiIn[MIDI\nIn]
+  subgraph MidiOut[MIDI\nOut]
+    direction TB
+
+    MidiData-->MidiGenerators
+    MidiGenerators-->MidiPlayer-->MidiOuts
+
+    MidiData[Data\nLoader]
+    MidiGenerators[Generators]
+    MidiPlayer["Midi\nPlayer"]
+    MidiOuts[MIDI\nOuts]
+  end
+end
+
+subgraph Audio[Djazz Audio];
+  direction TB
+
+  AudioIn-->AudioData
+
+  AudioIn[Audio\nIn]
+  subgraph AudioOut[Audio Out]
+    direction TB
+
+    AudioData-->AudioGenerators
+    AudioGenerators-->AudioPlayers-->AudioOuts
+
+    AudioData[Data\nLoader]
+    AudioGenerators[Generator 1]
+    AudioPlayers[Audio Beat Player 1];
+    AudioOuts[Audio\nTrack 1]
+  end
+end
+
+{{< /mermaid >}}
 
 
-
-
-
-
-
-
-
+## HIGH-DETAIL DATA FLOW DIAGRAM
 
 {{<mermaid align="left">}}
 
@@ -267,6 +345,7 @@ click Midi "midi.html" "Master Control"
 
 
 {{< /mermaid >}}
+
 
 # INLETS
 

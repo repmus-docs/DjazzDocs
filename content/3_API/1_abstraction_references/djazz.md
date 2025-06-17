@@ -75,14 +75,38 @@ flowchart TB;
 
 AudioInput((Audio\nIn L/R))
 DataInput((File\nData\nIn))
-MasterControl[Master Control]
+
 MidiInput((MIDI In))
-PattrBroadcaster[Asynchronous\nInput\nBroadcaster]
-PattrInput((Pattr\nIn))
-PresetInput((Presets In))
 TapInput((Tap\nIn))
 
+PresetInput((Presets In))
+PattrInput((Pattr\nIn))
+PattrBroadcaster[Asynchronous\nInput\nBroadcaster]
 
+%% MASTER CONTROL --------
+subgraph MasterControl[Master Control];
+direction TB
+  MasterIn(( ))
+  MasterOut(( ))
+  MasterData[Song Data Loader]
+  MasterAntescofo["Antescofo\n(to infer tempo)"]
+  BeatClock[Beat Clock]
+  GetBeatLabel["get beat label"]
+
+  MasterData --> MasterAntescofo
+  MasterData --> BeatClock
+  MasterData --> GetBeatLabel
+
+  MasterIn-->MasterAntescofo-->|tempo| MasterOut
+  MasterIn-->BeatClock-->|beat number| MasterOut
+  MasterIn-->GetBeatLabel-->|beat label| MasterOut
+end
+
+DataInput------->MasterData
+TapInput-->|bang| MasterIn
+
+MasterOut-------->|beat number, beat label, tempo| mOutIn
+MasterOut-------->|beat number, beat label, tempo| aOutIn
 %% OUTPUTS -----------------------------------------------
 
 AudioOutput(((Audio\nOut\n1-3 L/R)))
@@ -121,7 +145,6 @@ direction TB
     mg2[Generator 2]
     mg3[Generators 3-15]
 
-
     subgraph mbPlayer[MIDI Beat Player];
         mbPlayerAntescofo[Antescofo]
     end
@@ -148,9 +171,7 @@ direction TB
   mInOut --> mData
 end
 
-MidiInput--->mInIn
-DataInput-->Midi
-MasterControl-->|beat number, beat label, tempo| mOutIn
+MidiInput---------->mInIn
 mOutOut-->MidiOutput
 
 %% end MIDI ---------------------------------------------
@@ -182,7 +203,9 @@ direction TB
   end
 
   subgraph AudioOut[Audio Out]
+  direction TB
     aOutIn(( ))
+    aData[Data\nLoader]
     ag1[Generator 1]
     ag2[Generator 2]
     ag3[Generator 3]
@@ -214,37 +237,45 @@ direction TB
     abPlayer2 --> at2 --> aOutOut
     aOutIn      --> ag3 --> abPlayer3 
     abPlayer3 --> at3 --> aOutOut
-    end
+
+    aData  --> ag1
+    aData  --> ag2
+    aData  --> ag3
+
+  end
+
+  aInOut --> aData
+
 end
 
+  AudioInput---------->aInIn
+  aOutOut-->AudioOutput
+
+
+%% end AUDIO -------------------------------------------  
+
 PattrStorage[PattrStorage]
+
+DataInput----->aData
+DataInput----->mData
+
+
+PresetInput---------->PattrStorage
+PattrStorage---------->PattrOutput
+
+PattrInput---->PattrBroadcaster
+
+
+
+
+
+
+
 
 
 click Master "./../components/master_control.html" "Master Control"
 click Audio "audio.html" "Master Control"
 click Midi "midi.html" "Master Control"
-
-
-
-
-TapIn-->Master
-
-PattrIn-->PattrBroadcast
-AudioInput--->agIn
-
-
-DataIn-->Master
-DataIn-->Audio
-Master-->|beat number, beat label, tempo| Audio
-
-
-agOut-->AudioOutput
-
-mOutOut-->MidiOutput
-
-PresetIn-->PattrStorage
-PattrStorage-->PattrOut
-
 
 
 {{< /mermaid >}}
